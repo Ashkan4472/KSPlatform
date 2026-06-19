@@ -6,6 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { formatDate, initialsOf } from "@/lib/format";
 
 export type FeedPost = {
+  id: string;
   slug: string;
   title: string;
   excerpt: string | null;

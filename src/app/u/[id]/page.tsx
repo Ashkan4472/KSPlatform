@@ -47,6 +47,7 @@ export default async function ProfilePage({
   if (!user) notFound();
 
   const posts: FeedPost[] = user.posts.map((p) => ({
+    id: p.id,
     slug: p.slug,
     title: p.title,
     excerpt: p.excerpt,

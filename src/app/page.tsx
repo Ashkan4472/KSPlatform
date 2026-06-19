@@ -1,10 +1,16 @@
 import Link from "next/link";
-import type { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { FeedFilters } from "@/components/feed/FeedFilters";
-import { PostCard, type FeedPost } from "@/components/feed/PostCard";
+import { PostFeed } from "@/components/feed/PostFeed";
 import { Button } from "@/components/ui/button";
+import {
+  FEED_PAGE_SIZE,
+  postFeedInclude,
+  postFeedOrderBy,
+  postFeedWhere,
+  toFeedPost,
+} from "@/lib/feed";
 
 export default async function HomePage({
   searchParams,
@@ -15,26 +21,12 @@ export default async function HomePage({
   const filter = filterParam === "subscribed" ? "subscribed" : "all";
   const user = await getCurrentUser();
 
-  const and: Prisma.PostWhereInput[] = [{ status: "PUBLISHED" }];
-  if (tag) {
-    and.push({ tags: { some: { tag: { slug: tag } } } });
-  }
-  if (filter === "subscribed" && user?.id) {
-    and.push({
-      tags: { some: { tag: { subscriptions: { some: { userId: user.id } } } } },
-    });
-  }
-
   const [posts, tags] = await Promise.all([
     prisma.post.findMany({
-      where: { AND: and },
-      orderBy: { publishedAt: "desc" },
-      take: 50,
-      include: {
-        author: { select: { id: true, name: true, image: true } },
-        tags: { include: { tag: { select: { name: true, slug: true } } } },
-        _count: { select: { likes: true, comments: true } },
-      },
+      where: postFeedWhere({ filter, tag, userId: user?.id }),
+      orderBy: postFeedOrderBy,
+      take: FEED_PAGE_SIZE,
+      include: postFeedInclude,
     }),
     prisma.tag.findMany({
       orderBy: { posts: { _count: "desc" } },
@@ -43,18 +35,9 @@ export default async function HomePage({
     }),
   ]);
 
-  const feedPosts: FeedPost[] = posts.map((p) => ({
-    slug: p.slug,
-    title: p.title,
-    excerpt: p.excerpt,
-    publishedAt: p.publishedAt,
-    createdAt: p.createdAt,
-    status: p.status,
-    author: p.author,
-    tags: p.tags.map((pt) => pt.tag),
-    likeCount: p._count.likes,
-    commentCount: p._count.comments,
-  }));
+  const feedPosts = posts.map(toFeedPost);
+  const initialCursor =
+    posts.length === FEED_PAGE_SIZE ? posts[posts.length - 1].id : null;
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8">
@@ -79,12 +62,14 @@ export default async function HomePage({
         isAuthed={!!user}
       />
 
-      <div className="mt-6 space-y-4">
-        {feedPosts.length === 0 ? (
-          <EmptyState filter={filter} tag={tag} isAuthed={!!user} />
-        ) : (
-          feedPosts.map((post) => <PostCard key={post.slug} post={post} />)
-        )}
+      <div className="mt-6">
+        <PostFeed
+          initialItems={feedPosts}
+          initialCursor={initialCursor}
+          filter={filter}
+          tag={tag}
+          emptyState={<EmptyState filter={filter} tag={tag} isAuthed={!!user} />}
+        />
       </div>
     </div>
   );
