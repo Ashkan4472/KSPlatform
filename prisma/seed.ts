@@ -34,7 +34,7 @@ async function main() {
   }
 
   const passwordHash = await bcrypt.hash("password123", 10);
-  await prisma.user.upsert({
+  const demo = await prisma.user.upsert({
     where: { email: "demo@ksplatform.dev" },
     update: {},
     create: {
@@ -45,7 +45,40 @@ async function main() {
     },
   });
 
-  console.log("Seed complete. Demo login: demo@ksplatform.dev / password123");
+  await prisma.user.upsert({
+    where: { email: "admin@ksplatform.dev" },
+    update: { role: "ADMIN" },
+    create: {
+      email: "admin@ksplatform.dev",
+      name: "Site Admin",
+      passwordHash,
+      role: "ADMIN",
+      bio: "Keeping things tidy.",
+    },
+  });
+
+  // A couple of sample tweets (idempotent-ish: only if the demo user has none).
+  const tweetCount = await prisma.tweet.count({ where: { authorId: demo.id } });
+  if (tweetCount === 0) {
+    const nextTag = await prisma.tag.findUnique({ where: { name: "nextjs" } });
+    await prisma.tweet.create({
+      data: {
+        body: "Just shipped infinite scroll on the feed — cursor pagination keeps it snappy at scale. 🚀",
+        authorId: demo.id,
+        tags: nextTag ? { create: [{ tagId: nextTag.id }] } : undefined,
+      },
+    });
+    await prisma.tweet.create({
+      data: {
+        body: "Hot take: storing posts as Markdown makes export trivial and keeps content portable.",
+        authorId: demo.id,
+      },
+    });
+  }
+
+  console.log(
+    "Seed complete.\n  User:  demo@ksplatform.dev / password123\n  Admin: admin@ksplatform.dev / password123",
+  );
 }
 
 main()

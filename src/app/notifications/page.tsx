@@ -1,5 +1,6 @@
 import { requireUserId } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
+import { truncate } from "@/lib/format";
 import { NotificationItem } from "@/components/notifications/NotificationItem";
 import { MarkAllReadButton } from "@/components/notifications/MarkAllReadButton";
 
@@ -15,6 +16,7 @@ export default async function NotificationsPage() {
     include: {
       tag: { select: { name: true } },
       post: { select: { title: true, slug: true } },
+      tweet: { select: { id: true, body: true } },
     },
   });
 
@@ -33,17 +35,27 @@ export default async function NotificationsPage() {
         </div>
       ) : (
         <div className="space-y-2">
-          {notifications.map((n) => (
-            <NotificationItem
-              key={n.id}
-              id={n.id}
-              read={n.read}
-              createdAt={n.createdAt}
-              tagName={n.tag.name}
-              postTitle={n.post.title}
-              postSlug={n.post.slug}
-            />
-          ))}
+          {notifications.map((n) => {
+            const isTweet = !!n.tweet;
+            const title = isTweet
+              ? truncate(n.tweet!.body, 60)
+              : (n.post?.title ?? "(deleted)");
+            const href = isTweet
+              ? `/tweets/${n.tweet!.id}`
+              : `/posts/${n.post?.slug ?? ""}`;
+            return (
+              <NotificationItem
+                key={n.id}
+                id={n.id}
+                read={n.read}
+                createdAt={n.createdAt}
+                tagName={n.tag.name}
+                kind={isTweet ? "tweet" : "post"}
+                title={title}
+                href={href}
+              />
+            );
+          })}
         </div>
       )}
     </div>

@@ -16,23 +16,33 @@ enum PostStatus {
   PUBLISHED
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
 model User {
-  id            String   @id @default(cuid())
-  email         String   @unique
-  name          String
-  passwordHash  String
-  bio           String?
-  image         String?
-  theme         String   @default("system")
-  font          String   @default("geist")
-  createdAt     DateTime @default(now())
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  bio          String?
+  image        String?
+  role         Role     @default(USER)
+  theme        String   @default("system")
+  font         String   @default("geist")
+  createdAt    DateTime @default(now())
 
   posts         Post[]
+  tweets        Tweet[]
   subscriptions Subscription[]
   comments      Comment[]
   likes         Like[]
+  tweetLikes    TweetLike[]
   bookmarks     Bookmark[]
   notifications Notification[]
+
+  @@index([createdAt])
 }
 
 model Post {
@@ -59,12 +69,31 @@ model Post {
   @@index([status, publishedAt])
 }
 
+model Tweet {
+  id        String   @id @default(cuid())
+  body      String   @db.VarChar(280)
+  imageUrl  String?
+  createdAt DateTime @default(now())
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  tags          TweetTag[]
+  likes         TweetLike[]
+  comments      Comment[]
+  notifications Notification[]
+
+  @@index([authorId])
+  @@index([createdAt])
+}
+
 model Tag {
   id   String @id @default(cuid())
   name String @unique
   slug String @unique
 
   posts         PostTag[]
+  tweets        TweetTag[]
   subscriptions Subscription[]
   notifications Notification[]
 }
@@ -79,6 +108,16 @@ model PostTag {
   @@index([tagId])
 }
 
+model TweetTag {
+  tweetId String
+  tagId   String
+  tweet   Tweet @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+  tag     Tag   @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([tweetId, tagId])
+  @@index([tagId])
+}
+
 model Subscription {
   userId    String
   tagId     String
@@ -90,18 +129,29 @@ model Subscription {
   @@index([tagId])
 }
 
+// Comments belong to exactly one of Post or Tweet, and may reply to a
+// top-level comment (single-level threading via parentId).
 model Comment {
   id        String   @id @default(cuid())
   body      String   @db.Text
   createdAt DateTime @default(now())
 
-  postId   String
   authorId String
-  post     Post @relation(fields: [postId], references: [id], onDelete: Cascade)
-  author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  postId  String?
+  post    Post?   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tweetId String?
+  tweet   Tweet?  @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+
+  parentId String?
+  parent   Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies  Comment[] @relation("CommentReplies")
 
   @@index([postId])
+  @@index([tweetId])
   @@index([authorId])
+  @@index([parentId])
 }
 
 model Like {
@@ -115,6 +165,17 @@ model Like {
   @@index([postId])
 }
 
+model TweetLike {
+  userId    String
+  tweetId   String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tweet     Tweet    @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+
+  @@id([userId, tweetId])
+  @@index([tweetId])
+}
+
 model Bookmark {
   userId    String
   postId    String
@@ -126,18 +187,24 @@ model Bookmark {
   @@index([postId])
 }
 
+// A notification references the tag that triggered it and exactly one of
+// Post or Tweet.
 model Notification {
   id        String   @id @default(cuid())
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 
   userId String
-  postId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   tagId  String
-  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade)
-  tag    Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  postId  String?
+  post    Post?   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tweetId String?
+  tweet   Tweet?  @relation(fields: [tweetId], references: [id], onDelete: Cascade)
 
   @@index([userId, read])
   @@index([postId])
+  @@index([tweetId])
 }

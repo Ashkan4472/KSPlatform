@@ -44,6 +44,6 @@ export async function deleteCommentAction(
   }
 
   await prisma.comment.delete({ where: { id: commentId } });
-  revalidatePath(`/posts/${comment.post.slug}`);
+  if (comment.post) revalidatePath(`/posts/${comment.post.slug}`);
   return {};
 }

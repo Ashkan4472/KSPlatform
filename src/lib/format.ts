@@ -7,6 +7,11 @@ export function formatDate(date: Date | string): string {
   });
 }
 
+export function truncate(text: string, max: number): string {
+  const t = text.trim();
+  return t.length <= max ? t : t.slice(0, max).trimEnd() + "…";
+}
+
 export function initialsOf(name: string): string {
   return (
     name

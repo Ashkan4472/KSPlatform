@@ -11,8 +11,9 @@ type Props = {
   read: boolean;
   createdAt: Date;
   tagName: string;
-  postTitle: string;
-  postSlug: string;
+  kind: "post" | "tweet";
+  title: string;
+  href: string;
 };
 
 export function NotificationItem({
@@ -20,8 +21,9 @@ export function NotificationItem({
   read,
   createdAt,
   tagName,
-  postTitle,
-  postSlug,
+  kind,
+  title,
+  href,
 }: Props) {
   const router = useRouter();
   const [, startTransition] = useTransition();
@@ -29,7 +31,7 @@ export function NotificationItem({
   function onClick() {
     startTransition(async () => {
       if (!read) await markNotificationReadAction(id);
-      router.push(`/posts/${postSlug}`);
+      router.push(href);
     });
   }
 
@@ -47,8 +49,8 @@ export function NotificationItem({
       )}
       <div className={cn("flex-1", read && "pl-5")}>
         <p className="text-sm">
-          New post in <span className="font-medium">#{tagName}</span>:{" "}
-          <span className="font-medium">{postTitle}</span>
+          New {kind} in <span className="font-medium">#{tagName}</span>:{" "}
+          <span className="font-medium">{title}</span>
         </p>
         <p className="text-xs text-muted-foreground">{formatDate(createdAt)}</p>
       </div>
