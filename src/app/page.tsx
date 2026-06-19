@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { FeedFilters } from "@/components/feed/FeedFilters";
 import { PostFeed } from "@/components/feed/PostFeed";
+import { TrendingPosts } from "@/components/feed/TrendingPosts";
 import { Button } from "@/components/ui/button";
 import {
   FEED_PAGE_SIZE,
@@ -40,37 +42,49 @@ export default async function HomePage({
     posts.length === FEED_PAGE_SIZE ? posts[posts.length - 1].id : null;
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 py-8">
-      <div className="mb-6 flex items-end justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-semibold">Knowledge feed</h1>
-          <p className="text-sm text-muted-foreground">
-            Discover and share what you know.
-          </p>
+    <div className="mx-auto w-full max-w-5xl px-4 py-8 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-8">
+      <div className="min-w-0">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-semibold">Knowledge feed</h1>
+            <p className="text-sm text-muted-foreground">
+              Discover and share what you know.
+            </p>
+          </div>
+          {user && (
+            <Button asChild size="sm">
+              <Link href="/new">Write a post</Link>
+            </Button>
+          )}
         </div>
-        {user && (
-          <Button asChild size="sm">
-            <Link href="/new">Write a post</Link>
-          </Button>
-        )}
-      </div>
 
-      <FeedFilters
-        tags={tags}
-        activeFilter={filter}
-        activeTag={tag}
-        isAuthed={!!user}
-      />
-
-      <div className="mt-6">
-        <PostFeed
-          initialItems={feedPosts}
-          initialCursor={initialCursor}
-          filter={filter}
-          tag={tag}
-          emptyState={<EmptyState filter={filter} tag={tag} isAuthed={!!user} />}
+        <FeedFilters
+          tags={tags}
+          activeFilter={filter}
+          activeTag={tag}
+          isAuthed={!!user}
         />
+
+        <div className="mt-6">
+          <PostFeed
+            initialItems={feedPosts}
+            initialCursor={initialCursor}
+            filter={filter}
+            tag={tag}
+            emptyState={
+              <EmptyState filter={filter} tag={tag} isAuthed={!!user} />
+            }
+          />
+        </div>
       </div>
+
+      <aside className="mt-8 lg:mt-0">
+        <div className="lg:sticky lg:top-20">
+          <Suspense fallback={null}>
+            <TrendingPosts />
+          </Suspense>
+        </div>
+      </aside>
     </div>
   );
 }
