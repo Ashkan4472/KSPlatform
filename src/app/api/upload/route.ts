@@ -47,8 +47,13 @@ export async function POST(request: Request) {
   }
 
   const ext = EXT[file.type] ?? "bin";
-  const kind = formData.get("kind") === "avatar" ? "avatars" : "posts";
-  const key = `${kind}/${session.user.id}/${randomUUID()}.${ext}`;
+  const KIND_PREFIX: Record<string, string> = {
+    avatar: "avatars",
+    tweet: "tweets",
+    post: "posts",
+  };
+  const prefix = KIND_PREFIX[String(formData.get("kind"))] ?? "posts";
+  const key = `${prefix}/${session.user.id}/${randomUUID()}.${ext}`;
   const bytes = Buffer.from(await file.arrayBuffer());
 
   await s3.send(

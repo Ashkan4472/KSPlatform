@@ -3,16 +3,10 @@ import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { FeedFilters } from "@/components/feed/FeedFilters";
-import { PostFeed } from "@/components/feed/PostFeed";
+import { UnifiedFeed } from "@/components/feed/UnifiedFeed";
 import { TrendingPosts } from "@/components/feed/TrendingPosts";
 import { Button } from "@/components/ui/button";
-import {
-  FEED_PAGE_SIZE,
-  postFeedInclude,
-  postFeedOrderBy,
-  postFeedWhere,
-  toFeedPost,
-} from "@/lib/feed";
+import { loadTimeline } from "@/actions/timeline";
 
 export default async function HomePage({
   searchParams,
@@ -23,23 +17,14 @@ export default async function HomePage({
   const filter = filterParam === "subscribed" ? "subscribed" : "all";
   const user = await getCurrentUser();
 
-  const [posts, tags] = await Promise.all([
-    prisma.post.findMany({
-      where: postFeedWhere({ filter, tag, userId: user?.id }),
-      orderBy: postFeedOrderBy,
-      take: FEED_PAGE_SIZE,
-      include: postFeedInclude,
-    }),
+  const [{ items, nextCursor }, tags] = await Promise.all([
+    loadTimeline({ filter, tag, cursor: null }),
     prisma.tag.findMany({
       orderBy: { posts: { _count: "desc" } },
       take: 12,
       select: { name: true, slug: true },
     }),
   ]);
-
-  const feedPosts = posts.map(toFeedPost);
-  const initialCursor =
-    posts.length === FEED_PAGE_SIZE ? posts[posts.length - 1].id : null;
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-8 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-8">
@@ -66,11 +51,12 @@ export default async function HomePage({
         />
 
         <div className="mt-6">
-          <PostFeed
-            initialItems={feedPosts}
-            initialCursor={initialCursor}
+          <UnifiedFeed
+            initialItems={items}
+            initialCursor={nextCursor}
             filter={filter}
             tag={tag}
+            currentUserId={user?.id}
             emptyState={
               <EmptyState filter={filter} tag={tag} isAuthed={!!user} />
             }

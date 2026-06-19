@@ -5,53 +5,11 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { requireUserId } from "@/lib/session";
 import { postSchema, type PostInput } from "@/lib/validation";
-import { slugify, uniqueSlug } from "@/lib/slug";
+import { uniqueSlug } from "@/lib/slug";
 import { excerptFromMarkdown } from "@/lib/markdown";
+import { resolveTagIds, notifySubscribers } from "@/lib/tagging";
 
 type ActionResult = { error?: string };
-
-/** Upsert tags by name (free-form) and return their ids. */
-async function resolveTagIds(names: string[]): Promise<string[]> {
-  const unique = Array.from(
-    new Set(names.map((n) => n.trim()).filter(Boolean)),
-  );
-  const ids: string[] = [];
-  for (const name of unique) {
-    const tag = await prisma.tag.upsert({
-      where: { name: name.toLowerCase() },
-      update: {},
-      create: { name: name.toLowerCase(), slug: slugify(name) },
-    });
-    ids.push(tag.id);
-  }
-  return ids;
-}
-
-/** Create notifications for everyone subscribed to the post's tags. */
-async function notifySubscribers(
-  postId: string,
-  tagIds: string[],
-  authorId: string,
-) {
-  if (tagIds.length === 0) return;
-  const subs = await prisma.subscription.findMany({
-    where: { tagId: { in: tagIds }, userId: { not: authorId } },
-    select: { userId: true, tagId: true },
-  });
-
-  const seen = new Set<string>();
-  const data = subs
-    .filter((s) => {
-      if (seen.has(s.userId)) return false;
-      seen.add(s.userId);
-      return true;
-    })
-    .map((s) => ({ userId: s.userId, postId, tagId: s.tagId }));
-
-  if (data.length > 0) {
-    await prisma.notification.createMany({ data });
-  }
-}
 
 export async function createPostAction(input: PostInput): Promise<ActionResult> {
   const userId = await requireUserId();
@@ -81,7 +39,7 @@ export async function createPostAction(input: PostInput): Promise<ActionResult> 
   });
 
   if (status === "PUBLISHED") {
-    await notifySubscribers(post.id, tagIds, userId);
+    await notifySubscribers({ tagIds, authorId: userId, postId: post.id });
   }
 
   revalidatePath("/");
@@ -130,7 +88,7 @@ export async function updatePostAction(
   ]);
 
   if (justPublished) {
-    await notifySubscribers(postId, tagIds, userId);
+    await notifySubscribers({ tagIds, authorId: userId, postId });
   }
 
   revalidatePath("/");

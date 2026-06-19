@@ -2,7 +2,8 @@
 
 import { InfiniteList } from "@/components/InfiniteList";
 import { UserCard } from "@/components/people/UserCard";
-import { loadMoreUsers, type UserSummary } from "@/actions/feed";
+import { loadMoreUsers } from "@/actions/feed";
+import type { UserSummary } from "@/lib/users";
 
 export function PeopleFeed({
   initialItems,

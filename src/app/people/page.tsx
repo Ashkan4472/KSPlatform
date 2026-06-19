@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { PeopleFeed } from "@/components/people/PeopleFeed";
-import { usersSelect, toUserSummary } from "@/actions/feed";
+import { usersSelect, toUserSummary } from "@/lib/users";
 import { FEED_PAGE_SIZE } from "@/lib/feed";
 
 export const metadata = { title: "People — KSPlatform" };

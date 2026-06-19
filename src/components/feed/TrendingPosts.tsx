@@ -3,8 +3,8 @@ import { Flame, Heart } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-/** Most-liked posts published in the last 7 days. */
-export async function TrendingPosts() {
+// Plain async helper (not a component) so reading the clock is allowed.
+async function loadTrending() {
   const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
   const posts = await prisma.post.findMany({
     where: { status: "PUBLISHED", publishedAt: { gte: since } },
@@ -16,9 +16,13 @@ export async function TrendingPosts() {
       _count: { select: { likes: true } },
     },
   });
-
   // Only worth showing if at least one has traction.
-  const ranked = posts.filter((p) => p._count.likes > 0);
+  return posts.filter((p) => p._count.likes > 0);
+}
+
+/** Most-liked posts published in the last 7 days. */
+export async function TrendingPosts() {
+  const ranked = await loadTrending();
   if (ranked.length === 0) return null;
 
   return (

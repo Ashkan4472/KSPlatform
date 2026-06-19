@@ -18,10 +18,24 @@ export const postSchema = z.object({
   status: z.enum(["DRAFT", "PUBLISHED"]),
 });
 
+export const TWEET_MAX_LENGTH = 280;
+
+export const tweetSchema = z.object({
+  body: z
+    .string()
+    .trim()
+    .min(1, "Say something")
+    .max(TWEET_MAX_LENGTH, `Tweets are limited to ${TWEET_MAX_LENGTH} characters`),
+  imageUrl: z.string().url().optional().or(z.literal("")),
+  tags: z.array(z.string().min(1).max(40)).max(8, "Up to 8 tags allowed"),
+});
+
 export const commentSchema = z.object({
   postId: z.string().min(1),
   body: z.string().min(1, "Comment cannot be empty").max(2000),
 });
+
+export type TweetInput = z.infer<typeof tweetSchema>;
 
 export const profileSchema = z.object({
   name: z.string().min(2).max(60),

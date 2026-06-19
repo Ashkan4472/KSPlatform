@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PostCard, type FeedPost } from "@/components/feed/PostCard";
+import { TweetCard } from "@/components/tweets/TweetCard";
+import { tweetInclude, toTweetView } from "@/lib/tweets";
 import { initialsOf } from "@/lib/format";
 
 export async function generateMetadata({
@@ -41,10 +43,17 @@ export default async function ProfilePage({
           _count: { select: { likes: true, comments: true } },
         },
       },
+      tweets: {
+        orderBy: { createdAt: "desc" },
+        take: 20,
+        include: tweetInclude(viewer?.id),
+      },
     },
   });
 
   if (!user) notFound();
+
+  const tweets = user.tweets.map(toTweetView);
 
   const posts: FeedPost[] = user.posts.map((p) => ({
     id: p.id,
@@ -87,6 +96,25 @@ export default async function ProfilePage({
           </div>
         ) : (
           posts.map((post) => <PostCard key={post.slug} post={post} />)
+        )}
+      </div>
+
+      <h2 className="mb-4 mt-8 text-lg font-medium">
+        {isOwner ? "Your tweets" : "Tweets"}
+      </h2>
+      <div className="space-y-4">
+        {tweets.length === 0 ? (
+          <div className="rounded-lg border border-dashed py-12 text-center text-sm text-muted-foreground">
+            No tweets yet.
+          </div>
+        ) : (
+          tweets.map((tweet) => (
+            <TweetCard
+              key={tweet.id}
+              tweet={tweet}
+              currentUserId={viewer?.id}
+            />
+          ))
         )}
       </div>
     </div>

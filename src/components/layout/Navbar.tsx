@@ -28,6 +28,9 @@ export async function Navbar() {
             <span className="hidden sm:inline">KSPlatform</span>
           </Link>
           <Button asChild variant="ghost" size="sm" className="ml-2">
+            <Link href="/tweets">Tweets</Link>
+          </Button>
+          <Button asChild variant="ghost" size="sm">
             <Link href="/people">People</Link>
           </Button>
         </div>

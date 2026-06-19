@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { initialsOf } from "@/lib/format";
-import type { UserSummary } from "@/actions/feed";
+import type { UserSummary } from "@/lib/users";
 
 export function UserCard({ user }: { user: UserSummary }) {
   return (
