@@ -30,10 +30,16 @@ export const tweetSchema = z.object({
   tags: z.array(z.string().min(1).max(40)).max(8, "Up to 8 tags allowed"),
 });
 
-export const commentSchema = z.object({
-  postId: z.string().min(1),
-  body: z.string().min(1, "Comment cannot be empty").max(2000),
-});
+export const commentSchema = z
+  .object({
+    postId: z.string().min(1).optional(),
+    tweetId: z.string().min(1).optional(),
+    parentId: z.string().min(1).optional(),
+    body: z.string().min(1, "Comment cannot be empty").max(2000),
+  })
+  .refine((d) => !!d.postId !== !!d.tweetId, {
+    message: "A comment must target exactly one post or tweet",
+  });
 
 export type TweetInput = z.infer<typeof tweetSchema>;
 

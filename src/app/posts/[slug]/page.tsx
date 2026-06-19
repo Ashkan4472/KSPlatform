@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Markdown } from "@/components/posts/Markdown";
 import { PostActions } from "@/components/posts/PostActions";
-import { CommentForm } from "@/components/posts/CommentForm";
-import { CommentItem } from "@/components/posts/CommentItem";
+import { CommentSection } from "@/components/comments/CommentSection";
+import { commentThreadInclude } from "@/lib/comments";
 import { formatDate, initialsOf } from "@/lib/format";
 
 async function getPost(slug: string) {
@@ -21,10 +21,9 @@ async function getPost(slug: string) {
       author: { select: { id: true, name: true, image: true, bio: true } },
       tags: { include: { tag: { select: { name: true, slug: true } } } },
       comments: {
+        where: { parentId: null },
         orderBy: { createdAt: "desc" },
-        include: {
-          author: { select: { id: true, name: true, image: true } },
-        },
+        include: commentThreadInclude,
       },
       _count: { select: { likes: true, bookmarks: true } },
     },
@@ -144,36 +143,11 @@ export default async function PostPage({
         bookmarkedByMe={bookmarkedByMe}
       />
 
-      <section className="mt-10">
-        <h2 className="mb-4 text-lg font-semibold">
-          {post.comments.length} comment
-          {post.comments.length === 1 ? "" : "s"}
-        </h2>
-
-        {user ? (
-          <CommentForm postId={post.id} />
-        ) : (
-          <p className="text-sm text-muted-foreground">
-            <Link href="/login" className="underline">
-              Log in
-            </Link>{" "}
-            to join the discussion.
-          </p>
-        )}
-
-        <div className="mt-6 space-y-6">
-          {post.comments.map((c) => (
-            <CommentItem
-              key={c.id}
-              id={c.id}
-              body={c.body}
-              createdAt={c.createdAt}
-              author={c.author}
-              canDelete={user?.id === c.authorId}
-            />
-          ))}
-        </div>
-      </section>
+      <CommentSection
+        postId={post.id}
+        comments={post.comments}
+        currentUserId={user?.id}
+      />
     </article>
   );
 }

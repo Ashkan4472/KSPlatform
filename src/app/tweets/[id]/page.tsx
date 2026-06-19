@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { TweetCard } from "@/components/tweets/TweetCard";
+import { CommentSection } from "@/components/comments/CommentSection";
 import { tweetInclude, toTweetView } from "@/lib/tweets";
+import { commentThreadInclude } from "@/lib/comments";
 import { truncate } from "@/lib/format";
 
 export async function generateMetadata({
@@ -29,17 +31,29 @@ export default async function TweetDetailPage({
   const { id } = await params;
   const user = await getCurrentUser();
 
-  const row = await prisma.tweet.findUnique({
-    where: { id },
-    include: tweetInclude(user?.id),
-  });
+  const [row, comments] = await Promise.all([
+    prisma.tweet.findUnique({
+      where: { id },
+      include: tweetInclude(user?.id),
+    }),
+    prisma.comment.findMany({
+      where: { tweetId: id, parentId: null },
+      orderBy: { createdAt: "desc" },
+      include: commentThreadInclude,
+    }),
+  ]);
   if (!row) notFound();
 
   const tweet = toTweetView(row);
 
   return (
-    <div className="mx-auto w-full max-w-2xl space-y-6 px-4 py-8">
+    <div className="mx-auto w-full max-w-2xl px-4 py-8">
       <TweetCard tweet={tweet} currentUserId={user?.id} />
+      <CommentSection
+        tweetId={tweet.id}
+        comments={comments}
+        currentUserId={user?.id}
+      />
     </div>
   );
 }

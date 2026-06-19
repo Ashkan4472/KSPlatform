@@ -7,27 +7,32 @@ import { commentSchema } from "@/lib/validation";
 
 type ActionResult = { error?: string };
 
-export async function addCommentAction(
-  postId: string,
-  body: string,
-): Promise<ActionResult> {
+export async function addCommentAction(input: {
+  postId?: string;
+  tweetId?: string;
+  parentId?: string;
+  body: string;
+}): Promise<ActionResult> {
   const userId = await requireUserId();
-  const parsed = commentSchema.safeParse({ postId, body });
+  const parsed = commentSchema.safeParse(input);
   if (!parsed.success) {
     return { error: parsed.error.issues[0]?.message ?? "Invalid comment" };
   }
-
-  const post = await prisma.post.findUnique({
-    where: { id: postId },
-    select: { slug: true },
-  });
-  if (!post) return { error: "Post not found" };
+  const { postId, tweetId, parentId, body } = parsed.data;
 
   await prisma.comment.create({
-    data: { postId, authorId: userId, body: parsed.data.body },
+    data: { authorId: userId, postId, tweetId, parentId, body },
   });
 
-  revalidatePath(`/posts/${post.slug}`);
+  if (postId) {
+    const post = await prisma.post.findUnique({
+      where: { id: postId },
+      select: { slug: true },
+    });
+    if (post) revalidatePath(`/posts/${post.slug}`);
+  } else if (tweetId) {
+    revalidatePath(`/tweets/${tweetId}`);
+  }
   return {};
 }
 
@@ -37,7 +42,11 @@ export async function deleteCommentAction(
   const userId = await requireUserId();
   const comment = await prisma.comment.findUnique({
     where: { id: commentId },
-    select: { authorId: true, post: { select: { slug: true } } },
+    select: {
+      authorId: true,
+      tweetId: true,
+      post: { select: { slug: true } },
+    },
   });
   if (!comment || comment.authorId !== userId) {
     return { error: "Comment not found" };
@@ -45,5 +54,6 @@ export async function deleteCommentAction(
 
   await prisma.comment.delete({ where: { id: commentId } });
   if (comment.post) revalidatePath(`/posts/${comment.post.slug}`);
+  if (comment.tweetId) revalidatePath(`/tweets/${comment.tweetId}`);
   return {};
 }

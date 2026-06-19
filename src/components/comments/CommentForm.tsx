@@ -7,7 +7,21 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { addCommentAction } from "@/actions/comments";
 
-export function CommentForm({ postId }: { postId: string }) {
+export function CommentForm({
+  postId,
+  tweetId,
+  parentId,
+  placeholder = "Add a comment…",
+  autoFocus = false,
+  onPosted,
+}: {
+  postId?: string;
+  tweetId?: string;
+  parentId?: string;
+  placeholder?: string;
+  autoFocus?: boolean;
+  onPosted?: () => void;
+}) {
   const router = useRouter();
   const [body, setBody] = useState("");
   const [pending, startTransition] = useTransition();
@@ -16,12 +30,18 @@ export function CommentForm({ postId }: { postId: string }) {
     e.preventDefault();
     if (body.trim().length === 0) return;
     startTransition(async () => {
-      const res = await addCommentAction(postId, body.trim());
+      const res = await addCommentAction({
+        postId,
+        tweetId,
+        parentId,
+        body: body.trim(),
+      });
       if (res.error) {
         toast.error(res.error);
         return;
       }
       setBody("");
+      onPosted?.();
       router.refresh();
     });
   }
@@ -31,13 +51,14 @@ export function CommentForm({ postId }: { postId: string }) {
       <Textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
-        placeholder="Add a comment…"
-        rows={3}
+        placeholder={placeholder}
+        rows={parentId ? 2 : 3}
         maxLength={2000}
+        autoFocus={autoFocus}
       />
       <div className="flex justify-end">
         <Button type="submit" size="sm" disabled={pending || !body.trim()}>
-          {pending ? "Posting…" : "Comment"}
+          {pending ? "Posting…" : parentId ? "Reply" : "Comment"}
         </Button>
       </div>
     </form>
