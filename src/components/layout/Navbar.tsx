@@ -20,12 +20,17 @@ export async function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
-          <span className="rounded-md bg-foreground px-1.5 py-0.5 text-sm text-background">
-            KS
-          </span>
-          <span className="hidden sm:inline">KSPlatform</span>
-        </Link>
+        <div className="flex items-center gap-1">
+          <Link href="/" className="flex items-center gap-2 font-semibold">
+            <span className="rounded-md bg-foreground px-1.5 py-0.5 text-sm text-background">
+              KS
+            </span>
+            <span className="hidden sm:inline">KSPlatform</span>
+          </Link>
+          <Button asChild variant="ghost" size="sm" className="ml-2">
+            <Link href="/people">People</Link>
+          </Button>
+        </div>
 
         <nav className="flex items-center gap-2">
           <ThemeToggle />
