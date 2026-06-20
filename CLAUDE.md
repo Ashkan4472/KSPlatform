@@ -2,8 +2,9 @@
 
 # KSPlatform — agent guide
 
-Knowledge-sharing platform: users write Markdown posts (Tiptap), tag them, subscribe
-to tags, and get notified. Full overview, dev/prod setup, and architecture live in
+Knowledge-sharing platform: users write Markdown posts (Tiptap) and short tweets, tag
+them, subscribe to tags, and get notified. Comments support threaded replies; admins
+moderate. Full overview, dev/prod setup, and architecture live in
 [README.md](./README.md). This file captures the conventions and gotchas that aren't
 obvious from a quick read.
 
@@ -30,8 +31,13 @@ Tailwind CSS v4 · shadcn/ui (radix-nova) · Tiptap 3 · MinIO (S3) · zod · Ty
 - **Tailwind v4:** config is CSS-first in `src/app/globals.css` (`@theme`, `@plugin`,
   `@custom-variant`). No `tailwind.config.js`.
 - **React Compiler lint** (`react-hooks/*`) is on. It forbids synchronous `setState`
-  in an effect body and mutating external values during render. The next-themes mount
-  guard in `ThemeToggle.tsx` is the one justified `eslint-disable`.
+  in an effect body, mutating external values during render, and calling impure fns
+  (e.g. `Date.now()`) in a component body — put such reads in a plain async helper, not
+  the component (see `TrendingPosts.tsx`). The next-themes mount guard in
+  `ThemeToggle.tsx` is a justified `eslint-disable`.
+- **`"use server"` files may only export async functions.** Put shared non-async
+  helpers/types/consts in `src/lib/*` (e.g. `lib/feed.ts`, `lib/users.ts`,
+  `lib/tagging.ts`), not in `src/actions/*`.
 
 ## Conventions
 
@@ -42,20 +48,31 @@ Tailwind CSS v4 · shadcn/ui (radix-nova) · Tiptap 3 · MinIO (S3) · zod · Ty
 - **Route Handlers** (`src/app/api/*`) only for: Auth.js callbacks, image upload
   (multipart), tag search (GET).
 - **Reuse the helpers** instead of re-implementing:
-  - auth/session: `getCurrentUser()`, `requireUserId()` — `src/lib/session.ts`
-  - tag upsert: `resolveTagIds()` — `src/actions/posts.ts`
-  - uploads: `/api/upload` + `publicUrl()` — `src/lib/s3.ts`
-  - tag search UI: `useTagSearch()` hook — `src/components/tags/useTagSearch.ts`
+  - auth/session: `getCurrentUser()`, `requireUserId()`, `isAdmin()`, `requireAdmin()` — `src/lib/session.ts`
+  - tag upsert + subscriber fan-out: `resolveTagIds()`, `notifySubscribers()` — `src/lib/tagging.ts`
+  - uploads: `/api/upload` (+ `kind=post|avatar|tweet`) + `publicUrl()` — `src/lib/s3.ts`
+  - tag search UI: `useTagSearch()` / `TagAutocomplete` — `src/components/tags/*`
+  - infinite scroll: generic `InfiniteList` + a `loadMore` server action returning `{ items, nextCursor }`
+  - feed/tweet/user query shapes: `src/lib/feed.ts`, `src/lib/tweets.ts`, `src/lib/users.ts`
+  - comments (post or tweet, threaded): `src/components/comments/*`, `commentThreadInclude` — `src/lib/comments.ts`
   - slugs: `slugify()`, `uniqueSlug()` — `src/lib/slug.ts`
   - markdown: `htmlToMarkdown` / `markdownToHtml` / `excerptFromMarkdown` — `src/lib/markdown.ts`
-  - formatting/avatars: `formatDate`, `initialsOf` — `src/lib/format.ts`
+  - formatting/avatars: `formatDate`, `initialsOf`, `truncate` — `src/lib/format.ts`
 - **Posts are stored as Markdown** (`Post.contentMd`). The editor converts HTML↔MD
   (`turndown`/`marked`); published posts render via `react-markdown` (`Markdown.tsx`).
+  **Tweets** are plain text (`Tweet.body`, ≤280) + one optional image.
+- **The home feed is a unified timeline** (posts + tweets) via `loadTimeline`
+  (`src/actions/timeline.ts`), paginated by an ISO-timestamp cursor. Per-entity feeds
+  (`/tweets`, `/people`) use id cursors.
+- **Moderation:** post/tweet/comment delete actions allow owner **or** admin; pass
+  `canModerate` down to cards/sections so admins get inline delete controls.
 - **UI:** prefer existing shadcn primitives in `src/components/ui/`. Add new ones with
   `npx shadcn@latest add <name>`. Icons from `lucide-react`, toasts from `sonner`.
-- **Theme** via `next-themes` (class). **Font** via a `data-font` attribute on `<html>`
-  mapped to `--font-sans` in `globals.css`; fonts are registered in `src/lib/fonts.ts`.
-  Both prefs are stored on `User` and seeded server-side in `src/app/layout.tsx`.
+- **Theme** via `next-themes` (class) with a `value` map to `.theme-*` classes; curated
+  palettes + the `dark` variant extension live in `globals.css`; theme metadata in
+  `src/lib/fonts.ts` (`THEMES`, `THEME_BASE`). **Font** via a `data-font` attribute on
+  `<html>` mapped to `--font-sans`. Both prefs are stored on `User` and seeded
+  server-side in `src/app/layout.tsx`.
 - **MinIO in Docker:** `S3_ENDPOINT` is server-to-server (`minio:9000`); `S3_PUBLIC_URL`
   is what the browser uses. They differ — don't conflate them.
 
@@ -68,9 +85,12 @@ npm run lint           # eslint
 npx tsc --noEmit       # type check
 npm run db:migrate -- --name <name>   # create+apply a migration
 npm run db:deploy      # apply pending migrations (prod/CI)
-npm run db:seed        # demo user + starter tags
+npm run db:seed        # demo + admin users, tags, sample tweets
 docker compose up --build             # full stack (app + postgres + minio)
 ```
+
+Compose values are parameterized via `${VAR:-default}` (see `.env.example`): override
+`POSTGRES_*`, `MINIO_ROOT_*`, ports, `AUTH_SECRET`, `ADMIN_EMAIL` in a `.env`.
 
 Always run `npx tsc --noEmit` and `npm run lint` before considering a change done.
 
@@ -78,4 +98,5 @@ Always run `npx tsc --noEmit` and `npm run lint` before considering a change don
 
 The Docker stack runs on `localhost:3000`; Postgres on `5432`, MinIO on `9000/9001`.
 Inspect the DB with `docker exec ksplatform-postgres-1 psql -U ksuser -d ksplatform`.
-Demo login: `demo@ksplatform.dev` / `password123`.
+Logins: `demo@ksplatform.dev` (user) and `admin@ksplatform.dev` (admin) — both
+`password123`. Roles can be changed by hand in the DB (effective next login).

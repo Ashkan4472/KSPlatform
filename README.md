@@ -1,9 +1,10 @@
 # KSPlatform — Knowledge Sharing Platform
 
 A full-stack Next.js application where people sign up, write knowledge posts in a
-WYSIWYG editor (with image upload and one-click Markdown export), tag them, and
-subscribe to tags to curate their feed and get notified about new posts. Readers
-can comment, like, and bookmark; everyone gets a public profile with an avatar.
+WYSIWYG editor (with image upload and one-click Markdown export) or short
+tweet-style updates, tag them, and subscribe to tags to curate their feed and get
+notified about new content. Readers can comment (with threaded replies), like, and
+bookmark; everyone gets a public profile with an avatar. Admins can moderate.
 
 The whole stack is Dockerized — `docker compose up --build` brings up the app,
 PostgreSQL, and MinIO, runs database migrations automatically, and serves the app
@@ -18,9 +19,13 @@ on port 3000.
 - [Architecture](#architecture)
   - [Request & rendering model](#request--rendering-model)
   - [Data model](#data-model)
-  - [Authentication](#authentication)
+  - [Authentication & roles](#authentication--roles)
   - [Image uploads (MinIO / S3)](#image-uploads-minio--s3)
   - [Editor & Markdown pipeline](#editor--markdown-pipeline)
+  - [Tweets & the unified timeline](#tweets--the-unified-timeline)
+  - [Pagination & infinite scroll](#pagination--infinite-scroll)
+  - [Comments & threaded replies](#comments--threaded-replies)
+  - [Admin & moderation](#admin--moderation)
   - [Tag search (pg_trgm)](#tag-search-pg_trgm)
   - [Theming & fonts](#theming--fonts)
   - [Notifications](#notifications)
@@ -40,16 +45,24 @@ on port 3000.
 - **WYSIWYG editor** — Tiptap with bold/italic/headings/lists/quote/code/link and
   **image upload**; content is persisted as **Markdown**.
 - **Export to `.md`** — one-click download of any post as a Markdown file.
+- **Tweets** — short (≤280 char) updates with one optional image and tags; they get
+  likes, threaded replies, and appear on `/tweets`, on profiles, and interleaved into
+  the home timeline.
 - **Free-form tags** — created on the fly, with **typo-tolerant search** when adding
-  tags to a post and when finding tags to subscribe to.
-- **Feed filtering** — **All posts**, **My subscriptions**, or by a specific **tag**.
+  tags to a post/tweet and when finding tags to subscribe to.
+- **Feed filtering + infinite scroll** — a unified post+tweet timeline with **All** /
+  **My subscriptions** / by **tag**, cursor-paginated so it scales.
+- **Most liked this week** — a trending sidebar on the home dashboard.
+- **People directory** — browse all users at `/people` (infinite scroll).
 - **Drafts + edit/delete** — author-only; drafts are visible only to their author.
-- **Subscriptions + in-app notifications** — publishing a post fans out notifications
-  to everyone subscribed to its tags; a bell badge shows the unread count.
-- **Engagement** — comments, likes, bookmarks.
+- **Subscriptions + in-app notifications** — publishing a post or tweet fans out
+  notifications to subscribers of its tags; a bell badge shows the unread count.
+- **Engagement** — comments with **threaded replies** (posts & tweets), likes, bookmarks.
 - **Public profiles** with **avatar upload**.
-- **Appearance** — light / dark / system **theme** and a **font** picker, both saved
-  per account and synced across devices.
+- **Admin role** — admins can delete any post, tweet, comment, or user via an `/admin`
+  dashboard and inline moderation controls.
+- **Appearance** — a **theme picker** (Light, Dark, Midnight, Rose, Emerald, Solarized
+  + System) and a **font** picker, both saved per account and synced across devices.
 
 ---
 
@@ -113,39 +126,46 @@ Defined in [`prisma/schema.prisma`](./prisma/schema.prisma). Cuid ids; cascading
 deletes on owning relations.
 
 ```
-User ──< Post ──< PostTag >── Tag
- │        │                    │
- │        ├──< Comment         ├──< Subscription >── User
- │        ├──< Like            └──< Notification >── User
- │        └──< Bookmark
- └──< Subscription / Like / Bookmark / Comment / Notification
+User ──< Post  ──< PostTag  >── Tag ──< TweetTag >── Tweet >── User
+ │        │                     │                      │
+ │        ├──< Comment >─┐       ├──< Subscription >── User
+ │        ├──< Like      │ (Comment also ──< Tweet, and self-relation for replies)
+ │        └──< Bookmark  │       └──< Notification >── User  (Post OR Tweet)
+ └──< Tweet ──< TweetLike / TweetTag / Comment
 ```
 
-- **User** — `email`(unique), `name`, `passwordHash`, `bio?`, `image?`, plus
-  per-account UI prefs `theme` (`light|dark|system`) and `font`.
+- **User** — `email`(unique), `name`, `passwordHash`, `bio?`, `image?`, `role`
+  (`USER|ADMIN`), plus per-account UI prefs `theme` and `font`.
 - **Post** — `title`, `slug`(unique), `contentMd`, `excerpt?`, `status`
   (`DRAFT|PUBLISHED`), `authorId`, `publishedAt?`. Indexed on `(status, publishedAt)`.
+- **Tweet** — `body`(≤280), `imageUrl?`, `authorId`, `createdAt`. Has `TweetLike` and
+  `TweetTag` join tables.
 - **Tag** — `name`(unique), `slug`(unique). A GIN trigram index on `name` powers
-  fuzzy search.
-- **PostTag** — explicit many-to-many join (composite PK) for easy attach/detach.
-- **Subscription / Like / Bookmark** — composite-PK join tables (user × tag/post).
-- **Notification** — `userId`, `postId`, `tagId`, `read`. Indexed on `(userId, read)`.
+  fuzzy search. Joins to both posts (`PostTag`) and tweets (`TweetTag`).
+- **Comment** — belongs to exactly one of **Post or Tweet**, with a self-relation
+  `parentId` for single-level threaded replies.
+- **Subscription / Like / Bookmark / TweetLike** — composite-PK join tables.
+- **Notification** — `userId`, `tagId`, `read`, and exactly one of `postId`/`tweetId`.
 
-### Authentication
+### Authentication & roles
 
 - `src/auth.ts` configures Auth.js with a **Credentials** provider that looks up the
   user and `bcrypt.compare`s the password. **JWT session strategy** (no DB session
-  tables). The user `id` is threaded into the JWT and session via callbacks; the
-  session type is augmented in `src/types/next-auth.d.ts`.
+  tables). The user `id` and `role` are threaded into the JWT and session via
+  callbacks; the session type is augmented in `src/types/next-auth.d.ts`.
 - `src/app/api/auth/[...nextauth]/route.ts` exposes the Auth.js handlers.
 - `src/actions/auth.ts` holds `signupAction` / `loginAction` / `logoutAction`.
-- `src/lib/session.ts` provides `getCurrentUser()` and `requireUserId(redirectTo?)`.
+- `src/lib/session.ts` provides `getCurrentUser()`, `requireUserId(redirectTo?)`,
+  `isAdmin()`, and `requireAdmin()`.
+- **Roles** default to `USER`. Set `ADMIN` directly in the DB, or set the `ADMIN_EMAIL`
+  env var to auto-promote that account on its next login. Because the role lives in the
+  JWT, a hand-edited role takes effect on the user's next login.
 
 ### Image uploads (MinIO / S3)
 
 - `src/lib/s3.ts` builds an `S3Client` pointed at MinIO (`forcePathStyle: true`).
 - `src/app/api/upload/route.ts` (auth-required) validates type/size (≤5 MB, images),
-  stores under `posts/<userId>/…` or `avatars/<userId>/…` (chosen by a `kind` form
+  stores under `posts/`, `avatars/`, or `tweets/<userId>/…` (chosen by a `kind` form
   field), and returns a public URL via `publicUrl()`.
 - The bucket is created and made publicly readable by the `createbuckets` one-shot
   container in `docker-compose.yml`.
@@ -164,6 +184,40 @@ User ──< Post ──< PostTag >── Tag
 - Published posts are rendered with `react-markdown` + `remark-gfm`
   (`src/components/posts/Markdown.tsx`), styled with `@tailwindcss/typography`.
 
+### Tweets & the unified timeline
+
+- Tweets are a separate model (`src/actions/tweets.ts`, `src/lib/tweets.ts`). The
+  composer (`TweetComposer`) enforces the 280-char limit, uploads one optional image
+  (`kind=tweet`), and attaches tags via the shared `TagAutocomplete`.
+- The home page is a **unified timeline**: `loadTimeline` (`src/actions/timeline.ts`)
+  queries posts and tweets separately, merges them by activity time, and paginates with
+  an **ISO-timestamp cursor** (each next page returns items strictly older than the
+  cursor). `UnifiedFeed` renders each item as a `PostCard` or `TweetCard`.
+- `/tweets` is a tweet-only feed; `/tweets/[id]` is the detail view with replies.
+
+### Pagination & infinite scroll
+
+- `src/components/InfiniteList.tsx` is a generic client component: it renders an SSR
+  first page, then an `IntersectionObserver` sentinel calls a `loadMore(cursor)` server
+  action and appends pages until the cursor is `null`.
+- Posts/tweets use id- or time-based cursors; the `/people` directory
+  (`loadMoreUsers`) paginates users the same way. Shared query helpers live in
+  `src/lib/feed.ts`, `src/lib/tweets.ts`, and `src/lib/users.ts`.
+
+### Comments & threaded replies
+
+- `Comment` targets a post **or** a tweet and supports one level of replies
+  (`parentId`). `src/actions/comments.ts` validates the target and persists replies.
+- The reusable `src/components/comments/*` (`CommentSection`, `CommentItem`,
+  `CommentForm`) render the thread on both the post page and the tweet detail page.
+
+### Admin & moderation
+
+- `requireAdmin()` guards the `/admin` dashboard, which lists users, posts, and tweets
+  with delete controls (deleting a user cascades their content).
+- Post/tweet/comment delete actions allow the **owner or an admin**, so admins also get
+  inline delete controls on content (`src/actions/admin.ts` powers the dashboard).
+
 ### Tag search (pg_trgm)
 
 Because tags are free-form and user-created, exact matching isn't enough.
@@ -180,8 +234,11 @@ Because tags are free-form and user-created, exact matching isn't enough.
 ### Theming & fonts
 
 - **Theme** uses `next-themes` (`src/components/theme/Providers.tsx`,
-  `attribute="class"`, `enableSystem`). `.dark` CSS variables live in `globals.css`.
-  The toggle is in the navbar and Settings.
+  `attribute="class"`, `enableSystem`) with a **value map** to class names. Six curated
+  palettes (Light, Dark, Midnight, Rose, Emerald, Solarized) plus System are defined as
+  CSS token sets in `globals.css`; the picker lives in the navbar and Settings. The
+  `dark` Tailwind variant is extended to the dark-based custom themes so `dark:`
+  utilities and prose inversion apply under them.
 - **Font** is applied via a `data-font` attribute on `<html>` that CSS maps to
   Tailwind's `--font-sans` (see the `[data-font="…"]` rules in `globals.css`). All
   fonts are loaded once in `src/lib/fonts.ts` via `next/font/google`.
@@ -193,10 +250,11 @@ Because tags are free-form and user-created, exact matching isn't enough.
 ### Notifications
 
 - On publishing a post, `notifySubscribers()` (in `src/actions/posts.ts`) creates one
-  `Notification` per subscriber of the post's tags (deduped per user, excluding the
-  author).
-- The navbar bell shows the unread count; `/notifications` lists them and supports
-  mark-one / mark-all-read.
+  `Notification` per subscriber of the post's or tweet's tags (deduped per user,
+  excluding the author). The shared `notifySubscribers` helper lives in
+  `src/lib/tagging.ts`.
+- The navbar bell shows the unread count; `/notifications` lists them (post or tweet)
+  and supports mark-one / mark-all-read.
 
 ---
 
@@ -206,40 +264,46 @@ Because tags are free-form and user-created, exact matching isn't enough.
 .
 ├── prisma/
 │   ├── schema.prisma            # data model (Prisma 7 prisma-client generator)
-│   ├── seed.ts                  # seeds demo user + starter tags
-│   └── migrations/              # init + prefs_and_tag_search (pg_trgm)
+│   ├── seed.ts                  # seeds demo + admin users, tags, sample tweets
+│   └── migrations/              # init, prefs_and_tag_search, tweets_admin_threading
 ├── prisma.config.ts             # Prisma 7 config: datasource url + seed command
 ├── src/
-│   ├── auth.ts                  # Auth.js config (Credentials, JWT)
+│   ├── auth.ts                  # Auth.js config (Credentials, JWT, role)
 │   ├── app/
 │   │   ├── layout.tsx           # root layout: fonts, theme/font seeding, navbar
-│   │   ├── globals.css          # Tailwind v4 + shadcn tokens + [data-font] rules
-│   │   ├── page.tsx             # home feed (filter=all|subscribed & tag)
+│   │   ├── globals.css          # Tailwind v4 + shadcn tokens + themes + [data-font]
+│   │   ├── page.tsx             # unified home timeline (posts + tweets) + trending
 │   │   ├── (auth)/login, signup # auth pages
 │   │   ├── new/                 # create post
 │   │   ├── posts/[slug]/        # post view + /edit
-│   │   ├── u/[id]/              # public profile
+│   │   ├── tweets/              # tweet feed + /[id] detail
+│   │   ├── people/             # users directory (infinite scroll)
+│   │   ├── admin/               # admin dashboard (guarded)
+│   │   ├── u/[id]/              # public profile (posts + tweets)
 │   │   ├── settings/            # profile, avatar, appearance, subscriptions
 │   │   ├── notifications/       # notifications list
-│   │   └── api/
-│   │       ├── auth/[...nextauth]/route.ts
-│   │       ├── upload/route.ts          # image upload → MinIO
-│   │       └── tags/search/route.ts     # trigram tag search
-│   ├── actions/                 # server actions (mutations)
-│   │   ├── auth.ts  posts.ts  comments.ts  reactions.ts
-│   │   ├── subscriptions.ts  notifications.ts  profile.ts  preferences.ts
+│   │   └── api/                 # auth, upload (MinIO), tags/search (trigram)
+│   ├── actions/                 # server actions: auth, posts, tweets, timeline,
+│   │   │                        # feed, comments, reactions, subscriptions,
+│   │   │                        # notifications, profile, preferences, admin
 │   ├── components/
 │   │   ├── editor/              # TiptapEditor, PostForm
-│   │   ├── feed/                # FeedFilters, PostCard
-│   │   ├── posts/               # Markdown, PostActions, CommentForm/Item
+│   │   ├── feed/                # FeedFilters, PostCard, UnifiedFeed, TrendingPosts
+│   │   ├── tweets/              # TweetComposer, TweetCard, TweetFeed
+│   │   ├── comments/            # CommentSection, CommentItem, CommentForm
+│   │   ├── people/              # UserCard, PeopleFeed
+│   │   ├── admin/               # AdminDeleteButton
+│   │   ├── posts/               # Markdown, PostActions
 │   │   ├── tags/                # TagAutocomplete, TagSubscribeSearch, useTagSearch
 │   │   ├── theme/               # Providers, ThemeToggle, FontSelect
 │   │   ├── layout/              # Navbar, UserMenu
 │   │   ├── notifications/       # NotificationItem, MarkAllReadButton
 │   │   ├── settings/            # ProfileForm (with avatar upload)
+│   │   ├── InfiniteList.tsx     # generic cursor infinite scroll
 │   │   ├── SubscribeButton.tsx
 │   │   └── ui/                  # shadcn primitives
 │   ├── lib/                     # prisma, s3, session, slug, markdown, fonts,
+│   │                            # feed, tweets, users, comments, tagging,
 │   │                            # format, validation (zod schemas), utils
 │   ├── types/                   # next-auth + module type augmentations
 │   └── generated/prisma/        # generated Prisma client (gitignored)
@@ -275,7 +339,7 @@ Seed demo data (optional, run from the host while the stack is up):
 
 ```bash
 npm install        # generates the Prisma client via postinstall
-npm run db:seed    # creates demo@ksplatform.dev / password123 + starter tags
+npm run db:seed    # demo + admin users (password123), starter tags, sample tweets
 ```
 
 ### Option B — app on the host, infra in Docker (fast iteration)
@@ -300,7 +364,8 @@ this.
 
 ### Demo login
 
-After seeding: **`demo@ksplatform.dev`** / **`password123`**.
+After seeding: **`demo@ksplatform.dev`** / **`password123`** (regular user) and
+**`admin@ksplatform.dev`** / **`password123`** (admin).
 
 ### Code quality
 
@@ -368,17 +433,31 @@ docker compose up --build -d
 
 See [`.env.example`](./.env.example).
 
-| Variable          | Required | Example                                                        | Purpose                                                      |
-| ----------------- | :------: | -------------------------------------------------------------- | ------------------------------------------------------------ |
-| `DATABASE_URL`    |    ✅    | `postgresql://ksuser:kspassword@localhost:5432/ksplatform`     | Postgres connection string                                   |
-| `AUTH_SECRET`     |    ✅    | `openssl rand -base64 32`                                      | Auth.js JWT signing secret                                   |
-| `AUTH_TRUST_HOST` |    ✅    | `true`                                                         | Trust the deployment host (needed behind a proxy / in Docker)|
-| `S3_ENDPOINT`     |    ✅    | `http://minio:9000`                                            | MinIO/S3 API endpoint (server-to-server)                     |
-| `S3_REGION`       |    ✅    | `us-east-1`                                                    | S3 region                                                    |
-| `S3_ACCESS_KEY`   |    ✅    | `minioadmin`                                                   | S3 access key                                                |
-| `S3_SECRET_KEY`   |    ✅    | `minioadmin`                                                   | S3 secret key                                                |
-| `S3_BUCKET`       |    ✅    | `ksplatform-uploads`                                           | Uploads bucket name                                          |
-| `S3_PUBLIC_URL`   |    ✅    | `http://localhost:9000/ksplatform-uploads`                     | **Browser-reachable** base URL for uploaded objects          |
+**App runtime** (used by `npm run dev` and the app container):
+
+| Variable          | Required | Example                                                    | Purpose                                                       |
+| ----------------- | :------: | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| `DATABASE_URL`    |    ✅    | `postgresql://ksuser:kspassword@localhost:5432/ksplatform` | Postgres connection string                                    |
+| `AUTH_SECRET`     |    ✅    | `openssl rand -base64 32`                                  | Auth.js JWT signing secret                                    |
+| `AUTH_TRUST_HOST` |    ✅    | `true`                                                     | Trust the deployment host (needed behind a proxy / in Docker) |
+| `ADMIN_EMAIL`     |    —     | `you@example.com`                                          | If set, this account is auto-promoted to ADMIN on login       |
+| `S3_ENDPOINT`     |    ✅    | `http://minio:9000`                                        | MinIO/S3 API endpoint (server-to-server)                      |
+| `S3_REGION`       |    ✅    | `us-east-1`                                                | S3 region                                                     |
+| `S3_ACCESS_KEY`   |    ✅    | `minioadmin`                                               | S3 access key                                                 |
+| `S3_SECRET_KEY`   |    ✅    | `minioadmin`                                               | S3 secret key                                                 |
+| `S3_BUCKET`       |    ✅    | `ksplatform-uploads`                                       | Uploads bucket name                                           |
+| `S3_PUBLIC_URL`   |    ✅    | `http://localhost:9000/ksplatform-uploads`                 | **Browser-reachable** base URL for uploaded objects           |
+
+**Docker Compose** (substituted into `docker-compose.yml`; all have safe defaults but
+should be overridden in production):
+
+| Variable                                | Example              | Purpose                              |
+| --------------------------------------- | -------------------- | ------------------------------------ |
+| `POSTGRES_USER` / `_PASSWORD` / `_DB`   | `ksuser` / … / `ksplatform` | Postgres credentials + database name |
+| `POSTGRES_PORT`                         | `5432`               | Host port for Postgres               |
+| `MINIO_ROOT_USER` / `_PASSWORD`         | `minioadmin`         | MinIO root creds (also the app's S3 keys) |
+| `MINIO_API_PORT` / `_CONSOLE_PORT`      | `9000` / `9001`      | Host ports for the MinIO API/console |
+| `APP_PORT`                              | `3000`               | Host port for the app                |
 
 > In docker-compose, the app uses host `postgres`/`minio` (internal network) while the
 > `.env.example` uses `localhost` for host-based development. `S3_ENDPOINT` and
@@ -416,9 +495,10 @@ npx prisma generate
 npm run db:studio
 ```
 
-The trigram search relies on the `prefs_and_tag_search` migration, which both adds
-the `User.theme`/`User.font` columns and runs
-`CREATE EXTENSION IF NOT EXISTS pg_trgm` + the GIN index on `Tag.name`.
+Migrations: `init` (core schema), `prefs_and_tag_search` (adds `User.theme`/`font`,
+enables `pg_trgm`, and the GIN index on `Tag.name`), and `tweets_admin_threading`
+(adds `Role`, the `Tweet`/`TweetLike`/`TweetTag` models, threaded comments, and tweet
+notifications).
 
 ---
 
