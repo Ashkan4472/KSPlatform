@@ -3,13 +3,16 @@
 import { useTheme } from "next-themes"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon } from "lucide-react"
+import { THEME_BASE, isThemeKey } from "@/lib/fonts"
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme()
+  // Custom themes (midnight/rose/...) map to a light or dark toaster base.
+  const base = isThemeKey(theme) ? THEME_BASE[theme] : "system"
 
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme={base as ToasterProps["theme"]}
       className="toaster group"
       icons={{
         success: (

@@ -63,10 +63,28 @@ export function isFontKey(value: string): value is FontKey {
   return (FONT_KEYS as string[]).includes(value);
 }
 
-export const THEMES = ["light", "dark", "system"] as const;
-export type ThemeKey = (typeof THEMES)[number];
+// Curated themes. `swatch` is a representative color for the picker;
+// `base` tells the toaster whether to render light/dark chrome.
+export const THEMES = [
+  { key: "light", label: "Light", swatch: "oklch(0.97 0 0)", base: "light" },
+  { key: "dark", label: "Dark", swatch: "oklch(0.21 0 0)", base: "dark" },
+  { key: "midnight", label: "Midnight", swatch: "oklch(0.32 0.08 264)", base: "dark" },
+  { key: "rose", label: "Rose", swatch: "oklch(0.58 0.19 16)", base: "light" },
+  { key: "emerald", label: "Emerald", swatch: "oklch(0.6 0.13 162)", base: "light" },
+  { key: "solarized", label: "Solarized", swatch: "oklch(0.45 0.06 195)", base: "dark" },
+  { key: "system", label: "System", swatch: "oklch(0.6 0 0)", base: "system" },
+] as const;
+
+export type ThemeKey = (typeof THEMES)[number]["key"];
+export const THEME_KEYS = THEMES.map((t) => t.key) as ThemeKey[];
 export const DEFAULT_THEME: ThemeKey = "system";
 
+export const THEME_BASE: Record<ThemeKey, "light" | "dark" | "system"> =
+  Object.fromEntries(THEMES.map((t) => [t.key, t.base])) as Record<
+    ThemeKey,
+    "light" | "dark" | "system"
+  >;
+
 export function isThemeKey(value: string): value is ThemeKey {
-  return (THEMES as readonly string[]).includes(value);
+  return (THEME_KEYS as string[]).includes(value);
 }
