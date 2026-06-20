@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { FeedFilters } from "@/components/feed/FeedFilters";
 import { UnifiedFeed } from "@/components/feed/UnifiedFeed";
 import { TrendingPosts } from "@/components/feed/TrendingPosts";
+import { TrendingTags } from "@/components/feed/TrendingTags";
 import { Button } from "@/components/ui/button";
 import { loadTimeline } from "@/actions/timeline";
 
@@ -17,14 +17,7 @@ export default async function HomePage({
   const filter = filterParam === "subscribed" ? "subscribed" : "all";
   const user = await getCurrentUser();
 
-  const [{ items, nextCursor }, tags] = await Promise.all([
-    loadTimeline({ filter, tag, cursor: null }),
-    prisma.tag.findMany({
-      orderBy: { posts: { _count: "desc" } },
-      take: 12,
-      select: { name: true, slug: true },
-    }),
-  ]);
+  const { items, nextCursor } = await loadTimeline({ filter, tag, cursor: null });
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-8 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-8">
@@ -44,7 +37,6 @@ export default async function HomePage({
         </div>
 
         <FeedFilters
-          tags={tags}
           activeFilter={filter}
           activeTag={tag}
           isAuthed={!!user}
@@ -65,8 +57,11 @@ export default async function HomePage({
         </div>
       </div>
 
-      <aside className="mt-8 lg:mt-0">
-        <div className="lg:sticky lg:top-20">
+      <aside className="mt-8 space-y-6 lg:mt-0">
+        <div className="lg:sticky lg:top-20 lg:space-y-6">
+          <Suspense fallback={null}>
+            <TrendingTags />
+          </Suspense>
           <Suspense fallback={null}>
             <TrendingPosts />
           </Suspense>

@@ -1,9 +1,9 @@
 import Link from "next/link";
+import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
 type Props = {
-  tags: { name: string; slug: string }[];
   activeFilter: "all" | "subscribed";
   activeTag?: string;
   isAuthed: boolean;
@@ -17,14 +17,14 @@ function buildHref(filter: string, tag?: string) {
   return qs ? `/?${qs}` : "/";
 }
 
-export function FeedFilters({ tags, activeFilter, activeTag, isAuthed }: Props) {
+export function FeedFilters({ activeFilter, activeTag, isAuthed }: Props) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <div className="flex items-center gap-1 border-b">
         <FilterTab
           href={buildHref("all", activeTag)}
           active={activeFilter === "all"}
-          label="All posts"
+          label="All"
         />
         {isAuthed && (
           <FilterTab
@@ -35,26 +35,17 @@ export function FeedFilters({ tags, activeFilter, activeTag, isAuthed }: Props) 
         )}
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        <Link href={buildHref(activeFilter)}>
-          <Badge
-            variant={activeTag ? "outline" : "default"}
-            className="cursor-pointer"
-          >
-            All tags
-          </Badge>
-        </Link>
-        {tags.map((tag) => (
-          <Link key={tag.slug} href={buildHref(activeFilter, tag.slug)}>
-            <Badge
-              variant={activeTag === tag.slug ? "default" : "secondary"}
-              className="cursor-pointer hover:bg-accent"
-            >
-              #{tag.name}
+      {activeTag && (
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <span>Filtered by</span>
+          <Link href={buildHref(activeFilter)}>
+            <Badge variant="secondary" className="gap-1">
+              #{activeTag}
+              <X className="h-3 w-3" />
             </Badge>
           </Link>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
