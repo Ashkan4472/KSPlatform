@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
-import { requireUserId } from "@/lib/session";
+import { requireUserId, isAdmin } from "@/lib/session";
 import { commentSchema } from "@/lib/validation";
 
 type ActionResult = { error?: string };
@@ -48,8 +48,9 @@ export async function deleteCommentAction(
       post: { select: { slug: true } },
     },
   });
-  if (!comment || comment.authorId !== userId) {
-    return { error: "Comment not found" };
+  if (!comment) return { error: "Comment not found" };
+  if (comment.authorId !== userId && !(await isAdmin())) {
+    return { error: "Not allowed" };
   }
 
   await prisma.comment.delete({ where: { id: commentId } });

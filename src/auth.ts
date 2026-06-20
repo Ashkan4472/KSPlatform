@@ -28,23 +28,39 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         );
         if (!valid) return null;
 
+        // Optional bootstrap: promote the configured ADMIN_EMAIL on login.
+        let role = user.role;
+        const adminEmail = process.env.ADMIN_EMAIL?.toLowerCase();
+        if (adminEmail && user.email.toLowerCase() === adminEmail && role !== "ADMIN") {
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { role: "ADMIN" },
+          });
+          role = "ADMIN";
+        }
+
         return {
           id: user.id,
           email: user.email,
           name: user.name,
           image: user.image ?? null,
+          role,
         };
       },
     }),
   ],
   callbacks: {
     jwt({ token, user }) {
-      if (user) token.id = user.id as string;
+      if (user) {
+        token.id = user.id as string;
+        token.role = (user as { role?: "USER" | "ADMIN" }).role ?? "USER";
+      }
       return token;
     },
     session({ session, token }) {
       if (token.id && session.user) {
         session.user.id = token.id as string;
+        session.user.role = (token.role as "USER" | "ADMIN") ?? "USER";
       }
       return session;
     },

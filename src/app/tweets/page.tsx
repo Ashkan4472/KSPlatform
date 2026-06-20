@@ -47,6 +47,7 @@ export default async function TweetsPage({
         filter="all"
         tag={tag}
         currentUserId={user?.id}
+        canModerate={user?.role === "ADMIN"}
         emptyState={
           <div className="rounded-lg border border-dashed py-16 text-center text-sm text-muted-foreground">
             {tag ? `No tweets tagged #${tag} yet.` : "No tweets yet."}

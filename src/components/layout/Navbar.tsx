@@ -66,6 +66,7 @@ export async function Navbar() {
                 name={user.name ?? "User"}
                 email={user.email}
                 image={user.image}
+                role={user.role}
               />
             </>
           ) : (

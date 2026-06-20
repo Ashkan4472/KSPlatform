@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { LogOut, PenSquare, Settings, User as UserIcon } from "lucide-react";
+import {
+  LogOut,
+  PenSquare,
+  Settings,
+  Shield,
+  User as UserIcon,
+} from "lucide-react";
 import { logoutAction } from "@/actions/auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -19,9 +25,10 @@ type Props = {
   name: string;
   email?: string | null;
   image?: string | null;
+  role?: "USER" | "ADMIN";
 };
 
-export function UserMenu({ id, name, email, image }: Props) {
+export function UserMenu({ id, name, email, image, role }: Props) {
   const initials = name
     .split(" ")
     .map((p) => p[0])
@@ -64,6 +71,13 @@ export function UserMenu({ id, name, email, image }: Props) {
             <Settings className="mr-2 h-4 w-4" /> Settings
           </Link>
         </DropdownMenuItem>
+        {role === "ADMIN" && (
+          <DropdownMenuItem asChild>
+            <Link href="/admin">
+              <Shield className="mr-2 h-4 w-4" /> Admin
+            </Link>
+          </DropdownMenuItem>
+        )}
         <DropdownMenuSeparator />
         <DropdownMenuItem
           variant="destructive"

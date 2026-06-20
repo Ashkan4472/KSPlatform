@@ -46,13 +46,20 @@ export default async function TweetDetailPage({
 
   const tweet = toTweetView(row);
 
+  const canModerate = user?.role === "ADMIN";
+
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-8">
-      <TweetCard tweet={tweet} currentUserId={user?.id} />
+      <TweetCard
+        tweet={tweet}
+        currentUserId={user?.id}
+        canModerate={canModerate}
+      />
       <CommentSection
         tweetId={tweet.id}
         comments={comments}
         currentUserId={user?.id}
+        canModerate={canModerate}
       />
     </div>
   );

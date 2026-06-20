@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { Bookmark, Download, Heart } from "lucide-react";
+import { Bookmark, Download, Heart, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { toggleLikeAction, toggleBookmarkAction } from "@/actions/reactions";
+import { deletePostAction } from "@/actions/posts";
 
 type Props = {
   postId: string;
@@ -16,6 +17,7 @@ type Props = {
   initialBookmarks: number;
   likedByMe: boolean;
   bookmarkedByMe: boolean;
+  canModerate?: boolean;
 };
 
 export function PostActions({
@@ -27,6 +29,7 @@ export function PostActions({
   initialBookmarks,
   likedByMe,
   bookmarkedByMe,
+  canModerate = false,
 }: Props) {
   const [liked, setLiked] = useState(likedByMe);
   const [likes, setLikes] = useState(initialLikes);
@@ -64,6 +67,15 @@ export function PostActions({
     toast.success("Markdown downloaded");
   }
 
+  function onModerate() {
+    if (!window.confirm("Delete this post as an admin?")) return;
+    startTransition(async () => {
+      const res = await deletePostAction(postId);
+      if (res?.error) toast.error(res.error);
+      // On success the action redirects away.
+    });
+  }
+
   return (
     <div className="flex flex-wrap items-center gap-2">
       <Button
@@ -91,6 +103,17 @@ export function PostActions({
       <Button variant="outline" size="sm" onClick={onDownload}>
         <Download className="mr-1.5 h-4 w-4" /> Export .md
       </Button>
+      {canModerate && (
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={onModerate}
+          disabled={pending}
+          className="text-destructive hover:text-destructive"
+        >
+          <Trash2 className="mr-1.5 h-4 w-4" /> Delete
+        </Button>
+      )}
     </div>
   );
 }

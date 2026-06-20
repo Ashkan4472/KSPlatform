@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
-import { getCurrentUser, requireUserId } from "@/lib/session";
+import { getCurrentUser, requireUserId, isAdmin } from "@/lib/session";
 import { tweetSchema, type TweetInput } from "@/lib/validation";
 import { resolveTagIds, notifySubscribers } from "@/lib/tagging";
 import {
@@ -50,8 +50,9 @@ export async function deleteTweetAction(
     where: { id: tweetId },
     select: { authorId: true },
   });
-  if (!tweet || tweet.authorId !== userId) {
-    return { error: "Tweet not found" };
+  if (!tweet) return { error: "Tweet not found" };
+  if (tweet.authorId !== userId && !(await isAdmin())) {
+    return { error: "Not allowed" };
   }
   await prisma.tweet.delete({ where: { id: tweetId } });
   revalidatePath("/");

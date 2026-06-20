@@ -59,6 +59,7 @@ export default async function PostPage({
   if (!post) notFound();
 
   const isAuthor = user?.id === post.authorId;
+  const canModerate = user?.role === "ADMIN";
   // Drafts are visible only to their author.
   if (post.status === "DRAFT" && !isAuthor) notFound();
 
@@ -141,12 +142,14 @@ export default async function PostPage({
         initialBookmarks={post._count.bookmarks}
         likedByMe={likedByMe}
         bookmarkedByMe={bookmarkedByMe}
+        canModerate={canModerate && !isAuthor}
       />
 
       <CommentSection
         postId={post.id}
         comments={post.comments}
         currentUserId={user?.id}
+        canModerate={canModerate}
       />
     </article>
   );

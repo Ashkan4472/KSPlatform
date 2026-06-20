@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { requireUserId } from "@/lib/session";
+import { requireUserId, isAdmin } from "@/lib/session";
 import { postSchema, type PostInput } from "@/lib/validation";
 import { uniqueSlug } from "@/lib/slug";
 import { excerptFromMarkdown } from "@/lib/markdown";
@@ -102,8 +102,9 @@ export async function deletePostAction(postId: string): Promise<ActionResult> {
     where: { id: postId },
     select: { authorId: true },
   });
-  if (!existing || existing.authorId !== userId) {
-    return { error: "Post not found" };
+  if (!existing) return { error: "Post not found" };
+  if (existing.authorId !== userId && !(await isAdmin())) {
+    return { error: "Not allowed" };
   }
   await prisma.post.delete({ where: { id: postId } });
   revalidatePath("/");

@@ -113,6 +113,7 @@ export default async function ProfilePage({
               key={tweet.id}
               tweet={tweet}
               currentUserId={viewer?.id}
+              canModerate={viewer?.role === "ADMIN"}
             />
           ))
         )}

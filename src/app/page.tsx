@@ -57,6 +57,7 @@ export default async function HomePage({
             filter={filter}
             tag={tag}
             currentUserId={user?.id}
+            canModerate={user?.role === "ADMIN"}
             emptyState={
               <EmptyState filter={filter} tag={tag} isAuthed={!!user} />
             }
