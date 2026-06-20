@@ -220,4 +220,8 @@ html[data-size="large"] {
   html {
     @apply font-sans;
   }
+  /* Rendered post content links take the accent. */
+  .prose a {
+    color: var(--primary);
+  }
 }

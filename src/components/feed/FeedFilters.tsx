@@ -65,7 +65,7 @@ function FilterTab({
       className={cn(
         "-mb-px border-b-2 px-3 py-2 text-sm font-medium transition-colors",
         active
-          ? "border-foreground text-foreground"
+          ? "border-primary text-primary"
           : "border-transparent text-muted-foreground hover:text-foreground",
       )}
     >

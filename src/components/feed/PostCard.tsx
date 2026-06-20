@@ -44,7 +44,7 @@ export function PostCard({ post }: { post: FeedPost }) {
           )}
         </div>
         <Link href={`/posts/${post.slug}`}>
-          <h2 className="text-lg font-semibold leading-snug hover:underline">
+          <h2 className="text-lg font-semibold leading-snug transition-colors hover:text-primary">
             {post.title}
           </h2>
         </Link>
