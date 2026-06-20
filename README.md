@@ -26,8 +26,8 @@ on port 3000.
   - [Pagination & infinite scroll](#pagination--infinite-scroll)
   - [Comments & threaded replies](#comments--threaded-replies)
   - [Admin & moderation](#admin--moderation)
-  - [Tag search (pg_trgm)](#tag-search-pg_trgm)
-  - [Theming & fonts](#theming--fonts)
+  - [Search & tag trends (pg_trgm)](#search--tag-trends-pg_trgm)
+  - [Theming & fonts (combinable)](#theming--fonts-combinable)
   - [Notifications](#notifications)
 - [Project layout](#project-layout)
 - [Development](#development)
@@ -51,18 +51,22 @@ on port 3000.
 - **Free-form tags** — created on the fly, with **typo-tolerant search** when adding
   tags to a post/tweet and when finding tags to subscribe to.
 - **Feed filtering + infinite scroll** — a unified post+tweet timeline with **All** /
-  **My subscriptions** / by **tag**, cursor-paginated so it scales.
-- **Most liked this week** — a trending sidebar on the home dashboard.
+  **My subscriptions**, cursor-paginated so it scales.
+- **Search** — typo-tolerant (pg_trgm) **search** for posts and tweets at `/search`,
+  with tabs + infinite scroll, reachable from the navbar.
+- **Trending tags** — a home sidebar with **most-liked** and **most-used** tags this week.
 - **People directory** — browse all users at `/people` (infinite scroll).
 - **Drafts + edit/delete** — author-only; drafts are visible only to their author.
 - **Subscriptions + in-app notifications** — publishing a post or tweet fans out
   notifications to subscribers of its tags; a bell badge shows the unread count.
 - **Engagement** — comments with **threaded replies** (posts & tweets), likes, bookmarks.
-- **Public profiles** with **avatar upload**.
+- **Public profiles** with **avatar upload** and tabbed Posts/Tweets (infinite scroll).
 - **Admin role** — admins can delete any post, tweet, comment, or user via an `/admin`
   dashboard and inline moderation controls.
-- **Appearance** — a **theme picker** (Light, Dark, Midnight, Rose, Emerald, Solarized
-  + System) and a **font** picker, both saved per account and synced across devices.
+- **Appearance** — combinable **base** (Light/Dark/System) × **accent** (Neutral, Rose,
+  Emerald, Violet, Blue, Amber) × **size** (Compact/Comfortable/Large, whole-UI scale),
+  plus a **font** picker — all saved per account and synced across devices.
+- **Accessible confirms** — destructive actions use modal dialogs, not `window.confirm`.
 
 ---
 
@@ -135,7 +139,7 @@ User ──< Post  ──< PostTag  >── Tag ──< TweetTag >── Tweet >
 ```
 
 - **User** — `email`(unique), `name`, `passwordHash`, `bio?`, `image?`, `role`
-  (`USER|ADMIN`), plus per-account UI prefs `theme` and `font`.
+  (`USER|ADMIN`), plus per-account UI prefs `theme` (base), `accent`, `size`, and `font`.
 - **Post** — `title`, `slug`(unique), `contentMd`, `excerpt?`, `status`
   (`DRAFT|PUBLISHED`), `authorId`, `publishedAt?`. Indexed on `(status, publishedAt)`.
 - **Tweet** — `body`(≤280), `imageUrl?`, `authorId`, `createdAt`. Has `TweetLike` and
@@ -218,34 +222,39 @@ User ──< Post  ──< PostTag  >── Tag ──< TweetTag >── Tweet >
 - Post/tweet/comment delete actions allow the **owner or an admin**, so admins also get
   inline delete controls on content (`src/actions/admin.ts` powers the dashboard).
 
-### Tag search (pg_trgm)
+### Search & tag trends (pg_trgm)
 
-Because tags are free-form and user-created, exact matching isn't enough.
+The Postgres `pg_trgm` extension powers all fuzzy matching; GIN trigram indexes exist
+on `Tag.name`, `Post.title`, and `Tweet.body`. **All raw SQL uses Prisma tagged-template
+`$queryRaw` with bound parameters** (never string concatenation), and user queries are
+length-capped — see the security note below.
 
-- The migration enables the Postgres `pg_trgm` extension and adds a GIN index:
-  `CREATE INDEX tag_name_trgm_idx ON "Tag" USING gin (name gin_trgm_ops);`
-- `src/app/api/tags/search/route.ts` runs a raw query matching on trigram similarity
-  (`name % q`) **or** prefix (`ILIKE q%`), ranked by `similarity()` then post count.
-- `src/components/tags/useTagSearch.ts` is a debounced fetch hook reused by both:
-  - `TagAutocomplete.tsx` — in the post editor; suggests existing tags and offers a
-    "Create '<name>'" option (free-form creation preserved; the server upserts).
-  - `TagSubscribeSearch.tsx` — in Settings; search tags and subscribe inline.
+- **Tag search** (`src/app/api/tags/search/route.ts`) ranks by `similarity()` + prefix;
+  `useTagSearch` feeds `TagAutocomplete` (editor/composer) and `TagSubscribeSearch` (settings).
+- **Content search** (`src/actions/search.ts`) ranks posts (title + content) and tweets
+  (body) by `similarity()`, offset-paginated; the `/search` page renders Posts/Tweets tabs
+  with infinite scroll, reachable from the navbar `SearchBox`.
+- **Trending tags** (`src/components/feed/TrendingTags.tsx`) computes the week's
+  **most-liked** and **most-used** tags across posts + tweets for the home sidebar.
 
-### Theming & fonts
+### Theming & fonts (combinable)
 
-- **Theme** uses `next-themes` (`src/components/theme/Providers.tsx`,
-  `attribute="class"`, `enableSystem`) with a **value map** to class names. Six curated
-  palettes (Light, Dark, Midnight, Rose, Emerald, Solarized) plus System are defined as
-  CSS token sets in `globals.css`; the picker lives in the navbar and Settings. The
-  `dark` Tailwind variant is extended to the dark-based custom themes so `dark:`
-  utilities and prose inversion apply under them.
-- **Font** is applied via a `data-font` attribute on `<html>` that CSS maps to
-  Tailwind's `--font-sans` (see the `[data-font="…"]` rules in `globals.css`). All
-  fonts are loaded once in `src/lib/fonts.ts` via `next/font/google`.
-- **Per-account persistence:** the root layout reads the logged-in user's `theme`/
-  `font` from the DB and seeds the providers / `data-font` server-side (so a fresh
-  device gets the saved preference with no flash). Changes call
-  `updatePreferencesAction` (`src/actions/preferences.ts`) to persist.
+Appearance is three independent, composable axes (constants in `src/lib/fonts.ts`):
+
+- **Base** (`light` / `dark` / `system`) — managed by `next-themes`
+  (`Providers.tsx`, `attribute="class"`, `enableSystem`); `.dark` token set in `globals.css`.
+- **Accent** (neutral, rose, emerald, violet, blue, amber) — a `data-accent` attribute
+  whose CSS overrides only `--primary`/`--ring` (light and dark variants), so it composes
+  with the base.
+- **Size** (compact / comfortable / large) — a `data-size` attribute that sets the root
+  `font-size`, scaling text **and** spacing (Tailwind is rem-based) for a whole-UI scale.
+- **Font** — a `data-font` attribute mapped to Tailwind's `--font-sans`; fonts loaded
+  once via `next/font/google`.
+
+**Per-account, no flash:** the root layout reads the user's `theme`/`accent`/`size`/`font`
+from the DB and renders them as `defaultTheme` + `data-*` attributes server-side. The
+Settings "Appearance" section (and navbar base toggle) update the attribute immediately
+and persist via `updatePreferencesAction` (`src/actions/preferences.ts`).
 
 ### Notifications
 
@@ -265,40 +274,44 @@ Because tags are free-form and user-created, exact matching isn't enough.
 ├── prisma/
 │   ├── schema.prisma            # data model (Prisma 7 prisma-client generator)
 │   ├── seed.ts                  # seeds demo + admin users, tags, sample tweets
-│   └── migrations/              # init, prefs_and_tag_search, tweets_admin_threading
+│   └── migrations/              # …, tweets_admin_threading, theme_axes_and_search
 ├── prisma.config.ts             # Prisma 7 config: datasource url + seed command
 ├── src/
 │   ├── auth.ts                  # Auth.js config (Credentials, JWT, role)
 │   ├── app/
 │   │   ├── layout.tsx           # root layout: fonts, theme/font seeding, navbar
-│   │   ├── globals.css          # Tailwind v4 + shadcn tokens + themes + [data-font]
-│   │   ├── page.tsx             # unified home timeline (posts + tweets) + trending
+│   │   ├── globals.css          # Tailwind v4 tokens + [data-accent]/[data-size]/[data-font]
+│   │   ├── page.tsx             # unified home timeline + trending posts/tags sidebar
 │   │   ├── (auth)/login, signup # auth pages
 │   │   ├── new/                 # create post
 │   │   ├── posts/[slug]/        # post view + /edit
 │   │   ├── tweets/              # tweet feed + /[id] detail
 │   │   ├── people/             # users directory (infinite scroll)
+│   │   ├── search/              # post/tweet search (tabs + infinite scroll)
 │   │   ├── admin/               # admin dashboard (guarded)
-│   │   ├── u/[id]/              # public profile (posts + tweets)
+│   │   ├── u/[id]/              # public profile (tabbed posts/tweets)
 │   │   ├── settings/            # profile, avatar, appearance, subscriptions
 │   │   ├── notifications/       # notifications list
 │   │   └── api/                 # auth, upload (MinIO), tags/search (trigram)
 │   ├── actions/                 # server actions: auth, posts, tweets, timeline,
-│   │   │                        # feed, comments, reactions, subscriptions,
-│   │   │                        # notifications, profile, preferences, admin
+│   │   │                        # feed, profileFeed, search, comments, reactions,
+│   │   │                        # subscriptions, notifications, profile, preferences, admin
 │   ├── components/
 │   │   ├── editor/              # TiptapEditor, PostForm
-│   │   ├── feed/                # FeedFilters, PostCard, UnifiedFeed, TrendingPosts
+│   │   ├── feed/                # FeedFilters, PostCard, UnifiedFeed, TrendingPosts, TrendingTags
 │   │   ├── tweets/              # TweetComposer, TweetCard, TweetFeed
 │   │   ├── comments/            # CommentSection, CommentItem, CommentForm
 │   │   ├── people/              # UserCard, PeopleFeed
+│   │   ├── profile/             # ProfileTabs (tabbed infinite scroll)
+│   │   ├── search/              # SearchResults
 │   │   ├── admin/               # AdminDeleteButton
 │   │   ├── posts/               # Markdown, PostActions
 │   │   ├── tags/                # TagAutocomplete, TagSubscribeSearch, useTagSearch
-│   │   ├── theme/               # Providers, ThemeToggle, FontSelect
-│   │   ├── layout/              # Navbar, UserMenu
+│   │   ├── theme/               # Providers, ThemeToggle, AccentSelect, SizeSelect, FontSelect
+│   │   ├── layout/              # Navbar, UserMenu, SearchBox
 │   │   ├── notifications/       # NotificationItem, MarkAllReadButton
 │   │   ├── settings/            # ProfileForm (with avatar upload)
+│   │   ├── ConfirmDialog.tsx    # AlertDialog-based confirm
 │   │   ├── InfiniteList.tsx     # generic cursor infinite scroll
 │   │   ├── SubscribeButton.tsx
 │   │   └── ui/                  # shadcn primitives
@@ -496,9 +509,14 @@ npm run db:studio
 ```
 
 Migrations: `init` (core schema), `prefs_and_tag_search` (adds `User.theme`/`font`,
-enables `pg_trgm`, and the GIN index on `Tag.name`), and `tweets_admin_threading`
-(adds `Role`, the `Tweet`/`TweetLike`/`TweetTag` models, threaded comments, and tweet
-notifications).
+enables `pg_trgm`, GIN index on `Tag.name`), `tweets_admin_threading` (adds `Role`, the
+`Tweet`/`TweetLike`/`TweetTag` models, threaded comments, tweet notifications), and
+`theme_axes_and_search` (adds `User.accent`/`size`, normalizes old theme values, and adds
+GIN trigram indexes on `Post.title` and `Tweet.body`).
+
+> **Gotcha:** the `pg_trgm` GIN indexes can't be expressed in `schema.prisma`, so
+> `prisma migrate dev` emits spurious `DROP INDEX` statements for them — delete those
+> from the generated SQL before applying (see CLAUDE.md).
 
 ---
 
