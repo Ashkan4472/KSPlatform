@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { fontVariables, DEFAULT_THEME, DEFAULT_FONT } from "@/lib/fonts";
+import {
+  fontVariables,
+  DEFAULT_BASE,
+  DEFAULT_ACCENT,
+  DEFAULT_SIZE,
+  DEFAULT_FONT,
+} from "@/lib/fonts";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { Providers } from "@/components/theme/Providers";
@@ -19,15 +25,19 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
-  let theme = DEFAULT_THEME as string;
+  let base = DEFAULT_BASE as string;
+  let accent = DEFAULT_ACCENT as string;
+  let size = DEFAULT_SIZE as string;
   let font = DEFAULT_FONT as string;
   if (session?.user?.id) {
     const prefs = await prisma.user.findUnique({
       where: { id: session.user.id },
-      select: { theme: true, font: true },
+      select: { theme: true, accent: true, size: true, font: true },
     });
     if (prefs) {
-      theme = prefs.theme;
+      base = prefs.theme;
+      accent = prefs.accent;
+      size = prefs.size;
       font = prefs.font;
     }
   }
@@ -36,11 +46,13 @@ export default async function RootLayout({
     <html
       lang="en"
       data-font={font}
+      data-accent={accent}
+      data-size={size}
       className={`${fontVariables} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        <Providers defaultTheme={theme}>
+        <Providers defaultTheme={base}>
           <Navbar />
           <main className="flex flex-1 flex-col">{children}</main>
           <Toaster richColors position="top-center" />

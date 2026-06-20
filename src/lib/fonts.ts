@@ -63,28 +63,46 @@ export function isFontKey(value: string): value is FontKey {
   return (FONT_KEYS as string[]).includes(value);
 }
 
-// Curated themes. `swatch` is a representative color for the picker;
-// `base` tells the toaster whether to render light/dark chrome.
-export const THEMES = [
-  { key: "light", label: "Light", swatch: "oklch(0.97 0 0)", base: "light" },
-  { key: "dark", label: "Dark", swatch: "oklch(0.21 0 0)", base: "dark" },
-  { key: "midnight", label: "Midnight", swatch: "oklch(0.32 0.08 264)", base: "dark" },
-  { key: "rose", label: "Rose", swatch: "oklch(0.58 0.19 16)", base: "light" },
-  { key: "emerald", label: "Emerald", swatch: "oklch(0.6 0.13 162)", base: "light" },
-  { key: "solarized", label: "Solarized", swatch: "oklch(0.45 0.06 195)", base: "dark" },
-  { key: "system", label: "System", swatch: "oklch(0.6 0 0)", base: "system" },
+// --- Combinable appearance: base × accent × size ---
+
+// Base controls light/dark (managed by next-themes via a class).
+export const BASES = [
+  { key: "light", label: "Light" },
+  { key: "dark", label: "Dark" },
+  { key: "system", label: "System" },
 ] as const;
+export type BaseKey = (typeof BASES)[number]["key"];
+export const BASE_KEYS = BASES.map((b) => b.key) as BaseKey[];
+export const DEFAULT_BASE: BaseKey = "system";
+export function isBase(value: string): value is BaseKey {
+  return (BASE_KEYS as string[]).includes(value);
+}
 
-export type ThemeKey = (typeof THEMES)[number]["key"];
-export const THEME_KEYS = THEMES.map((t) => t.key) as ThemeKey[];
-export const DEFAULT_THEME: ThemeKey = "system";
+// Accent overrides the primary color (works on light and dark) via data-accent.
+export const ACCENTS = [
+  { key: "neutral", label: "Neutral", swatch: "oklch(0.55 0 0)" },
+  { key: "rose", label: "Rose", swatch: "oklch(0.58 0.19 16)" },
+  { key: "emerald", label: "Emerald", swatch: "oklch(0.6 0.13 162)" },
+  { key: "violet", label: "Violet", swatch: "oklch(0.55 0.22 292)" },
+  { key: "blue", label: "Blue", swatch: "oklch(0.55 0.18 255)" },
+  { key: "amber", label: "Amber", swatch: "oklch(0.72 0.16 70)" },
+] as const;
+export type AccentKey = (typeof ACCENTS)[number]["key"];
+export const ACCENT_KEYS = ACCENTS.map((a) => a.key) as AccentKey[];
+export const DEFAULT_ACCENT: AccentKey = "neutral";
+export function isAccent(value: string): value is AccentKey {
+  return (ACCENT_KEYS as string[]).includes(value);
+}
 
-export const THEME_BASE: Record<ThemeKey, "light" | "dark" | "system"> =
-  Object.fromEntries(THEMES.map((t) => [t.key, t.base])) as Record<
-    ThemeKey,
-    "light" | "dark" | "system"
-  >;
-
-export function isThemeKey(value: string): value is ThemeKey {
-  return (THEME_KEYS as string[]).includes(value);
+// Size scales the whole UI (root rem) via data-size.
+export const SIZES = [
+  { key: "compact", label: "Compact" },
+  { key: "comfortable", label: "Comfortable" },
+  { key: "large", label: "Large" },
+] as const;
+export type SizeKey = (typeof SIZES)[number]["key"];
+export const SIZE_KEYS = SIZES.map((s) => s.key) as SizeKey[];
+export const DEFAULT_SIZE: SizeKey = "comfortable";
+export function isSize(value: string): value is SizeKey {
+  return (SIZE_KEYS as string[]).includes(value);
 }

@@ -6,8 +6,17 @@ import { ProfileForm } from "@/components/settings/ProfileForm";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { FontSelect } from "@/components/theme/FontSelect";
+import { AccentSelect } from "@/components/theme/AccentSelect";
+import { SizeSelect } from "@/components/theme/SizeSelect";
 import { TagSubscribeSearch } from "@/components/tags/TagSubscribeSearch";
-import { isFontKey, DEFAULT_FONT } from "@/lib/fonts";
+import {
+  isFontKey,
+  isAccent,
+  isSize,
+  DEFAULT_FONT,
+  DEFAULT_ACCENT,
+  DEFAULT_SIZE,
+} from "@/lib/fonts";
 
 export const metadata = { title: "Settings — KSPlatform" };
 
@@ -43,27 +52,54 @@ export default async function SettingsPage() {
 
       <section>
         <h2 className="mb-3 text-lg font-medium">Appearance</h2>
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
-          <div>
-            <p className="text-sm font-medium">Theme</p>
-            <p className="text-sm text-muted-foreground">
-              Light, dark, or follow your system.
-            </p>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Mix and match a base, accent color, size, and font.
+        </p>
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Base</p>
+              <p className="text-sm text-muted-foreground">
+                Light, dark, or follow your system.
+              </p>
+            </div>
+            <ThemeToggle />
           </div>
-          <ThemeToggle />
-        </div>
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
-          <div>
-            <p className="text-sm font-medium">Font</p>
-            <p className="text-sm text-muted-foreground">
-              Choose your reading font.
-            </p>
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Accent</p>
+              <p className="text-sm text-muted-foreground">
+                The primary color, on light or dark.
+              </p>
+            </div>
+            <AccentSelect
+              initial={
+                user && isAccent(user.accent) ? user.accent : DEFAULT_ACCENT
+              }
+            />
           </div>
-          <FontSelect
-            initial={
-              user && isFontKey(user.font) ? user.font : DEFAULT_FONT
-            }
-          />
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Size</p>
+              <p className="text-sm text-muted-foreground">
+                Scale the whole interface.
+              </p>
+            </div>
+            <SizeSelect
+              initial={user && isSize(user.size) ? user.size : DEFAULT_SIZE}
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Font</p>
+              <p className="text-sm text-muted-foreground">
+                Choose your reading font.
+              </p>
+            </div>
+            <FontSelect
+              initial={user && isFontKey(user.font) ? user.font : DEFAULT_FONT}
+            />
+          </div>
         </div>
       </section>
 
