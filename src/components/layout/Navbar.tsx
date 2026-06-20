@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/layout/UserMenu";
+import { SearchBox } from "@/components/layout/SearchBox";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export async function Navbar() {
@@ -36,6 +37,7 @@ export async function Navbar() {
         </div>
 
         <nav className="flex items-center gap-2">
+          <SearchBox />
           <ThemeToggle />
           {user ? (
             <>
