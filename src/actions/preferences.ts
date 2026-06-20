@@ -2,7 +2,17 @@
 
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
-import { isBase, isAccent, isSize, isFontKey } from "@/lib/fonts";
+import {
+  isBase,
+  isAccent,
+  isSize,
+  isFontKey,
+  isSurface,
+  isRadius,
+  isCardStyle,
+  isBorderDensity,
+  isShadow,
+} from "@/lib/fonts";
 
 /**
  * Persist appearance preferences to the logged-in user's record.
@@ -14,16 +24,37 @@ export async function updatePreferencesAction(prefs: {
   accent?: string;
   size?: string;
   font?: string;
+  surface?: string;
+  radius?: string;
+  cardStyle?: string;
+  borderDensity?: string;
+  shadow?: string;
 }): Promise<void> {
   const session = await auth();
   if (!session?.user?.id) return;
 
-  const data: { theme?: string; accent?: string; size?: string; font?: string } =
-    {};
+  const data: {
+    theme?: string;
+    accent?: string;
+    size?: string;
+    font?: string;
+    surface?: string;
+    radius?: string;
+    cardStyle?: string;
+    borderDensity?: string;
+    shadow?: string;
+  } = {};
   if (prefs.base && isBase(prefs.base)) data.theme = prefs.base;
   if (prefs.accent && isAccent(prefs.accent)) data.accent = prefs.accent;
   if (prefs.size && isSize(prefs.size)) data.size = prefs.size;
   if (prefs.font && isFontKey(prefs.font)) data.font = prefs.font;
+  if (prefs.surface && isSurface(prefs.surface)) data.surface = prefs.surface;
+  if (prefs.radius && isRadius(prefs.radius)) data.radius = prefs.radius;
+  if (prefs.cardStyle && isCardStyle(prefs.cardStyle))
+    data.cardStyle = prefs.cardStyle;
+  if (prefs.borderDensity && isBorderDensity(prefs.borderDensity))
+    data.borderDensity = prefs.borderDensity;
+  if (prefs.shadow && isShadow(prefs.shadow)) data.shadow = prefs.shadow;
   if (Object.keys(data).length === 0) return;
 
   await prisma.user.update({ where: { id: session.user.id }, data });

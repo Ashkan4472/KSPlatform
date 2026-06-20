@@ -6,6 +6,11 @@ import {
   DEFAULT_ACCENT,
   DEFAULT_SIZE,
   DEFAULT_FONT,
+  DEFAULT_SURFACE,
+  DEFAULT_RADIUS,
+  DEFAULT_CARD_STYLE,
+  DEFAULT_BORDER_DENSITY,
+  DEFAULT_SHADOW,
 } from "@/lib/fonts";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
@@ -29,16 +34,36 @@ export default async function RootLayout({
   let accent = DEFAULT_ACCENT as string;
   let size = DEFAULT_SIZE as string;
   let font = DEFAULT_FONT as string;
+  let surface = DEFAULT_SURFACE as string;
+  let radius = DEFAULT_RADIUS as string;
+  let cardStyle = DEFAULT_CARD_STYLE as string;
+  let borderDensity = DEFAULT_BORDER_DENSITY as string;
+  let shadow = DEFAULT_SHADOW as string;
   if (session?.user?.id) {
     const prefs = await prisma.user.findUnique({
       where: { id: session.user.id },
-      select: { theme: true, accent: true, size: true, font: true },
+      select: {
+        theme: true,
+        accent: true,
+        size: true,
+        font: true,
+        surface: true,
+        radius: true,
+        cardStyle: true,
+        borderDensity: true,
+        shadow: true,
+      },
     });
     if (prefs) {
       base = prefs.theme;
       accent = prefs.accent;
       size = prefs.size;
       font = prefs.font;
+      surface = prefs.surface;
+      radius = prefs.radius;
+      cardStyle = prefs.cardStyle;
+      borderDensity = prefs.borderDensity;
+      shadow = prefs.shadow;
     }
   }
 
@@ -48,6 +73,11 @@ export default async function RootLayout({
       data-font={font}
       data-accent={accent}
       data-size={size}
+      data-surface={surface}
+      data-radius={radius}
+      data-card={cardStyle}
+      data-border={borderDensity}
+      data-shadow={shadow}
       className={`${fontVariables} h-full antialiased`}
       suppressHydrationWarning
     >

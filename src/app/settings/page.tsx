@@ -8,14 +8,30 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { FontSelect } from "@/components/theme/FontSelect";
 import { AccentSelect } from "@/components/theme/AccentSelect";
 import { SizeSelect } from "@/components/theme/SizeSelect";
+import { AppearancePicker } from "@/components/theme/AppearancePicker";
 import { TagSubscribeSearch } from "@/components/tags/TagSubscribeSearch";
 import {
   isFontKey,
   isAccent,
   isSize,
+  isSurface,
+  isRadius,
+  isCardStyle,
+  isBorderDensity,
+  isShadow,
   DEFAULT_FONT,
   DEFAULT_ACCENT,
   DEFAULT_SIZE,
+  DEFAULT_SURFACE,
+  DEFAULT_RADIUS,
+  DEFAULT_CARD_STYLE,
+  DEFAULT_BORDER_DENSITY,
+  DEFAULT_SHADOW,
+  SURFACES,
+  RADII,
+  CARD_STYLES,
+  BORDER_DENSITIES,
+  SHADOWS,
 } from "@/lib/fonts";
 
 export const metadata = { title: "Settings — KSPlatform" };
@@ -98,6 +114,90 @@ export default async function SettingsPage() {
             </div>
             <FontSelect
               initial={user && isFontKey(user.font) ? user.font : DEFAULT_FONT}
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Surface</p>
+              <p className="text-sm text-muted-foreground">
+                Background &amp; card tone.
+              </p>
+            </div>
+            <AppearancePicker
+              attr="surface"
+              prefKey="surface"
+              options={SURFACES}
+              initial={
+                user && isSurface(user.surface) ? user.surface : DEFAULT_SURFACE
+              }
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Radius</p>
+              <p className="text-sm text-muted-foreground">
+                Corner roundness.
+              </p>
+            </div>
+            <AppearancePicker
+              attr="radius"
+              prefKey="radius"
+              options={RADII}
+              initial={
+                user && isRadius(user.radius) ? user.radius : DEFAULT_RADIUS
+              }
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Card style</p>
+              <p className="text-sm text-muted-foreground">
+                Flat, bordered, or elevated cards.
+              </p>
+            </div>
+            <AppearancePicker
+              attr="card"
+              prefKey="cardStyle"
+              options={CARD_STYLES}
+              initial={
+                user && isCardStyle(user.cardStyle)
+                  ? user.cardStyle
+                  : DEFAULT_CARD_STYLE
+              }
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Borders</p>
+              <p className="text-sm text-muted-foreground">
+                Divider &amp; border strength.
+              </p>
+            </div>
+            <AppearancePicker
+              attr="border"
+              prefKey="borderDensity"
+              options={BORDER_DENSITIES}
+              initial={
+                user && isBorderDensity(user.borderDensity)
+                  ? user.borderDensity
+                  : DEFAULT_BORDER_DENSITY
+              }
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-md border px-3 py-3">
+            <div>
+              <p className="text-sm font-medium">Shadow</p>
+              <p className="text-sm text-muted-foreground">
+                Card &amp; popover shadow depth.
+              </p>
+            </div>
+            <AppearancePicker
+              attr="shadow"
+              prefKey="shadow"
+              options={SHADOWS}
+              initial={
+                user && isShadow(user.shadow) ? user.shadow : DEFAULT_SHADOW
+              }
             />
           </div>
         </div>

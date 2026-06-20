@@ -29,11 +29,16 @@ model User {
   bio          String?
   image        String?
   role         Role     @default(USER)
-  theme        String   @default("system")
-  accent       String   @default("neutral")
-  size         String   @default("comfortable")
-  font         String   @default("geist")
-  createdAt    DateTime @default(now())
+  theme         String   @default("system")
+  accent        String   @default("neutral")
+  size          String   @default("comfortable")
+  font          String   @default("geist")
+  surface       String   @default("default")
+  radius        String   @default("default")
+  cardStyle     String   @default("default")
+  borderDensity String   @default("normal")
+  shadow        String   @default("default")
+  createdAt     DateTime @default(now())
 
   posts         Post[]
   tweets        Tweet[]
