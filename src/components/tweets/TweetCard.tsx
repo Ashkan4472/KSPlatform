@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { formatDate, initialsOf } from "@/lib/format";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { toggleTweetLikeAction, deleteTweetAction } from "@/actions/tweets";
 import type { TweetView } from "@/lib/tweets";
 
@@ -42,16 +43,13 @@ export function TweetCard({
     });
   }
 
-  function onDelete() {
-    if (!window.confirm("Delete this tweet?")) return;
-    startTransition(async () => {
-      const res = await deleteTweetAction(tweet.id);
-      if (res.error) {
-        toast.error(res.error);
-        return;
-      }
-      setDeleted(true);
-    });
+  async function onConfirmDelete() {
+    const res = await deleteTweetAction(tweet.id);
+    if (res.error) {
+      toast.error(res.error);
+      return;
+    }
+    setDeleted(true);
   }
 
   if (deleted) return null;
@@ -79,15 +77,22 @@ export function TweetCard({
             {formatDate(tweet.createdAt)}
           </Link>
           {canDelete && (
-            <button
-              type="button"
-              onClick={onDelete}
-              disabled={pending}
-              aria-label="Delete tweet"
-              className="ml-auto text-muted-foreground hover:text-destructive disabled:opacity-50"
-            >
-              <Trash2 className="h-4 w-4" />
-            </button>
+            <span className="ml-auto">
+              <ConfirmDialog
+                title="Delete tweet?"
+                description="This tweet will be permanently removed."
+                onConfirm={onConfirmDelete}
+                trigger={
+                  <button
+                    type="button"
+                    aria-label="Delete tweet"
+                    className="text-muted-foreground hover:text-destructive"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                }
+              />
+            </span>
           )}
         </div>
 

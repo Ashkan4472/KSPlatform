@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { TiptapEditor } from "@/components/editor/TiptapEditor";
 import { TagAutocomplete } from "@/components/tags/TagAutocomplete";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,7 +28,6 @@ export function PostForm({ mode, post }: Props) {
   const [contentMd, setContentMd] = useState(post?.contentMd ?? "");
   const [tags, setTags] = useState<string[]>(post?.tags ?? []);
   const [pending, startTransition] = useTransition();
-  const [deleting, startDelete] = useTransition();
 
   function submit(status: "DRAFT" | "PUBLISHED") {
     if (title.trim().length < 3) {
@@ -49,13 +49,11 @@ export function PostForm({ mode, post }: Props) {
     });
   }
 
-  function onDelete() {
+  async function onConfirmDelete() {
     if (!post) return;
-    if (!window.confirm("Delete this post? This cannot be undone.")) return;
-    startDelete(async () => {
-      const result = await deletePostAction(post.id);
-      if (result?.error) toast.error(result.error);
-    });
+    const result = await deletePostAction(post.id);
+    if (result?.error) toast.error(result.error);
+    // On success the action redirects away.
   }
 
   return (
@@ -105,14 +103,19 @@ export function PostForm({ mode, post }: Props) {
           Cancel
         </Button>
         {mode === "edit" && (
-          <Button
-            variant="ghost"
-            className="ml-auto text-destructive hover:text-destructive"
-            onClick={onDelete}
-            disabled={deleting}
-          >
-            {deleting ? "Deleting…" : "Delete"}
-          </Button>
+          <ConfirmDialog
+            title="Delete this post?"
+            description="This post will be permanently removed. This cannot be undone."
+            onConfirm={onConfirmDelete}
+            trigger={
+              <Button
+                variant="ghost"
+                className="ml-auto text-destructive hover:text-destructive"
+              >
+                Delete
+              </Button>
+            }
+          />
         )}
       </div>
     </div>

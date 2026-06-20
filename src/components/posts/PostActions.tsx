@@ -5,6 +5,7 @@ import { Bookmark, Download, Heart, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { toggleLikeAction, toggleBookmarkAction } from "@/actions/reactions";
 import { deletePostAction } from "@/actions/posts";
 
@@ -67,13 +68,10 @@ export function PostActions({
     toast.success("Markdown downloaded");
   }
 
-  function onModerate() {
-    if (!window.confirm("Delete this post as an admin?")) return;
-    startTransition(async () => {
-      const res = await deletePostAction(postId);
-      if (res?.error) toast.error(res.error);
-      // On success the action redirects away.
-    });
+  async function onConfirmModerate() {
+    const res = await deletePostAction(postId);
+    if (res?.error) toast.error(res.error);
+    // On success the action redirects away.
   }
 
   return (
@@ -104,15 +102,20 @@ export function PostActions({
         <Download className="mr-1.5 h-4 w-4" /> Export .md
       </Button>
       {canModerate && (
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={onModerate}
-          disabled={pending}
-          className="text-destructive hover:text-destructive"
-        >
-          <Trash2 className="mr-1.5 h-4 w-4" /> Delete
-        </Button>
+        <ConfirmDialog
+          title="Delete this post?"
+          description="As an admin you're removing another user's post. This cannot be undone."
+          onConfirm={onConfirmModerate}
+          trigger={
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-destructive hover:text-destructive"
+            >
+              <Trash2 className="mr-1.5 h-4 w-4" /> Delete
+            </Button>
+          }
+        />
       )}
     </div>
   );

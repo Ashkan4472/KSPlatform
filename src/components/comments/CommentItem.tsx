@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CommentForm } from "@/components/comments/CommentForm";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { deleteCommentAction } from "@/actions/comments";
 import { formatDate, initialsOf } from "@/lib/format";
 import type { CommentAuthor, CommentNode } from "@/lib/comments";
@@ -29,18 +30,14 @@ function Row({
   footer?: React.ReactNode;
 }) {
   const router = useRouter();
-  const [pending, startTransition] = useTransition();
 
-  function onDelete() {
-    if (!window.confirm("Delete this comment?")) return;
-    startTransition(async () => {
-      const res = await deleteCommentAction(id);
-      if (res.error) {
-        toast.error(res.error);
-        return;
-      }
-      router.refresh();
-    });
+  async function onConfirmDelete() {
+    const res = await deleteCommentAction(id);
+    if (res.error) {
+      toast.error(res.error);
+      return;
+    }
+    router.refresh();
   }
 
   return (
@@ -62,15 +59,22 @@ function Row({
             {formatDate(createdAt)}
           </span>
           {canDelete && (
-            <button
-              type="button"
-              onClick={onDelete}
-              disabled={pending}
-              aria-label="Delete comment"
-              className="ml-auto text-muted-foreground hover:text-destructive disabled:opacity-50"
-            >
-              <Trash2 className="h-3.5 w-3.5" />
-            </button>
+            <span className="ml-auto">
+              <ConfirmDialog
+                title="Delete comment?"
+                description="This comment will be permanently removed."
+                onConfirm={onConfirmDelete}
+                trigger={
+                  <button
+                    type="button"
+                    aria-label="Delete comment"
+                    className="text-muted-foreground hover:text-destructive"
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                  </button>
+                }
+              />
+            </span>
           )}
         </div>
         <p className="mt-1 whitespace-pre-wrap text-sm">{body}</p>

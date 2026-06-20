@@ -30,6 +30,8 @@ model User {
   image        String?
   role         Role     @default(USER)
   theme        String   @default("system")
+  accent       String   @default("neutral")
+  size         String   @default("comfortable")
   font         String   @default("geist")
   createdAt    DateTime @default(now())
 
