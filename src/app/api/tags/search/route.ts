@@ -15,7 +15,13 @@ type TagRow = {
  * GET /api/tags/search?q=nextjs  → [{ id, name, slug, postCount }]
  */
 export async function GET(request: NextRequest) {
-  const q = (request.nextUrl.searchParams.get("q") ?? "").trim().toLowerCase();
+  // Trim + cap length defensively. Values are still passed as bound query
+  // parameters below (Prisma tagged-template), so this is not for injection
+  // safety — it just bounds work per request.
+  const q = (request.nextUrl.searchParams.get("q") ?? "")
+    .trim()
+    .toLowerCase()
+    .slice(0, 100);
 
   const rows = q
     ? await prisma.$queryRaw<TagRow[]>`

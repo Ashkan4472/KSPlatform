@@ -28,10 +28,13 @@ Tailwind CSS v4 · shadcn/ui (radix-nova) · Tiptap 3 · MinIO (S3) · zod · Ty
   - Runtime uses the `@prisma/adapter-pg` driver adapter — see `src/lib/prisma.ts`
     (singleton). Reuse this `prisma` import everywhere; don't `new PrismaClient()`.
   - After editing `schema.prisma`, run `npx prisma generate`.
-  - **The `pg_trgm` GIN index on `Tag.name` isn't expressible in `schema.prisma`**, so
-    `migrate dev` will generate a spurious `DROP INDEX "tag_name_trgm_idx"`. Delete that
-    statement (or the whole generated migration if that's all it contains) before
-    applying — never commit a migration that drops it.
+  - **The `pg_trgm` GIN indexes aren't expressible in `schema.prisma`** (`tag_name_trgm_idx`,
+    `post_title_trgm_idx`, `tweet_body_trgm_idx`), so `migrate dev` generates spurious
+    `DROP INDEX` statements for them. Delete those before applying — never commit a
+    migration that drops them.
+  - **Raw SQL must use Prisma tagged-template `$queryRaw` with `${value}` bound params**
+    (never `$queryRawUnsafe` or string concatenation). See `actions/search.ts`,
+    `components/feed/TrendingTags.tsx`, `api/tags/search`. Cap user-supplied query length.
 - **Tailwind v4:** config is CSS-first in `src/app/globals.css` (`@theme`, `@plugin`,
   `@custom-variant`). No `tailwind.config.js`.
 - **React Compiler lint** (`react-hooks/*`) is on. It forbids synchronous `setState`
