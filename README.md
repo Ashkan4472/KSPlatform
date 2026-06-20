@@ -63,9 +63,10 @@ on port 3000.
 - **Public profiles** with **avatar upload** and tabbed Posts/Tweets (infinite scroll).
 - **Admin role** — admins can delete any post, tweet, comment, or user via an `/admin`
   dashboard and inline moderation controls.
-- **Appearance** — combinable **base** (Light/Dark/System) × **accent** (Neutral, Rose,
-  Emerald, Violet, Blue, Amber) × **size** (Compact/Comfortable/Large, whole-UI scale),
-  plus a **font** picker — all saved per account and synced across devices.
+- **Appearance** — nine combinable, per-account axes: **base** (Light/Dark/System),
+  **accent** color, **size** (whole-UI scale), **font**, **surface tone** (bg + card),
+  **radius**, **card style** (flat/bordered/elevated), **border density**, and **shadow**
+  intensity — all saved per account, synced across devices, applied with no flash.
 - **Accessible confirms** — destructive actions use modal dialogs, not `window.confirm`.
 
 ---
@@ -139,7 +140,8 @@ User ──< Post  ──< PostTag  >── Tag ──< TweetTag >── Tweet >
 ```
 
 - **User** — `email`(unique), `name`, `passwordHash`, `bio?`, `image?`, `role`
-  (`USER|ADMIN`), plus per-account UI prefs `theme` (base), `accent`, `size`, and `font`.
+  (`USER|ADMIN`), plus per-account UI prefs `theme` (base), `accent`, `size`, `font`,
+  `surface`, `radius`, `cardStyle`, `borderDensity`, `shadow`.
 - **Post** — `title`, `slug`(unique), `contentMd`, `excerpt?`, `status`
   (`DRAFT|PUBLISHED`), `authorId`, `publishedAt?`. Indexed on `(status, publishedAt)`.
 - **Tweet** — `body`(≤280), `imageUrl?`, `authorId`, `createdAt`. Has `TweetLike` and
@@ -239,22 +241,32 @@ length-capped — see the security note below.
 
 ### Theming & fonts (combinable)
 
-Appearance is three independent, composable axes (constants in `src/lib/fonts.ts`):
+Appearance is nine independent, composable axes (constants + guards in
+`src/lib/fonts.ts`). Each axis (except base) is a `data-*` attribute on `<html>` whose CSS
+overrides a **disjoint** set of tokens, so they stack cleanly:
 
-- **Base** (`light` / `dark` / `system`) — managed by `next-themes`
-  (`Providers.tsx`, `attribute="class"`, `enableSystem`); `.dark` token set in `globals.css`.
-- **Accent** (neutral, rose, emerald, violet, blue, amber) — a `data-accent` attribute
-  whose CSS overrides only `--primary`/`--ring` (light and dark variants), so it composes
-  with the base.
-- **Size** (compact / comfortable / large) — a `data-size` attribute that sets the root
-  `font-size`, scaling text **and** spacing (Tailwind is rem-based) for a whole-UI scale.
-- **Font** — a `data-font` attribute mapped to Tailwind's `--font-sans`; fonts loaded
-  once via `next/font/google`.
+- **Base** (`light` / `dark` / `system`) — `next-themes` class (`Providers.tsx`); `.dark`
+  token set in `globals.css`.
+- **Accent** (neutral/rose/emerald/violet/blue/amber) — `data-accent`, overrides
+  `--primary`/`--ring` only (light + dark).
+- **Size** (compact/comfortable/large) — `data-size` sets the root `font-size` (rem),
+  scaling text **and** spacing.
+- **Font** — `data-font` mapped to `--font-sans`.
+- **Surface tone** (default/slate/warm/cool) — `data-surface` retints the neutral *fills*
+  (`--background`, `--card`, `--popover`, `--muted`, `--secondary`, `--accent`, `--sidebar`)
+  for light + dark; foregrounds stay from the base.
+- **Radius** (none/small/default/large) — `data-radius` sets `--radius`, which `@theme`
+  fans out to every `rounded-*`.
+- **Card style** (default/flat/bordered/elevated) — `data-card` overrides the card's
+  shadow/border on `[data-slot="card"]`.
+- **Border density** (subtle/normal/visible) — `data-border` owns `--border`/`--input`.
+- **Shadow** (default/none/soft/strong) — `data-shadow` sets `--app-shadow`, used by
+  elevated cards and overlay surfaces. All "default"/"normal" options are no-ops.
 
-**Per-account, no flash:** the root layout reads the user's `theme`/`accent`/`size`/`font`
-from the DB and renders them as `defaultTheme` + `data-*` attributes server-side. The
-Settings "Appearance" section (and navbar base toggle) update the attribute immediately
-and persist via `updatePreferencesAction` (`src/actions/preferences.ts`).
+**Per-account, no flash:** the root layout reads the user's prefs and renders them as
+`defaultTheme` + `data-*` attributes server-side. Settings controls update the attribute
+immediately and persist via `updatePreferencesAction` (`src/actions/preferences.ts`); the
+five newest axes share one generic `AppearancePicker`.
 
 ### Notifications
 
@@ -274,7 +286,7 @@ and persist via `updatePreferencesAction` (`src/actions/preferences.ts`).
 ├── prisma/
 │   ├── schema.prisma            # data model (Prisma 7 prisma-client generator)
 │   ├── seed.ts                  # seeds demo + admin users, tags, sample tweets
-│   └── migrations/              # …, tweets_admin_threading, theme_axes_and_search
+│   └── migrations/              # …, theme_axes_and_search, theme_surface_radius
 ├── prisma.config.ts             # Prisma 7 config: datasource url + seed command
 ├── src/
 │   ├── auth.ts                  # Auth.js config (Credentials, JWT, role)
@@ -512,7 +524,8 @@ Migrations: `init` (core schema), `prefs_and_tag_search` (adds `User.theme`/`fon
 enables `pg_trgm`, GIN index on `Tag.name`), `tweets_admin_threading` (adds `Role`, the
 `Tweet`/`TweetLike`/`TweetTag` models, threaded comments, tweet notifications), and
 `theme_axes_and_search` (adds `User.accent`/`size`, normalizes old theme values, and adds
-GIN trigram indexes on `Post.title` and `Tweet.body`).
+GIN trigram indexes on `Post.title` and `Tweet.body`), and `theme_surface_radius` (adds
+`User.surface`/`radius`/`cardStyle`/`borderDensity`/`shadow`).
 
 > **Gotcha:** the `pg_trgm` GIN indexes can't be expressed in `schema.prisma`, so
 > `prisma migrate dev` emits spurious `DROP INDEX` statements for them — delete those

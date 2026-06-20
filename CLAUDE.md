@@ -75,11 +75,14 @@ Tailwind CSS v4 · shadcn/ui (radix-nova) · Tiptap 3 · MinIO (S3) · zod · Ty
   `canModerate` down to cards/sections so admins get inline delete controls.
 - **UI:** prefer existing shadcn primitives in `src/components/ui/`. Add new ones with
   `npx shadcn@latest add <name>`. Icons from `lucide-react`, toasts from `sonner`.
-- **Theme** via `next-themes` (class) with a `value` map to `.theme-*` classes; curated
-  palettes + the `dark` variant extension live in `globals.css`; theme metadata in
-  `src/lib/fonts.ts` (`THEMES`, `THEME_BASE`). **Font** via a `data-font` attribute on
-  `<html>` mapped to `--font-sans`. Both prefs are stored on `User` and seeded
-  server-side in `src/app/layout.tsx`.
+- **Appearance = 9 composable axes**, each a per-account `User` column seeded
+  server-side as a `data-*` attr on `<html>` in `layout.tsx`, with constants/guards in
+  `src/lib/fonts.ts` and overrides in `globals.css`: **base** (next-themes class) +
+  `data-accent` (--primary/--ring), `data-size` (root rem), `data-font` (--font-sans),
+  `data-surface` (neutral fills), `data-radius` (--radius), `data-card`
+  (`[data-slot=card]` shadow/border), `data-border` (--border/--input), `data-shadow`
+  (--app-shadow). Axes own **disjoint** tokens so they compose. New discrete axes use the
+  generic `AppearancePicker`; persist via `updatePreferencesAction`.
 - **MinIO in Docker:** `S3_ENDPOINT` is server-to-server (`minio:9000`); `S3_PUBLIC_URL`
   is what the browser uses. They differ — don't conflate them.
 
