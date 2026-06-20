@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { PostCard, type FeedPost } from "@/components/feed/PostCard";
-import { TweetCard } from "@/components/tweets/TweetCard";
-import { tweetInclude, toTweetView } from "@/lib/tweets";
+import { Badge } from "@/components/ui/badge";
+import { ProfileTabs } from "@/components/profile/ProfileTabs";
+import { loadUserPosts, loadUserTweets } from "@/actions/profileFeed";
 import { initialsOf } from "@/lib/format";
 
 export async function generateMetadata({
@@ -32,42 +32,19 @@ export default async function ProfilePage({
 
   const user = await prisma.user.findUnique({
     where: { id },
-    include: {
-      posts: {
-        // Owners also see their own drafts on their profile.
-        where: isOwner ? {} : { status: "PUBLISHED" },
-        orderBy: [{ publishedAt: "desc" }, { createdAt: "desc" }],
-        include: {
-          author: { select: { id: true, name: true, image: true } },
-          tags: { include: { tag: { select: { name: true, slug: true } } } },
-          _count: { select: { likes: true, comments: true } },
-        },
-      },
-      tweets: {
-        orderBy: { createdAt: "desc" },
-        take: 20,
-        include: tweetInclude(viewer?.id),
-      },
-    },
+    select: { id: true, name: true, bio: true, image: true, role: true },
   });
 
   if (!user) notFound();
 
-  const tweets = user.tweets.map(toTweetView);
-
-  const posts: FeedPost[] = user.posts.map((p) => ({
-    id: p.id,
-    slug: p.slug,
-    title: p.title,
-    excerpt: p.excerpt,
-    publishedAt: p.publishedAt,
-    createdAt: p.createdAt,
-    status: p.status,
-    author: p.author,
-    tags: p.tags.map((pt) => pt.tag),
-    likeCount: p._count.likes,
-    commentCount: p._count.comments,
-  }));
+  const [postCount, tweetCount, posts, tweets] = await Promise.all([
+    prisma.post.count({
+      where: { authorId: id, ...(isOwner ? {} : { status: "PUBLISHED" }) },
+    }),
+    prisma.tweet.count({ where: { authorId: id } }),
+    loadUserPosts({ userId: id, cursor: null }),
+    loadUserTweets({ userId: id, cursor: null }),
+  ]);
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8">
@@ -79,45 +56,27 @@ export default async function ProfilePage({
           </AvatarFallback>
         </Avatar>
         <div>
-          <h1 className="text-2xl font-semibold">{user.name}</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl font-semibold">{user.name}</h1>
+            {user.role === "ADMIN" && <Badge variant="outline">Admin</Badge>}
+          </div>
           {user.bio && (
             <p className="mt-1 text-sm text-muted-foreground">{user.bio}</p>
           )}
         </div>
       </header>
 
-      <h2 className="mb-4 mt-8 text-lg font-medium">
-        {isOwner ? "Your posts" : "Posts"}
-      </h2>
-      <div className="space-y-4">
-        {posts.length === 0 ? (
-          <div className="rounded-lg border border-dashed py-12 text-center text-sm text-muted-foreground">
-            No posts yet.
-          </div>
-        ) : (
-          posts.map((post) => <PostCard key={post.slug} post={post} />)
-        )}
-      </div>
-
-      <h2 className="mb-4 mt-8 text-lg font-medium">
-        {isOwner ? "Your tweets" : "Tweets"}
-      </h2>
-      <div className="space-y-4">
-        {tweets.length === 0 ? (
-          <div className="rounded-lg border border-dashed py-12 text-center text-sm text-muted-foreground">
-            No tweets yet.
-          </div>
-        ) : (
-          tweets.map((tweet) => (
-            <TweetCard
-              key={tweet.id}
-              tweet={tweet}
-              currentUserId={viewer?.id}
-              canModerate={viewer?.role === "ADMIN"}
-            />
-          ))
-        )}
-      </div>
+      <ProfileTabs
+        userId={user.id}
+        currentUserId={viewer?.id}
+        canModerate={viewer?.role === "ADMIN"}
+        initialPosts={posts.items}
+        postsCursor={posts.nextCursor}
+        postCount={postCount}
+        initialTweets={tweets.items}
+        tweetsCursor={tweets.nextCursor}
+        tweetCount={tweetCount}
+      />
     </div>
   );
 }
