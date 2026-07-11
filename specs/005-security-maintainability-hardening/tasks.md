@@ -86,9 +86,9 @@ and signed-out).
 
 ## Phase 5: Polish & Cross-Cutting Concerns
 
-- [ ] T012 Run `npx tsc --noEmit` (SC-002)
-- [ ] T013 Run `npm run lint` (SC-002)
-- [ ] T014 Run the full `quickstart.md` manual smoke test (SC-003, SC-004)
+- [X] T012 Run `npx tsc --noEmit` (SC-002)
+- [X] T013 Run `npm run lint` (SC-002)
+- [X] T014 Run the full `quickstart.md` manual smoke test (SC-003, SC-004)
 
 ---
 
