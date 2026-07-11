@@ -2,14 +2,15 @@
 
 import { prisma } from "@/lib/prisma";
 import { FEED_PAGE_SIZE } from "@/lib/feed";
-import { usersSelect, toUserSummary, type UserPage } from "@/lib/users";
+import { usersSelect, toUserSummary, type UserSummary } from "@/lib/users";
+import type { Page } from "@/lib/pagination";
 
 /** Cursor-paginated users directory. `cursor` is the last user id of the prior page. */
 export async function loadMoreUsers({
   cursor,
 }: {
   cursor: string;
-}): Promise<UserPage> {
+}): Promise<Page<UserSummary>> {
   const rows = await prisma.user.findMany({
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,

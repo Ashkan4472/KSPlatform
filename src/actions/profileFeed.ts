@@ -5,9 +5,8 @@ import { getCurrentUser } from "@/lib/session";
 import type { FeedPost } from "@/components/feed/PostCard";
 import { FEED_PAGE_SIZE, postFeedInclude, toFeedPost } from "@/lib/feed";
 import { tweetInclude, toTweetView, type TweetView } from "@/lib/tweets";
-
-export type ProfilePostPage = { items: FeedPost[]; nextCursor: string | null };
-export type ProfileTweetPage = { items: TweetView[]; nextCursor: string | null };
+import type { Page } from "@/lib/pagination";
+import { idCursorArgs } from "@/lib/pagination";
 
 /** A user's posts, newest first. Drafts are included only for the owner. */
 export async function loadUserPosts({
@@ -16,7 +15,7 @@ export async function loadUserPosts({
 }: {
   userId: string;
   cursor?: string | null;
-}): Promise<ProfilePostPage> {
+}): Promise<Page<FeedPost>> {
   const viewer = await getCurrentUser();
   const isOwner = viewer?.id === userId;
 
@@ -27,7 +26,7 @@ export async function loadUserPosts({
     },
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
-    ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+    ...idCursorArgs(cursor),
     include: postFeedInclude,
   });
 
@@ -45,14 +44,14 @@ export async function loadUserTweets({
 }: {
   userId: string;
   cursor?: string | null;
-}): Promise<ProfileTweetPage> {
+}): Promise<Page<TweetView>> {
   const viewer = await getCurrentUser();
 
   const rows = await prisma.tweet.findMany({
     where: { authorId: userId },
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
-    ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+    ...idCursorArgs(cursor),
     include: tweetInclude(viewer?.id),
   });
 

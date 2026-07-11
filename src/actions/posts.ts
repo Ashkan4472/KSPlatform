@@ -8,8 +8,7 @@ import { postSchema, type PostInput } from "@/lib/validation";
 import { uniqueSlug } from "@/lib/slug";
 import { excerptFromMarkdown } from "@/lib/markdown";
 import { resolveTagIds, notifySubscribers } from "@/lib/tagging";
-
-type ActionResult = { error?: string };
+import type { ActionResult } from "@/lib/actions";
 
 export async function createPostAction(input: PostInput): Promise<ActionResult> {
   const userId = await requireUserId();

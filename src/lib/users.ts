@@ -8,8 +8,6 @@ export type UserSummary = {
   tweetCount: number;
 };
 
-export type UserPage = { items: UserSummary[]; nextCursor: string | null };
-
 export const usersSelect = {
   id: true,
   name: true,

@@ -5,9 +5,7 @@ import { getCurrentUser } from "@/lib/session";
 import type { FeedPost } from "@/components/feed/PostCard";
 import { FEED_PAGE_SIZE, postFeedInclude, toFeedPost } from "@/lib/feed";
 import { tweetInclude, toTweetView, type TweetView } from "@/lib/tweets";
-
-export type PostSearchPage = { items: FeedPost[]; nextCursor: string | null };
-export type TweetSearchPage = { items: TweetView[]; nextCursor: string | null };
+import type { Page } from "@/lib/pagination";
 
 const MAX_Q = 100;
 
@@ -30,7 +28,7 @@ export async function searchPosts({
 }: {
   q: string;
   cursor?: string | null;
-}): Promise<PostSearchPage> {
+}): Promise<Page<FeedPost>> {
   const query = normalize(q);
   if (!query) return { items: [], nextCursor: null };
   const offset = parseOffset(cursor);
@@ -69,7 +67,7 @@ export async function searchTweets({
 }: {
   q: string;
   cursor?: string | null;
-}): Promise<TweetSearchPage> {
+}): Promise<Page<TweetView>> {
   const query = normalize(q);
   if (!query) return { items: [], nextCursor: null };
   const offset = parseOffset(cursor);

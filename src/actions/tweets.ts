@@ -12,8 +12,8 @@ import {
   type TweetView,
 } from "@/lib/tweets";
 import { FEED_PAGE_SIZE, type FeedFilter } from "@/lib/feed";
-
-type ActionResult = { error?: string };
+import type { ActionResult } from "@/lib/actions";
+import type { Page } from "@/lib/pagination";
 
 export async function createTweetAction(
   input: TweetInput,
@@ -78,8 +78,6 @@ export async function toggleTweetLikeAction(
   return { active: !existing, count };
 }
 
-export type TweetPage = { items: TweetView[]; nextCursor: string | null };
-
 /** Cursor-paginated tweets feed (cursor = last tweet id of the prior page). */
 export async function loadMoreTweets({
   filter,
@@ -89,7 +87,7 @@ export async function loadMoreTweets({
   filter: FeedFilter;
   tag?: string;
   cursor: string;
-}): Promise<TweetPage> {
+}): Promise<Page<TweetView>> {
   const user = await getCurrentUser();
   const rows = await prisma.tweet.findMany({
     where: tweetFeedWhere({ filter, tag, userId: user?.id }),

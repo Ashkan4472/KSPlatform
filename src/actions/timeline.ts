@@ -12,12 +12,11 @@ import {
 import { tweetInclude, tweetFeedWhere, toTweetView } from "@/lib/tweets";
 import type { FeedPost } from "@/components/feed/PostCard";
 import type { TweetView } from "@/lib/tweets";
+import type { Page } from "@/lib/pagination";
 
 export type FeedItem =
   | { kind: "post"; sortAt: string; post: FeedPost }
   | { kind: "tweet"; sortAt: string; tweet: TweetView };
-
-export type TimelinePage = { items: FeedItem[]; nextCursor: string | null };
 
 /**
  * Unified home timeline merging posts and tweets, newest first.
@@ -31,7 +30,7 @@ export async function loadTimeline({
   filter: FeedFilter;
   tag?: string;
   cursor?: string | null;
-}): Promise<TimelinePage> {
+}): Promise<Page<FeedItem>> {
   const user = await getCurrentUser();
   const before = cursor ? new Date(cursor) : null;
 

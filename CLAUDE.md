@@ -110,3 +110,9 @@ The Docker stack runs on `localhost:3000`; Postgres on `5432`, MinIO on `9000/90
 Inspect the DB with `docker exec ksplatform-postgres-1 psql -U ksuser -d ksplatform`.
 Logins: `demo@ksplatform.dev` (user) and `admin@ksplatform.dev` (admin) — both
 `password123`. Roles can be changed by hand in the DB (effective next login).
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan:
+specs/002-consolidate-pagination-contract/plan.md
+<!-- SPECKIT END -->

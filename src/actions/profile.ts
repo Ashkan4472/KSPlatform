@@ -4,8 +4,7 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { requireUserId } from "@/lib/session";
 import { profileSchema } from "@/lib/validation";
-
-type ActionResult = { error?: string; ok?: boolean };
+import type { ActionResult } from "@/lib/actions";
 
 export async function updateProfileAction(
   _prev: ActionResult,

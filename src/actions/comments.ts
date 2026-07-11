@@ -4,8 +4,7 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { requireUserId, isAdmin } from "@/lib/session";
 import { commentSchema } from "@/lib/validation";
-
-type ActionResult = { error?: string };
+import type { ActionResult } from "@/lib/actions";
 
 export async function addCommentAction(input: {
   postId?: string;

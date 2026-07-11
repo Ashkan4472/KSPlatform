@@ -4,8 +4,9 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/session";
 import { FEED_PAGE_SIZE } from "@/lib/feed";
-
-type ActionResult = { error?: string };
+import type { ActionResult } from "@/lib/actions";
+import type { Page } from "@/lib/pagination";
+import { idCursorArgs } from "@/lib/pagination";
 
 export type AdminUserRow = {
   id: string;
@@ -30,8 +31,6 @@ export type AdminTweetRow = {
   authorName: string;
 };
 
-type Page<T> = { items: T[]; nextCursor: string | null };
-
 export async function adminListUsers({
   cursor,
 }: {
@@ -41,7 +40,7 @@ export async function adminListUsers({
   const rows = await prisma.user.findMany({
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
-    ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+    ...idCursorArgs(cursor),
     select: {
       id: true,
       name: true,
@@ -75,7 +74,7 @@ export async function adminListPosts({
   const rows = await prisma.post.findMany({
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
-    ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+    ...idCursorArgs(cursor),
     select: {
       id: true,
       slug: true,
@@ -105,7 +104,7 @@ export async function adminListTweets({
   const rows = await prisma.tweet.findMany({
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
-    ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+    ...idCursorArgs(cursor),
     select: {
       id: true,
       body: true,

@@ -2,8 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
-
-type Page<T> = { items: T[]; nextCursor: string | null };
+import type { Page } from "@/lib/pagination";
 
 type Props<T> = {
   initialItems: T[];
