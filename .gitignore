@@ -52,3 +52,8 @@ next-env.d.ts
 /graphify-out/.graphify_python
 /graphify-out/.graphify_root
 /graphify-out/cost.json
+
+# extension/: separate sub-project, own deps and build output
+/extension/node_modules
+/extension/dist
+/extension/*.tsbuildinfo

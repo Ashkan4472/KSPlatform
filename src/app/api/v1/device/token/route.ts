@@ -1,8 +1,16 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { generateAccessToken, hashToken } from "@/lib/extensionAuth";
+import {
+  generateAccessToken,
+  hashToken,
+  corsJson,
+  corsPreflight,
+} from "@/lib/extensionAuth";
 import { deviceCodeSchema } from "@/lib/validation";
+
+export async function OPTIONS(request: NextRequest) {
+  return corsPreflight(request);
+}
 
 /**
  * specs/003: extension polls for approval.
@@ -16,7 +24,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
   const parsed = deviceCodeSchema.safeParse(body);
   if (!parsed.success) {
-    return NextResponse.json({ error: "expired_token" }, { status: 400 });
+    return corsJson(request, { error: "expired_token" }, { status: 400 });
   }
 
   const grant = await prisma.deviceGrant.findUnique({
@@ -25,7 +33,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (!grant) {
-    return NextResponse.json({ error: "expired_token" }, { status: 400 });
+    return corsJson(request, { error: "expired_token" }, { status: 400 });
   }
 
   if (grant.status === "PENDING" && grant.expiresAt < new Date()) {
@@ -33,15 +41,16 @@ export async function POST(request: NextRequest) {
       where: { id: grant.id },
       data: { status: "EXPIRED" },
     });
-    return NextResponse.json({ error: "expired_token" }, { status: 400 });
+    return corsJson(request, { error: "expired_token" }, { status: 400 });
   }
 
   if (grant.status === "PENDING") {
-    return NextResponse.json({ status: "authorization_pending" }, { status: 202 });
+    return corsJson(request, { status: "authorization_pending" }, { status: 202 });
   }
 
   if (grant.status === "DENIED" || grant.status === "EXPIRED") {
-    return NextResponse.json(
+    return corsJson(
+      request,
       { error: grant.status === "DENIED" ? "access_denied" : "expired_token" },
       { status: 400 },
     );
@@ -50,10 +59,10 @@ export async function POST(request: NextRequest) {
   // APPROVED. Issue the token on first retrieval only.
   if (grant.token) {
     // Already consumed by an earlier poll — nothing left to hand out.
-    return NextResponse.json({ error: "expired_token" }, { status: 400 });
+    return corsJson(request, { error: "expired_token" }, { status: 400 });
   }
   if (!grant.userId) {
-    return NextResponse.json({ error: "expired_token" }, { status: 400 });
+    return corsJson(request, { error: "expired_token" }, { status: 400 });
   }
 
   const rawToken = generateAccessToken();
@@ -67,7 +76,7 @@ export async function POST(request: NextRequest) {
     },
   });
 
-  return NextResponse.json({
+  return corsJson(request, {
     access_token: rawToken,
     token_type: "Bearer",
     label,

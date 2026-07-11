@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "src/generated/**",
     ".remember/**",
+    // extension/ is a separate sub-project with its own eslint.config.js
+    "extension/**",
   ]),
 ]);
 

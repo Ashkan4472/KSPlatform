@@ -64,13 +64,46 @@ export async function requireBearerAuth(
   const header = request.headers.get("authorization") ?? "";
   const raw = header.startsWith("Bearer ") ? header.slice(7) : "";
   if (!raw) {
-    return NextResponse.json({ error: "reauthenticate_required" }, { status: 401 });
+    return corsJson(request, { error: "reauthenticate_required" }, { status: 401 });
   }
   const auth = await verifyAccessToken(raw);
   if (!auth) {
-    return NextResponse.json({ error: "reauthenticate_required" }, { status: 401 });
+    return corsJson(request, { error: "reauthenticate_required" }, { status: 401 });
   }
   return auth;
+}
+
+// Only the browser-extension origins this API is meant for (Constitution
+// Principle VII) get CORS access — not an open "*", which would let any
+// website's JS call these endpoints from a visitor's browser too.
+const ALLOWED_ORIGIN = /^(chrome|moz)-extension:\/\//;
+
+function corsHeaders(request: NextRequest): HeadersInit {
+  const origin = request.headers.get("origin");
+  if (!origin || !ALLOWED_ORIGIN.test(origin)) return {};
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Authorization, Content-Type",
+    Vary: "Origin",
+  };
+}
+
+/** Every /api/v1/* handler should return via this instead of NextResponse.json directly. */
+export function corsJson(
+  request: NextRequest,
+  body: unknown,
+  init?: { status?: number },
+): NextResponse {
+  return NextResponse.json(body, {
+    status: init?.status,
+    headers: corsHeaders(request),
+  });
+}
+
+/** Every /api/v1/* route file should export this verbatim for CORS preflight. */
+export function corsPreflight(request: NextRequest): NextResponse {
+  return new NextResponse(null, { status: 204, headers: corsHeaders(request) });
 }
 
 const RATE_LIMIT_WINDOW_MS = 60_000;

@@ -1,9 +1,18 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { generateDeviceCode, generateUserCode, isRateLimited } from "@/lib/extensionAuth";
+import {
+  generateDeviceCode,
+  generateUserCode,
+  isRateLimited,
+  corsJson,
+  corsPreflight,
+} from "@/lib/extensionAuth";
 
 const CODE_TTL_MS = 10 * 60 * 1000;
+
+export async function OPTIONS(request: NextRequest) {
+  return corsPreflight(request);
+}
 
 /**
  * specs/003: unauthenticated extension requests a connection code.
@@ -12,10 +21,7 @@ const CODE_TTL_MS = 10 * 60 * 1000;
 export async function POST(request: NextRequest) {
   const ip = request.headers.get("x-forwarded-for") ?? "unknown";
   if (isRateLimited(`device-code:${ip}`)) {
-    return NextResponse.json(
-      { error: "rate_limited", retry_after: 30 },
-      { status: 429 },
-    );
+    return corsJson(request, { error: "rate_limited", retry_after: 30 }, { status: 429 });
   }
 
   let userCode = generateUserCode();
@@ -37,7 +43,7 @@ export async function POST(request: NextRequest) {
   });
 
   const origin = request.nextUrl.origin;
-  return NextResponse.json({
+  return corsJson(request, {
     device_code: grant.deviceCode,
     user_code: grant.userCode,
     verification_uri: `${origin}/connect`,
