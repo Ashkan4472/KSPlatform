@@ -29,6 +29,7 @@ on port 3000.
   - [Search & tag trends (pg_trgm)](#search--tag-trends-pg_trgm)
   - [Theming & fonts (combinable)](#theming--fonts-combinable)
   - [Notifications](#notifications)
+  - [Connecting an extension](#connecting-an-extension)
 - [Project layout](#project-layout)
 - [Development](#development)
 - [Production deployment](#production-deployment)
@@ -276,6 +277,27 @@ five newest axes share one generic `AppearancePicker`.
   `src/lib/tagging.ts`.
 - The navbar bell shows the unread count; `/notifications` lists them (post or tweet)
   and supports mark-one / mark-all-read.
+
+### Connecting an extension
+
+A non-browser client (like the KSPlatform browser extension) can't use the
+web app's cookie-based session, so it connects via a short device-flow
+grant instead of ever handling your password:
+
+1. The extension requests a code from `POST /api/v1/device/code` and shows
+   you a short, human-typeable code (e.g. `WXYZ-1234`).
+2. You approve it at [`/connect`](/connect) while signed in — this binds
+   the code to your account, nothing else.
+3. The extension exchanges the approved code for a bearer token via
+   `POST /api/v1/device/token`, then authenticates future
+   `/api/v1/*` requests with `Authorization: Bearer <token>`.
+4. Manage or revoke connected extensions any time at
+   [`/settings/connections`](/settings/connections) — revoking takes effect
+   on the extension's very next request.
+
+Codes expire after 10 minutes if unapproved; issuance and polling are
+rate-limited per caller. See `specs/003-extension-device-auth/` for the full
+spec, plan, and contracts.
 
 ---
 

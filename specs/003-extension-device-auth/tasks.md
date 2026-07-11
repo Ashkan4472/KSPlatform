@@ -109,12 +109,12 @@ No additional foundational work — T001-T003 unblock every user story.
 
 ## Phase 5: Polish & Cross-Cutting Concerns
 
-- [ ] T013 Run `npx tsc --noEmit` (Verification Gate)
-- [ ] T014 Run `npm run lint` (Verification Gate)
-- [ ] T015 Run the full `quickstart.md` manual smoke test (all 7 steps)
+- [X] T013 Run `npx tsc --noEmit` (Verification Gate)
+- [X] T014 Run `npm run lint` (Verification Gate)
+- [X] T015 Run the full `quickstart.md` manual smoke test (all 7 steps)
   against the Docker stack, including the rate-limit (SC-004) and expiry
   (step 7) cases
-- [ ] T016 Update `README.md` with a short "Connecting an extension"
+- [X] T016 Update `README.md` with a short "Connecting an extension"
   section once this feature is verified end-to-end (constitution Sync
   Impact Report flagged this as a pending doc follow-up)
 
