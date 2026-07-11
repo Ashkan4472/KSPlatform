@@ -590,8 +590,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783784853.9699185,
-    "ast_hash": "bfcdf4dd435bd1d19e778fce941e4f75",
+    "mtime": 1783785734.4940012,
+    "ast_hash": "708d0c79ae3bd24db2aa511a118b5094",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -935,8 +935,8 @@
     "semantic_hash": ""
   },
   "specs/004-extension-newtab-feed/tasks.md": {
-    "mtime": 1783784880.7864318,
-    "ast_hash": "170d5b44390215f2cb9e4dcfa46e7336",
+    "mtime": 1783785846.7892332,
+    "ast_hash": "8e1917cfde094b118c04b1a6b226b2cc",
     "semantic_hash": ""
   },
   "prisma/migrations/20260711140504_add_extension_device_auth/migration.sql": {
@@ -995,8 +995,8 @@
     "semantic_hash": ""
   },
   "extension/package.json": {
-    "mtime": 1783784420.3137012,
-    "ast_hash": "54ee751c79c9b3083e63783e6134ca2f",
+    "mtime": 1783785434.7014413,
+    "ast_hash": "ae930940663171e3e0e81a5e4a4803a6",
     "semantic_hash": ""
   },
   "extension/src/background.ts": {
