@@ -587,11 +587,28 @@ npm run build:chrome    # → extension/dist
 npm run build:firefox   # → extension/dist-firefox
 ```
 
-Load it unpacked:
+Load it unpacked (for local development):
 
 - **Chrome**: `chrome://extensions` → Developer mode → Load unpacked → `extension/dist`
 - **Firefox**: `about:debugging#/runtime/this-firefox` → Load Temporary Add-on →
   `extension/dist-firefox/manifest.json`
+
+To hand someone a single file instead of a folder:
+
+```bash
+npm run package:chrome    # → extension/ksplatform-extension-chrome.zip
+npm run package:firefox   # → extension/ksplatform-extension-firefox.xpi
+npm run package           # both, in one command
+```
+
+Each is a single, self-contained archive with `manifest.json` at its root —
+upload the `.zip` to the Chrome Web Store or the `.xpi` to
+addons.mozilla.org as-is, or share the file directly with someone who can
+unzip it and Load unpacked themselves. Neither browser allows a plain
+double-click install of an unsigned package (that's a security boundary
+both vendors enforce), so a store listing (or an internal/enterprise
+distribution policy) is what turns this into a one-click install for
+end users.
 
 One manifest source (`extension/manifest.config.ts`) generates both browser
 targets — see `specs/004-extension-newtab-feed/` for the full spec, plan,

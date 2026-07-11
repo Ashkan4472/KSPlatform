@@ -57,4 +57,6 @@ next-env.d.ts
 /extension/node_modules
 /extension/dist
 /extension/dist-firefox
+/extension/*.zip
+/extension/*.xpi
 /extension/*.tsbuildinfo

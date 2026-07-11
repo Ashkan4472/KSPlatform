@@ -135,6 +135,13 @@ never a blank page or crash.
   (SC-003 requires both, not just Chrome)
 - [X] T019 Update `README.md` with an "Extension" section (build/load
   instructions) once verified in both browsers
+- [X] T020 (added post-launch) Add `package:chrome`/`package:firefox`/
+  `package` npm scripts zipping each build output into a single
+  distributable file (`ksplatform-extension-chrome.zip`,
+  `ksplatform-extension-firefox.xpi`) with `manifest.json` at the archive
+  root, for store upload or direct file-sharing; documented in README
+  alongside a note that browsers block plain double-click install of an
+  unsigned package regardless of it being a single file.
 
 ---
 

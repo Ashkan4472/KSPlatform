@@ -8,6 +8,9 @@
     "build": "npm run build:chrome",
     "build:chrome": "tsc --noEmit && vite build --outDir dist",
     "build:firefox": "tsc --noEmit && TARGET_BROWSER=firefox vite build --outDir dist-firefox",
+    "package:chrome": "npm run build:chrome && rm -f ksplatform-extension-chrome.zip && cd dist && zip -qr ../ksplatform-extension-chrome.zip .",
+    "package:firefox": "npm run build:firefox && rm -f ksplatform-extension-firefox.xpi && cd dist-firefox && zip -qr ../ksplatform-extension-firefox.xpi .",
+    "package": "npm run package:chrome && npm run package:firefox",
     "lint": "eslint ."
   },
   "dependencies": {
