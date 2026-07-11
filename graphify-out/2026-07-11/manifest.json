@@ -560,9 +560,9 @@
     "semantic_hash": "5a6fd53fdcf2be529e9cc0b718fde352"
   },
   "src/lib/validation.ts": {
-    "mtime": 1781898601.3531036,
-    "ast_hash": "a23989ed8b12c48388df24091d8f2790",
-    "semantic_hash": "a23989ed8b12c48388df24091d8f2790"
+    "mtime": 1783778835.449234,
+    "ast_hash": "9d4d95fbf1e9fbd7068befd5992e5b2f",
+    "semantic_hash": ""
   },
   "src/types/next-auth.d.ts": {
     "mtime": 1781898908.6770012,
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   ".specify/feature.json": {
-    "mtime": 1783753541.2043412,
-    "ast_hash": "99eaa931996ef979c86ac33069d209c3",
+    "mtime": 1783778462.1415794,
+    "ast_hash": "2050323f453860cb675c1a354636828c",
     "semantic_hash": ""
   },
   ".specify/init-options.json": {
@@ -900,8 +900,8 @@
     "semantic_hash": ""
   },
   "specs/003-extension-device-auth/tasks.md": {
-    "mtime": 1783753482.6128304,
-    "ast_hash": "9241ed71a9366578e04b036423b0a39e",
+    "mtime": 1783780362.3572247,
+    "ast_hash": "0dcdd6f668c2ac11ec6d85943f1d21b9",
     "semantic_hash": ""
   },
   "specs/004-extension-newtab-feed/checklists/requirements.md": {
@@ -937,6 +937,51 @@
   "specs/004-extension-newtab-feed/tasks.md": {
     "mtime": 1783753839.3043509,
     "ast_hash": "e74b0354a33db24810a749d9de93f1e7",
+    "semantic_hash": ""
+  },
+  "prisma/migrations/20260711140504_add_extension_device_auth/migration.sql": {
+    "mtime": 1783778751.9851637,
+    "ast_hash": "50cac18f88a9c8fd08b9297ebdb8603b",
+    "semantic_hash": ""
+  },
+  "src/actions/deviceAuth.ts": {
+    "mtime": 1783778969.3236387,
+    "ast_hash": "ba3583fddddfbb1aacb264007cfeaf80",
+    "semantic_hash": ""
+  },
+  "src/app/api/v1/device/code/route.ts": {
+    "mtime": 1783778872.3054473,
+    "ast_hash": "df4839ea242794813053003dcf562fd8",
+    "semantic_hash": ""
+  },
+  "src/app/api/v1/device/token/route.ts": {
+    "mtime": 1783778902.481979,
+    "ast_hash": "2617a8ae25c81b90a6db6de1988a7160",
+    "semantic_hash": ""
+  },
+  "src/app/connect/page.tsx": {
+    "mtime": 1783778994.193633,
+    "ast_hash": "f6d228a908c2f406c64d95b12b0f34c6",
+    "semantic_hash": ""
+  },
+  "src/components/connect/ConnectForm.tsx": {
+    "mtime": 1783779087.526877,
+    "ast_hash": "48deb97bb654628d3c47c1c822285d0a",
+    "semantic_hash": ""
+  },
+  "src/lib/extensionAuth.ts": {
+    "mtime": 1783780332.9687824,
+    "ast_hash": "f55d98efed0081ddfc7cf20797afabe1",
+    "semantic_hash": ""
+  },
+  "src/app/settings/connections/page.tsx": {
+    "mtime": 1783780306.1053176,
+    "ast_hash": "cfa647acfc7a2f4e083cfe6dae99d496",
+    "semantic_hash": ""
+  },
+  "src/components/settings/ConnectionsList.tsx": {
+    "mtime": 1783780721.3097558,
+    "ast_hash": "9d22d19c28532fc1d94e2c7a8ea5ff5e",
     "semantic_hash": ""
   }
 }

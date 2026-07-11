@@ -1,16 +1,16 @@
 # Graph Report - KSPlatform  (2026-07-11)
 
 ## Corpus Check
-- 185 files · ~70,317 words
+- 187 files · ~70,830 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1067 nodes · 1842 edges · 92 communities (69 shown, 23 thin omitted)
-- Extraction: 99% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 9 edges (avg confidence: 0.78)
+- 1041 nodes · 1830 edges · 77 communities (61 shown, 16 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 9 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `34463da4`
+- Built from commit: `e424550e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -30,22 +30,16 @@
 - [[_COMMUNITY_Admin Moderation Actions|Admin Moderation Actions]]
 - [[_COMMUNITY_TypeScript Config|TypeScript Config]]
 - [[_COMMUNITY_Auth & Session Helpers|Auth & Session Helpers]]
-- [[_COMMUNITY_Auth Actions & S3 Uploads|Auth Actions & S3 Uploads]]
 - [[_COMMUNITY_Root Layout & Navbar|Root Layout & Navbar]]
 - [[_COMMUNITY_Notifications UI & Actions|Notifications UI & Actions]]
-- [[_COMMUNITY_Prisma Data Model|Prisma Data Model]]
 - [[_COMMUNITY_Project Overview & Stack|Project Overview & Stack]]
-- [[_COMMUNITY_Unified Timeline|Unified Timeline]]
 - [[_COMMUNITY_DB Seeding|DB Seeding]]
 - [[_COMMUNITY_Trigram Search|Trigram Search]]
 - [[_COMMUNITY_Size Appearance Axis|Size Appearance Axis]]
-- [[_COMMUNITY_Infinite Scroll Pattern|Infinite Scroll Pattern]]
 - [[_COMMUNITY_React Compiler Lint Gotchas|React Compiler Lint Gotchas]]
 - [[_COMMUNITY_Server Actions Convention|Server Actions Convention]]
-- [[_COMMUNITY_Comment Thread Components|Comment Thread Components]]
 - [[_COMMUNITY_Auth.js Type Augmentation|Auth.js Type Augmentation]]
 - [[_COMMUNITY_Comment Query Helpers|Comment Query Helpers]]
-- [[_COMMUNITY_User List Loading|User List Loading]]
 - [[_COMMUNITY_Docker Entrypoint|Docker Entrypoint]]
 - [[_COMMUNITY_ESLint Config|ESLint Config]]
 - [[_COMMUNITY_Next.js Config|Next.js Config]]
@@ -60,7 +54,6 @@
 - [[_COMMUNITY_File Icon Asset|File Icon Asset]]
 - [[_COMMUNITY_Globe Icon Asset|Globe Icon Asset]]
 - [[_COMMUNITY_Window Icon Asset|Window Icon Asset]]
-- [[_COMMUNITY_App Router Rendering Model|App Router Rendering Model]]
 - [[_COMMUNITY_Community 48|Community 48]]
 - [[_COMMUNITY_Community 49|Community 49]]
 - [[_COMMUNITY_Community 50|Community 50]]
@@ -75,19 +68,12 @@
 - [[_COMMUNITY_Community 59|Community 59]]
 - [[_COMMUNITY_Community 60|Community 60]]
 - [[_COMMUNITY_Community 61|Community 61]]
-- [[_COMMUNITY_Community 62|Community 62]]
 - [[_COMMUNITY_Community 63|Community 63]]
 - [[_COMMUNITY_Community 64|Community 64]]
-- [[_COMMUNITY_Community 66|Community 66]]
-- [[_COMMUNITY_Community 67|Community 67]]
 - [[_COMMUNITY_Community 68|Community 68]]
 - [[_COMMUNITY_Community 69|Community 69]]
 - [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
-- [[_COMMUNITY_Community 72|Community 72]]
-- [[_COMMUNITY_Community 73|Community 73]]
-- [[_COMMUNITY_Community 74|Community 74]]
-- [[_COMMUNITY_Community 75|Community 75]]
 - [[_COMMUNITY_Community 76|Community 76]]
 - [[_COMMUNITY_Community 77|Community 77]]
 - [[_COMMUNITY_Community 78|Community 78]]
@@ -102,32 +88,31 @@
 - [[_COMMUNITY_Community 87|Community 87]]
 - [[_COMMUNITY_Community 88|Community 88]]
 - [[_COMMUNITY_Community 89|Community 89]]
-- [[_COMMUNITY_Community 90|Community 90]]
-- [[_COMMUNITY_Community 91|Community 91]]
+- [[_COMMUNITY_Community 92|Community 92]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 80 edges
-2. `requireUserId()` - 32 edges
-3. `Button()` - 22 edges
+2. `requireUserId()` - 33 edges
+3. `Button()` - 23 edges
 4. `getCurrentUser()` - 22 edges
 5. `updatePreferencesAction()` - 16 edges
 6. `compilerOptions` - 16 edges
 7. `initialsOf()` - 15 edges
-8. `Tasks: [FEATURE NAME]` - 13 edges
-9. `Badge()` - 13 edges
-10. `tweetInclude()` - 13 edges
+8. `Architecture` - 14 edges
+9. `Tasks: [FEATURE NAME]` - 13 edges
+10. `Badge()` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `vercel.svg (Vercel triangle logo)` --conceptually_related_to--> `Production deployment notes`  [AMBIGUOUS]
-  public/vercel.svg → README.md
 - `next.svg (Next.js wordmark logo)` --conceptually_related_to--> `Next.js 16 (non-standard fork)`  [INFERRED]
   public/next.svg → AGENTS.md
+- `persist()` --calls--> `updatePreferencesAction()`  [EXTRACTED]
+  src/components/theme/AppearancePicker.tsx → src/actions/preferences.ts
+- `NotificationsPage()` --calls--> `requireUserId()`  [EXTRACTED]
+  src/app/notifications/page.tsx → src/lib/session.ts
 - `generateMetadata()` --calls--> `truncate()`  [INFERRED]
   src/app/tweets/[id]/page.tsx → src/lib/format.ts
-- `DropdownMenuCheckboxItem()` --calls--> `cn()`  [EXTRACTED]
-  src/components/ui/dropdown-menu.tsx → src/lib/utils.ts
-- `DropdownMenuRadioItem()` --calls--> `cn()`  [EXTRACTED]
-  src/components/ui/dropdown-menu.tsx → src/lib/utils.ts
+- `ProfilePage()` --calls--> `initialsOf()`  [INFERRED]
+  src/app/u/[id]/page.tsx → src/lib/format.ts
 
 ## Import Cycles
 - None detected.
@@ -137,27 +122,27 @@
 - **9-axis appearance/theming system** — claude_md_appearance_axes, claude_md_fonts_ts, claude_md_globals_css, claude_md_appearancepicker, claude_md_updatepreferencesaction, readme_layout_tsx, readme_providers_tsx [INFERRED 0.85]
 - **Dockerized dev/prod stack (app + postgres + minio + createbuckets)** — docker_compose_yml_app_service, docker_compose_yml_postgres_service, docker_compose_yml_minio_service, docker_compose_yml_createbuckets_service, readme_dockerfile, readme_docker_entrypoint_sh [EXTRACTED 1.00]
 
-## Communities (92 total, 23 thin omitted)
+## Communities (77 total, 16 thin omitted)
 
 ### Community 0 - "Feed & Filter UI"
 Cohesion: 0.32
 Nodes (7): loadMoreUsers(), RawUser, toUserSummary(), usersSelect, UserSummary, metadata, PeopleFeed()
 
 ### Community 1 - "Posts & Comments Actions"
-Cohesion: 0.05
-Nodes (51): deleteCommentAction(), approveDeviceCodeAction(), ExtensionConnectionRow, markAllNotificationsReadAction(), markNotificationReadAction(), createPostAction(), deletePostAction(), updatePostAction() (+43 more)
+Cohesion: 0.06
+Nodes (48): addCommentAction(), deleteCommentAction(), approveDeviceCodeAction(), ExtensionConnectionRow, listExtensionConnectionsAction(), revokeExtensionConnectionAction(), createPostAction(), deletePostAction() (+40 more)
 
 ### Community 2 - "Feed Loading & Comment UI"
 Cohesion: 0.07
 Nodes (25): Complexity Tracking, Constitution Check, Documentation (this feature), Implementation Plan: Browser Extension New-Tab Subscribed-Tags Feed, Project Structure, Source Code (repository root), Summary, Technical Context (+17 more)
 
 ### Community 3 - "Profile Feed & Search"
-Cohesion: 0.07
-Nodes (65): loadUserPosts(), loadUserTweets(), normalize(), parseOffset(), searchPosts(), searchTweets(), FeedItem, loadTimeline() (+57 more)
+Cohesion: 0.09
+Nodes (54): adminDeletePost(), adminDeleteTweet(), adminDeleteUser(), adminListPosts(), adminListTweets(), adminListUsers(), AdminPostRow, AdminTweetRow (+46 more)
 
 ### Community 4 - "Appearance & Prisma 7 Conventions"
-Cohesion: 0.08
-Nodes (26): app service, createbuckets service (minio/mc:latest), minio service (minio/minio:latest), miniodata volume, pgdata volume, postgres service (postgres:16-alpine), vercel.svg (Vercel triangle logo), ADMIN_EMAIL env var (+18 more)
+Cohesion: 0.33
+Nodes (6): app service, createbuckets service (minio/mc:latest), minio service (minio/minio:latest), miniodata volume, pgdata volume, postgres service (postgres:16-alpine)
 
 ### Community 5 - "Runtime Dependencies"
 Cohesion: 0.07
@@ -168,12 +153,12 @@ Cohesion: 0.14
 Nodes (14): devDependencies, eslint, eslint-config-next, prisma, tailwindcss, @tailwindcss/postcss, @tailwindcss/typography, tsx (+6 more)
 
 ### Community 7 - "Markdown, Uploads & Tags"
-Cohesion: 0.33
-Nodes (6): Editor & Markdown pipeline, Image uploads (MinIO/S3), PostActions.tsx, TiptapEditor.tsx, TweetComposer, src/app/api/upload/route.ts
+Cohesion: 0.06
+Nodes (32): Admin & moderation, Architecture, Authentication & roles, Code quality, Comments & threaded replies, Connecting an extension, Data model, Database & migrations (+24 more)
 
 ### Community 8 - "Appearance Constants"
-Cohesion: 0.15
-Nodes (24): updatePreferencesAction(), BORDER_DENSITIES, CARD_STYLES, isAccent(), isBase(), isBorderDensity(), isCardStyle(), isFontKey() (+16 more)
+Cohesion: 0.41
+Nodes (11): updatePreferencesAction(), isAccent(), isBase(), isBorderDensity(), isCardStyle(), isFontKey(), isRadius(), isShadow() (+3 more)
 
 ### Community 9 - "Appearance Pickers UI"
 Cohesion: 0.07
@@ -195,14 +180,6 @@ Nodes (24): Complexity Tracking, Constitution Check, Documentation (this feature
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
-### Community 14 - "Auth & Session Helpers"
-Cohesion: 0.40
-Nodes (5): Create-post write flow (PostForm → createPostAction → ...), createPostAction, Notifications, PostForm (client component), src/actions/posts.ts
-
-### Community 15 - "Auth Actions & S3 Uploads"
-Cohesion: 0.43
-Nodes (5): publicUrl(), s3, ALLOWED, EXT, POST()
-
 ### Community 16 - "Root Layout & Navbar"
 Cohesion: 0.07
 Nodes (26): Dependencies & Execution Order, Format: `[ID] [P?] [Story] Description`, Implementation for User Story 1, Implementation for User Story 2, Implementation for User Story 3, Implementation Strategy, Incremental Delivery, MVP First (User Story 1 Only) (+18 more)
@@ -211,17 +188,9 @@ Nodes (26): Dependencies & Execution Order, Format: `[ID] [P?] [Story] Descripti
 Cohesion: 0.08
 Nodes (25): 1. Initialize Analysis Context, 2. Load Artifacts (Progressive Disclosure), 3. Build Semantic Models, 4. Detection Passes (Token-Efficient Analysis), 5. Severity Assignment, 6. Produce Compact Analysis Report, 7. Provide Next Actions, 8. Offer Remediation (+17 more)
 
-### Community 18 - "Prisma Data Model"
-Cohesion: 0.31
-Nodes (11): Comment model (threaded replies), src/actions/comments.ts, Data model (User/Post/Tweet/Tag/Comment/...), Notification model, Post model, src/actions/search.ts, SearchBox (navbar), Tag model (+3 more)
-
 ### Community 19 - "Project Overview & Stack"
 Cohesion: 0.50
 Nodes (4): KSPlatform, Next.js 16 (non-standard fork), node_modules/next/dist/docs/ guides, next.svg (Next.js wordmark logo)
-
-### Community 20 - "Unified Timeline"
-Cohesion: 0.67
-Nodes (3): PostCard, TweetCard, UnifiedFeed
 
 ### Community 21 - "DB Seeding"
 Cohesion: 0.50
@@ -242,10 +211,6 @@ Nodes (3): get_feature_paths(), _persist_feature_json(), common.sh script
 ### Community 26 - "Server Actions Convention"
 Cohesion: 0.15
 Nodes (12): Assumptions, Edge Cases, Feature Specification: [FEATURE NAME], Functional Requirements, Key Entities *(include if feature involves data)*, Measurable Outcomes, Requirements *(mandatory)*, Success Criteria *(mandatory)* (+4 more)
-
-### Community 27 - "Comment Thread Components"
-Cohesion: 0.67
-Nodes (3): CommentForm, CommentItem, CommentSection
 
 ### Community 29 - "Comment Query Helpers"
 Cohesion: 0.17
@@ -327,33 +292,21 @@ Nodes (3): Behavior, Execution, Update Coding Agent Context
 Cohesion: 0.50
 Nodes (3): name, private, version
 
-### Community 62 - "Community 62"
-Cohesion: 0.50
-Nodes (4): src/app/layout.tsx (root layout), src/actions/preferences.ts (updatePreferencesAction), Providers.tsx (next-themes), Theming & fonts (9 composable axes)
-
 ### Community 63 - "Community 63"
 Cohesion: 0.50
 Nodes (3): Behavior, Execution, Update Coding Agent Context
 
-### Community 66 - "Community 66"
-Cohesion: 0.67
-Nodes (3): Features list, KSPlatform (project), Tech stack table
-
-### Community 67 - "Community 67"
-Cohesion: 0.67
-Nodes (3): src/app/api/tags/search/route.ts, TagSubscribeSearch, useTagSearch hook
-
 ### Community 76 - "Community 76"
 Cohesion: 0.06
-Nodes (55): addCommentAction(), ConnectForm(), Props, Props, TiptapEditor(), ToolbarButton(), buildHref(), FeedFilters() (+47 more)
+Nodes (55): ConfirmDialog(), ConnectForm(), Props, Props, TiptapEditor(), ToolbarButton(), buildHref(), FeedFilters() (+47 more)
 
 ### Community 77 - "Community 77"
 Cohesion: 0.13
-Nodes (17): Props, BASES, FontKey, FONTS, FontSelect(), ICONS, DropdownMenu(), DropdownMenuCheckboxItem() (+9 more)
+Nodes (17): Props, UserMenu(), FontKey, FONTS, FontSelect(), ICONS, DropdownMenu(), DropdownMenuCheckboxItem() (+9 more)
 
 ### Community 78 - "Community 78"
 Cohesion: 0.08
-Nodes (24): ACCENT_KEYS, AccentKey, ACCENTS, BaseKey, BORDER_DENSITY_KEYS, BorderDensityKey, CARD_STYLE_KEYS, CardStyleKey (+16 more)
+Nodes (25): ACCENT_KEYS, BaseKey, BASES, BORDER_DENSITY_KEYS, BorderDensityKey, CARD_STYLE_KEYS, CardStyleKey, FONT_KEYS (+17 more)
 
 ### Community 79 - "Community 79"
 Cohesion: 0.11
@@ -364,12 +317,12 @@ Cohesion: 0.12
 Nodes (15): Dependencies & Execution Order, Format: `[ID] [P?] [Story] Description`, Implementation for User Story 1, Implementation for User Story 2, Implementation Strategy, Incremental Delivery, MVP First (User Story 1 Only), Notes (+7 more)
 
 ### Community 81 - "Community 81"
-Cohesion: 0.27
-Nodes (15): adminDeletePost(), adminDeleteTweet(), adminDeleteUser(), adminListPosts(), adminListTweets(), adminListUsers(), AdminPostRow, AdminTweetRow (+7 more)
+Cohesion: 0.11
+Nodes (30): markAllNotificationsReadAction(), markNotificationReadAction(), CommentForm(), CommentItem(), Row(), CommentSection(), PostCard(), author (+22 more)
 
 ### Community 82 - "Community 82"
-Cohesion: 0.17
-Nodes (9): metadata, Navbar(), SearchBox(), UserMenu(), BASE_KEYS, fontVariables, Providers(), ThemeToggle() (+1 more)
+Cohesion: 0.07
+Nodes (22): AuthFormState, loginAction(), logoutAction(), signupAction(), metadata, Navbar(), SearchBox(), BASE_KEYS (+14 more)
 
 ### Community 83 - "Community 83"
 Cohesion: 0.29
@@ -388,8 +341,8 @@ Cohesion: 0.33
 Nodes (5): Contract: GET /api/v1/feed, Request, Response `200`, Response `401`, Response `429`
 
 ### Community 87 - "Community 87"
-Cohesion: 0.28
-Nodes (9): POST(), generateAccessToken(), generateDeviceCode(), generateUserCode(), hashToken(), isRateLimited(), rateLimitHits, deviceCodeSchema (+1 more)
+Cohesion: 0.26
+Nodes (11): POST(), generateAccessToken(), generateDeviceCode(), generateUserCode(), hashToken(), isRateLimited(), rateLimitHits, requireBearerAuth() (+3 more)
 
 ### Community 88 - "Community 88"
 Cohesion: 0.50
@@ -399,33 +352,29 @@ Nodes (3): Data Model: Browser Extension Device-Flow Authentication, DeviceGrant
 Cohesion: 0.50
 Nodes (3): Client-side (extension) state, Data Model: Browser Extension New-Tab Subscribed-Tags Feed, Extension Feed Item (response shape, not a database entity)
 
-### Community 90 - "Community 90"
-Cohesion: 0.22
-Nodes (7): AuthFormState, loginAction(), logoutAction(), signupAction(), loginSchema, signupSchema, { handlers, auth, signIn, signOut }
-
-## Ambiguous Edges - Review These
-- `Production deployment notes` → `vercel.svg (Vercel triangle logo)`  [AMBIGUOUS]
-  public/vercel.svg · relation: conceptually_related_to
+### Community 92 - "Community 92"
+Cohesion: 0.13
+Nodes (14): AccentKey, ACCENTS, BORDER_DENSITIES, CARD_STYLES, RADII, SHADOWS, SURFACES, metadata (+6 more)
 
 ## Knowledge Gaps
-- **492 isolated node(s):** `Format: `[ID] [P?] [Story] Description``, `Phase 1: Setup (Shared Infrastructure)`, `Phase 2: Foundational`, `Implementation for User Story 1`, `Implementation for User Story 2` (+487 more)
+- **490 isolated node(s):** `Table of contents`, `Features`, `Tech stack`, `Request & rendering model`, `Data model` (+485 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What is the exact relationship between `Production deployment notes` and `vercel.svg (Vercel triangle logo)`?**
-  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `cn()` connect `Community 76` to `Posts & Comments Actions`, `Profile Feed & Search`, `Appearance Constants`, `Community 77`, `Community 78`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 76` to `Posts & Comments Actions`, `Profile Feed & Search`, `Community 77`, `Community 78`, `Community 81`, `Community 92`?**
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Why does `Button()` connect `Community 76` to `Posts & Comments Actions`, `Profile Feed & Search`, `Community 77`, `Community 81`, `Community 82`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
-- **Why does `requireUserId()` connect `Posts & Comments Actions` to `Appearance Constants`, `Profile Feed & Search`, `Community 76`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **Why does `requireUserId()` connect `Posts & Comments Actions` to `Profile Feed & Search`, `Appearance Constants`, `Community 76`, `Community 81`, `Community 92`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `getCurrentUser()` (e.g. with `ProfilePage()` and `TweetDetailPage()`) actually correct?**
   _`getCurrentUser()` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Format: `[ID] [P?] [Story] Description``, `Phase 1: Setup (Shared Infrastructure)`, `Phase 2: Foundational` to the rest of the system?**
-  _500 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Table of contents`, `Features`, `Tech stack` to the rest of the system?**
+  _490 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Posts & Comments Actions` be split into smaller, more focused modules?**
-  _Cohesion score 0.0518326545723806 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05583972719522592 - nodes in this community are weakly interconnected._
+- **Should `Feed Loading & Comment UI` be split into smaller, more focused modules?**
+  _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._

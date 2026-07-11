@@ -57,6 +57,336 @@
   },
   "nodes": [
     {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 7,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "KSPlatform \u2014 Knowledge Sharing Platform",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_ksplatform_knowledge_sharing_platform",
+      "community": 7,
+      "norm_label": "ksplatform \u2014 knowledge sharing platform"
+    },
+    {
+      "label": "Table of contents",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "readme_table_of_contents",
+      "community": 7,
+      "norm_label": "table of contents"
+    },
+    {
+      "label": "Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "readme_features",
+      "community": 7,
+      "norm_label": "features"
+    },
+    {
+      "label": "Tech stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "readme_tech_stack",
+      "community": 7,
+      "norm_label": "tech stack"
+    },
+    {
+      "label": "Architecture",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "readme_architecture",
+      "community": 7,
+      "norm_label": "architecture"
+    },
+    {
+      "label": "Request & rendering model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "readme_request_rendering_model",
+      "community": 7,
+      "norm_label": "request & rendering model"
+    },
+    {
+      "label": "Data model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "readme_data_model",
+      "community": 7,
+      "norm_label": "data model"
+    },
+    {
+      "label": "Authentication & roles",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "readme_authentication_roles",
+      "community": 7,
+      "norm_label": "authentication & roles"
+    },
+    {
+      "label": "Image uploads (MinIO / S3)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "readme_image_uploads_minio_s3",
+      "community": 7,
+      "norm_label": "image uploads (minio / s3)"
+    },
+    {
+      "label": "Editor & Markdown pipeline",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "readme_editor_markdown_pipeline",
+      "community": 7,
+      "norm_label": "editor & markdown pipeline"
+    },
+    {
+      "label": "Tweets & the unified timeline",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "readme_tweets_the_unified_timeline",
+      "community": 7,
+      "norm_label": "tweets & the unified timeline"
+    },
+    {
+      "label": "Pagination & infinite scroll",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "readme_pagination_infinite_scroll",
+      "community": 7,
+      "norm_label": "pagination & infinite scroll"
+    },
+    {
+      "label": "Comments & threaded replies",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L214",
+      "_origin": "ast",
+      "id": "readme_comments_threaded_replies",
+      "community": 7,
+      "norm_label": "comments & threaded replies"
+    },
+    {
+      "label": "Admin & moderation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L221",
+      "_origin": "ast",
+      "id": "readme_admin_moderation",
+      "community": 7,
+      "norm_label": "admin & moderation"
+    },
+    {
+      "label": "Search & tag trends (pg_trgm)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L228",
+      "_origin": "ast",
+      "id": "readme_search_tag_trends_pg_trgm",
+      "community": 7,
+      "norm_label": "search & tag trends (pg_trgm)"
+    },
+    {
+      "label": "Theming & fonts (combinable)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "_origin": "ast",
+      "id": "readme_theming_fonts_combinable",
+      "community": 7,
+      "norm_label": "theming & fonts (combinable)"
+    },
+    {
+      "label": "Notifications",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L272",
+      "_origin": "ast",
+      "id": "readme_notifications",
+      "community": 7,
+      "norm_label": "notifications"
+    },
+    {
+      "label": "Connecting an extension",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L281",
+      "_origin": "ast",
+      "id": "readme_connecting_an_extension",
+      "community": 7,
+      "norm_label": "connecting an extension"
+    },
+    {
+      "label": "Project layout",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L304",
+      "_origin": "ast",
+      "id": "readme_project_layout",
+      "community": 7,
+      "norm_label": "project layout"
+    },
+    {
+      "label": "Development",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L366",
+      "_origin": "ast",
+      "id": "readme_development",
+      "community": 7,
+      "norm_label": "development"
+    },
+    {
+      "label": "Prerequisites",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L368",
+      "_origin": "ast",
+      "id": "readme_prerequisites",
+      "community": 7,
+      "norm_label": "prerequisites"
+    },
+    {
+      "label": "Option A \u2014 full stack in Docker (closest to production)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L373",
+      "_origin": "ast",
+      "id": "readme_option_a_full_stack_in_docker_closest_to_production",
+      "community": 7,
+      "norm_label": "option a \u2014 full stack in docker (closest to production)"
+    },
+    {
+      "label": "Option B \u2014 app on the host, infra in Docker (fast iteration)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L392",
+      "_origin": "ast",
+      "id": "readme_option_b_app_on_the_host_infra_in_docker_fast_iteration",
+      "community": 7,
+      "norm_label": "option b \u2014 app on the host, infra in docker (fast iteration)"
+    },
+    {
+      "label": "Demo login",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L412",
+      "_origin": "ast",
+      "id": "readme_demo_login",
+      "community": 7,
+      "norm_label": "demo login"
+    },
+    {
+      "label": "Code quality",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L417",
+      "_origin": "ast",
+      "id": "readme_code_quality",
+      "community": 7,
+      "norm_label": "code quality"
+    },
+    {
+      "label": "Production deployment",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L427",
+      "_origin": "ast",
+      "id": "readme_production_deployment",
+      "community": 7,
+      "norm_label": "production deployment"
+    },
+    {
+      "label": "With docker-compose (single host)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L433",
+      "_origin": "ast",
+      "id": "readme_with_docker_compose_single_host",
+      "community": 7,
+      "norm_label": "with docker-compose (single host)"
+    },
+    {
+      "label": "Production checklist / notes",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L451",
+      "_origin": "ast",
+      "id": "readme_production_checklist_notes",
+      "community": 7,
+      "norm_label": "production checklist / notes"
+    },
+    {
+      "label": "Environment variables",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L479",
+      "_origin": "ast",
+      "id": "readme_environment_variables",
+      "community": 7,
+      "norm_label": "environment variables"
+    },
+    {
+      "label": "Database & migrations",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L515",
+      "_origin": "ast",
+      "id": "readme_database_migrations",
+      "community": 7,
+      "norm_label": "database & migrations"
+    },
+    {
+      "label": "npm scripts",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L558",
+      "_origin": "ast",
+      "id": "readme_npm_scripts",
+      "community": 7,
+      "norm_label": "npm scripts"
+    },
+    {
+      "label": "Troubleshooting",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L573",
+      "_origin": "ast",
+      "id": "readme_troubleshooting",
+      "community": 7,
+      "norm_label": "troubleshooting"
+    },
+    {
       "label": "tasks.md",
       "file_type": "document",
       "source_file": "specs/003-extension-device-auth/tasks.md",
@@ -217,134 +547,54 @@
       "norm_label": "notes"
     },
     {
-      "label": "deviceAuth.ts",
-      "file_type": "code",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "actions_deviceauth",
-      "community": 1,
-      "norm_label": "deviceauth.ts"
-    },
-    {
-      "label": "approveDeviceCodeAction()",
-      "file_type": "code",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "actions_deviceauth_approvedevicecodeaction",
-      "community": 1,
-      "norm_label": "approvedevicecodeaction()"
-    },
-    {
-      "label": "ExtensionConnectionRow",
-      "file_type": "code",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "actions_deviceauth_extensionconnectionrow",
-      "community": 1,
-      "norm_label": "extensionconnectionrow"
-    },
-    {
-      "label": "listExtensionConnectionsAction()",
-      "file_type": "code",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L51",
-      "_origin": "ast",
-      "id": "actions_deviceauth_listextensionconnectionsaction",
-      "community": 1,
-      "norm_label": "listextensionconnectionsaction()"
-    },
-    {
-      "label": "revokeExtensionConnectionAction()",
-      "file_type": "code",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L62",
-      "_origin": "ast",
-      "id": "actions_deviceauth_revokeextensionconnectionaction",
-      "community": 1,
-      "norm_label": "revokeextensionconnectionaction()"
-    },
-    {
-      "label": "route.ts",
-      "file_type": "code",
-      "source_file": "src/app/api/v1/device/code/route.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "code_route",
-      "community": 87,
-      "norm_label": "route.ts"
-    },
-    {
-      "label": "POST()",
-      "file_type": "code",
-      "source_file": "src/app/api/v1/device/code/route.ts",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "code_route_post",
-      "community": 87,
-      "norm_label": "post()"
-    },
-    {
-      "label": "route.ts",
-      "file_type": "code",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "token_route",
-      "community": 87,
-      "norm_label": "route.ts"
-    },
-    {
-      "label": "POST()",
-      "file_type": "code",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "token_route_post",
-      "community": 87,
-      "norm_label": "post()"
-    },
-    {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "src/app/connect/page.tsx",
+      "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "connect_page",
-      "community": 76,
-      "norm_label": "page.tsx"
+      "community": 1,
+      "norm_label": "page.tsx",
+      "id": "connections_page"
     },
     {
-      "label": "ConnectPage()",
+      "label": "ConnectionsPage()",
       "file_type": "code",
-      "source_file": "src/app/connect/page.tsx",
-      "source_location": "L4",
+      "source_file": "src/app/settings/connections/page.tsx",
+      "source_location": "L5",
       "_origin": "ast",
-      "id": "connect_page_connectpage",
-      "community": 76,
-      "norm_label": "connectpage()"
+      "community": 1,
+      "norm_label": "connectionspage()",
+      "id": "connections_page_connectionspage"
     },
     {
-      "label": "ConnectForm.tsx",
+      "label": "ConnectionsList.tsx",
       "file_type": "code",
-      "source_file": "src/components/connect/ConnectForm.tsx",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "connect_connectform",
-      "community": 76,
-      "norm_label": "connectform.tsx"
+      "community": 1,
+      "norm_label": "connectionslist.tsx",
+      "id": "settings_connectionslist"
     },
     {
-      "label": "ConnectForm()",
+      "label": "ConnectionRow()",
       "file_type": "code",
-      "source_file": "src/components/connect/ConnectForm.tsx",
-      "source_location": "L17",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L13",
       "_origin": "ast",
-      "id": "connect_connectform_connectform",
-      "community": 76,
-      "norm_label": "connectform()"
+      "community": 1,
+      "norm_label": "connectionrow()",
+      "id": "settings_connectionslist_connectionrow"
+    },
+    {
+      "label": "ConnectionsList()",
+      "file_type": "code",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "connectionslist()",
+      "id": "settings_connectionslist_connectionslist"
     },
     {
       "label": "extensionAuth.ts",
@@ -352,79 +602,219 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "lib_extensionauth",
       "community": 87,
-      "norm_label": "extensionauth.ts"
+      "norm_label": "extensionauth.ts",
+      "id": "lib_extensionauth"
     },
     {
       "label": "generateDeviceCode()",
       "file_type": "code",
       "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "_origin": "ast",
-      "id": "lib_extensionauth_generatedevicecode",
       "community": 87,
-      "norm_label": "generatedevicecode()"
+      "norm_label": "generatedevicecode()",
+      "id": "lib_extensionauth_generatedevicecode"
     },
     {
       "label": "generateUserCode()",
       "file_type": "code",
       "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L11",
+      "source_location": "L13",
       "_origin": "ast",
-      "id": "lib_extensionauth_generateusercode",
       "community": 87,
-      "norm_label": "generateusercode()"
+      "norm_label": "generateusercode()",
+      "id": "lib_extensionauth_generateusercode"
     },
     {
       "label": "generateAccessToken()",
       "file_type": "code",
       "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L19",
+      "source_location": "L21",
       "_origin": "ast",
-      "id": "lib_extensionauth_generateaccesstoken",
       "community": 87,
-      "norm_label": "generateaccesstoken()"
+      "norm_label": "generateaccesstoken()",
+      "id": "lib_extensionauth_generateaccesstoken"
     },
     {
       "label": "hashToken()",
       "file_type": "code",
       "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
-      "id": "lib_extensionauth_hashtoken",
       "community": 87,
-      "norm_label": "hashtoken()"
+      "norm_label": "hashtoken()",
+      "id": "lib_extensionauth_hashtoken"
     },
     {
       "label": "verifyAccessToken()",
       "file_type": "code",
       "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L33",
+      "source_location": "L35",
       "_origin": "ast",
-      "id": "lib_extensionauth_verifyaccesstoken",
       "community": 87,
-      "norm_label": "verifyaccesstoken()"
+      "norm_label": "verifyaccesstoken()",
+      "id": "lib_extensionauth_verifyaccesstoken"
+    },
+    {
+      "label": "requireBearerAuth()",
+      "file_type": "code",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L61",
+      "_origin": "ast",
+      "community": 87,
+      "norm_label": "requirebearerauth()",
+      "id": "lib_extensionauth_requirebearerauth"
     },
     {
       "label": "rateLimitHits",
       "file_type": "code",
       "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L54",
+      "source_location": "L78",
       "_origin": "ast",
-      "id": "lib_extensionauth_ratelimithits",
       "community": 87,
-      "norm_label": "ratelimithits"
+      "norm_label": "ratelimithits",
+      "id": "lib_extensionauth_ratelimithits"
     },
     {
       "label": "isRateLimited()",
       "file_type": "code",
       "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L86",
+      "_origin": "ast",
+      "community": 87,
+      "norm_label": "isratelimited()",
+      "id": "lib_extensionauth_isratelimited"
+    },
+    {
+      "label": "deviceAuth.ts",
+      "file_type": "code",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "deviceauth.ts",
+      "id": "actions_deviceauth"
+    },
+    {
+      "label": "approveDeviceCodeAction()",
+      "file_type": "code",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "approvedevicecodeaction()",
+      "id": "actions_deviceauth_approvedevicecodeaction"
+    },
+    {
+      "label": "ExtensionConnectionRow",
+      "file_type": "code",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L44",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "extensionconnectionrow",
+      "id": "actions_deviceauth_extensionconnectionrow"
+    },
+    {
+      "label": "listExtensionConnectionsAction()",
+      "file_type": "code",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L51",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "listextensionconnectionsaction()",
+      "id": "actions_deviceauth_listextensionconnectionsaction"
+    },
+    {
+      "label": "revokeExtensionConnectionAction()",
+      "file_type": "code",
+      "source_file": "src/actions/deviceAuth.ts",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "lib_extensionauth_isratelimited",
+      "community": 1,
+      "norm_label": "revokeextensionconnectionaction()",
+      "id": "actions_deviceauth_revokeextensionconnectionaction"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/v1/device/code/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
       "community": 87,
-      "norm_label": "isratelimited()"
+      "norm_label": "route.ts",
+      "id": "code_route"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/v1/device/code/route.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 87,
+      "norm_label": "post()",
+      "id": "code_route_post"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 87,
+      "norm_label": "route.ts",
+      "id": "token_route"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 87,
+      "norm_label": "post()",
+      "id": "token_route_post"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/connect/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 76,
+      "norm_label": "page.tsx",
+      "id": "connect_page"
+    },
+    {
+      "label": "ConnectPage()",
+      "file_type": "code",
+      "source_file": "src/app/connect/page.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "community": 76,
+      "norm_label": "connectpage()",
+      "id": "connect_page_connectpage"
+    },
+    {
+      "label": "ConnectForm.tsx",
+      "file_type": "code",
+      "source_file": "src/components/connect/ConnectForm.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 76,
+      "norm_label": "connectform.tsx",
+      "id": "connect_connectform"
+    },
+    {
+      "label": "ConnectForm()",
+      "file_type": "code",
+      "source_file": "src/components/connect/ConnectForm.tsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 76,
+      "norm_label": "connectform()",
+      "id": "connect_connectform_connectform"
     },
     {
       "label": "validation.ts",
@@ -432,9 +822,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "lib_validation",
       "community": 1,
-      "norm_label": "validation.ts"
+      "norm_label": "validation.ts",
+      "id": "lib_validation"
     },
     {
       "label": "signupSchema",
@@ -442,9 +832,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "lib_validation_signupschema",
-      "community": 90,
-      "norm_label": "signupschema"
+      "community": 82,
+      "norm_label": "signupschema",
+      "id": "lib_validation_signupschema"
     },
     {
       "label": "loginSchema",
@@ -452,9 +842,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "lib_validation_loginschema",
-      "community": 90,
-      "norm_label": "loginschema"
+      "community": 82,
+      "norm_label": "loginschema",
+      "id": "lib_validation_loginschema"
     },
     {
       "label": "postSchema",
@@ -462,9 +852,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "lib_validation_postschema",
       "community": 1,
-      "norm_label": "postschema"
+      "norm_label": "postschema",
+      "id": "lib_validation_postschema"
     },
     {
       "label": "tweetSchema",
@@ -472,9 +862,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "lib_validation_tweetschema",
       "community": 1,
-      "norm_label": "tweetschema"
+      "norm_label": "tweetschema",
+      "id": "lib_validation_tweetschema"
     },
     {
       "label": "deviceCodeSchema",
@@ -482,9 +872,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "lib_validation_devicecodeschema",
       "community": 87,
-      "norm_label": "devicecodeschema"
+      "norm_label": "devicecodeschema",
+      "id": "lib_validation_devicecodeschema"
     },
     {
       "label": "approveCodeSchema",
@@ -492,9 +882,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "lib_validation_approvecodeschema",
       "community": 1,
-      "norm_label": "approvecodeschema"
+      "norm_label": "approvecodeschema",
+      "id": "lib_validation_approvecodeschema"
     },
     {
       "label": "commentSchema",
@@ -502,9 +892,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "lib_validation_commentschema",
       "community": 1,
-      "norm_label": "commentschema"
+      "norm_label": "commentschema",
+      "id": "lib_validation_commentschema"
     },
     {
       "label": "TweetInput",
@@ -512,9 +902,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L56",
       "_origin": "ast",
-      "id": "lib_validation_tweetinput",
       "community": 1,
-      "norm_label": "tweetinput"
+      "norm_label": "tweetinput",
+      "id": "lib_validation_tweetinput"
     },
     {
       "label": "profileSchema",
@@ -522,9 +912,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L58",
       "_origin": "ast",
-      "id": "lib_validation_profileschema",
       "community": 1,
-      "norm_label": "profileschema"
+      "norm_label": "profileschema",
+      "id": "lib_validation_profileschema"
     },
     {
       "label": "SignupInput",
@@ -532,9 +922,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L64",
       "_origin": "ast",
-      "id": "lib_validation_signupinput",
       "community": 1,
-      "norm_label": "signupinput"
+      "norm_label": "signupinput",
+      "id": "lib_validation_signupinput"
     },
     {
       "label": "LoginInput",
@@ -542,9 +932,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L65",
       "_origin": "ast",
-      "id": "lib_validation_logininput",
       "community": 1,
-      "norm_label": "logininput"
+      "norm_label": "logininput",
+      "id": "lib_validation_logininput"
     },
     {
       "label": "PostInput",
@@ -552,9 +942,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L66",
       "_origin": "ast",
-      "id": "lib_validation_postinput",
       "community": 1,
-      "norm_label": "postinput"
+      "norm_label": "postinput",
+      "id": "lib_validation_postinput"
     },
     {
       "label": "constitution.md",
@@ -5008,7 +5398,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "admin.ts",
       "id": "actions_admin"
     },
@@ -5018,7 +5408,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "adminuserrow",
       "id": "actions_admin_adminuserrow"
     },
@@ -5028,7 +5418,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "adminpostrow",
       "id": "actions_admin_adminpostrow"
     },
@@ -5038,7 +5428,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "admintweetrow",
       "id": "actions_admin_admintweetrow"
     },
@@ -5048,7 +5438,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "adminlistusers()",
       "id": "actions_admin_adminlistusers"
     },
@@ -5058,7 +5448,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L68",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "adminlistposts()",
       "id": "actions_admin_adminlistposts"
     },
@@ -5068,7 +5458,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "adminlisttweets()",
       "id": "actions_admin_adminlisttweets"
     },
@@ -5078,7 +5468,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L124",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "admindeletepost()",
       "id": "actions_admin_admindeletepost"
     },
@@ -5088,7 +5478,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L132",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "admindeletetweet()",
       "id": "actions_admin_admindeletetweet"
     },
@@ -5098,7 +5488,7 @@
       "source_file": "src/actions/admin.ts",
       "source_location": "L140",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "admindeleteuser()",
       "id": "actions_admin_admindeleteuser"
     },
@@ -5118,7 +5508,7 @@
       "source_file": "src/actions/comments.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 76,
+      "community": 1,
       "norm_label": "addcommentaction()",
       "id": "actions_comments_addcommentaction"
     },
@@ -5448,7 +5838,7 @@
       "source_file": "src/lib/pagination.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "idcursorargs()",
       "id": "lib_pagination_idcursorargs"
     },
@@ -6456,7 +6846,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "auth.ts",
       "id": "actions_auth"
     },
@@ -6466,7 +6856,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "authformstate",
       "id": "actions_auth_authformstate"
     },
@@ -6476,7 +6866,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "signupaction()",
       "id": "actions_auth_signupaction"
     },
@@ -6486,7 +6876,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "loginaction()",
       "id": "actions_auth_loginaction"
     },
@@ -6496,7 +6886,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L74",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "logoutaction()",
       "id": "actions_auth_logoutaction"
     },
@@ -6506,7 +6896,7 @@
       "source_file": "src/actions/notifications.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notifications.ts",
       "id": "actions_notifications"
     },
@@ -6516,7 +6906,7 @@
       "source_file": "src/actions/notifications.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "marknotificationreadaction()",
       "id": "actions_notifications_marknotificationreadaction"
     },
@@ -6526,7 +6916,7 @@
       "source_file": "src/actions/notifications.ts",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "markallnotificationsreadaction()",
       "id": "actions_notifications_markallnotificationsreadaction"
     },
@@ -6656,7 +7046,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "page.tsx",
       "id": "admin_page"
     },
@@ -6666,7 +7056,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "metadata",
       "id": "admin_page_metadata"
     },
@@ -6676,7 +7066,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "adminpage()",
       "id": "admin_page_adminpage"
     },
@@ -6686,7 +7076,7 @@
       "source_file": "src/app/api/auth/[...nextauth]/route.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "route.ts",
       "id": "nextauth_route"
     },
@@ -6696,7 +7086,7 @@
       "source_file": "src/app/api/tags/search/route.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 82,
       "norm_label": "route.ts",
       "id": "search_route"
     },
@@ -6706,7 +7096,7 @@
       "source_file": "src/app/api/tags/search/route.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 91,
+      "community": 82,
       "norm_label": "tagrow",
       "id": "search_route_tagrow"
     },
@@ -6716,7 +7106,7 @@
       "source_file": "src/app/api/tags/search/route.ts",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 91,
+      "community": 82,
       "norm_label": "get()",
       "id": "search_route_get"
     },
@@ -6726,7 +7116,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "route.ts",
       "id": "upload_route"
     },
@@ -6736,7 +7126,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "allowed",
       "id": "upload_route_allowed"
     },
@@ -6746,7 +7136,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "ext",
       "id": "upload_route_ext"
     },
@@ -6756,7 +7146,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "post()",
       "id": "upload_route_post"
     },
@@ -6826,7 +7216,7 @@
       "source_file": "src/app/notifications/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "page.tsx",
       "id": "notifications_page"
     },
@@ -6836,7 +7226,7 @@
       "source_file": "src/app/notifications/page.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "metadata",
       "id": "notifications_page_metadata"
     },
@@ -6846,7 +7236,7 @@
       "source_file": "src/app/notifications/page.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notificationspage()",
       "id": "notifications_page_notificationspage"
     },
@@ -6946,7 +7336,7 @@
       "source_file": "src/app/posts/[slug]/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "page.tsx",
       "id": "slug_page"
     },
@@ -6956,7 +7346,7 @@
       "source_file": "src/app/posts/[slug]/page.tsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "getpost()",
       "id": "slug_page_getpost"
     },
@@ -6966,7 +7356,7 @@
       "source_file": "src/app/posts/[slug]/page.tsx",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "generatemetadata()",
       "id": "slug_page_generatemetadata"
     },
@@ -6976,7 +7366,7 @@
       "source_file": "src/app/posts/[slug]/page.tsx",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "postpage()",
       "id": "slug_page_postpage"
     },
@@ -7026,7 +7416,7 @@
       "source_file": "src/app/settings/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "page.tsx",
       "id": "settings_page"
     },
@@ -7036,7 +7426,7 @@
       "source_file": "src/app/settings/page.tsx",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "metadata",
       "id": "settings_page_metadata"
     },
@@ -7056,7 +7446,7 @@
       "source_file": "src/app/tweets/[id]/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "page.tsx",
       "id": "src_app_tweets_id_page_tsx_id_page"
     },
@@ -7066,7 +7456,7 @@
       "source_file": "src/app/tweets/[id]/page.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "generatemetadata()",
       "id": "src_app_tweets_id_page_tsx_id_page_generatemetadata"
     },
@@ -7116,7 +7506,7 @@
       "source_file": "src/app/u/[id]/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "page.tsx",
       "id": "src_app_u_id_page_tsx_id_page"
     },
@@ -7126,7 +7516,7 @@
       "source_file": "src/app/u/[id]/page.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "generatemetadata()",
       "id": "src_app_u_id_page_tsx_id_page_generatemetadata"
     },
@@ -7146,7 +7536,7 @@
       "source_file": "src/auth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "auth.ts",
       "id": "src_auth"
     },
@@ -7156,7 +7546,7 @@
       "source_file": "src/auth.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "{ handlers, auth, signin, signout }",
       "id": "src_auth_handlers_auth_signin_signout"
     },
@@ -7176,7 +7566,7 @@
       "source_file": "src/components/ConfirmDialog.tsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 3,
+      "community": 76,
       "norm_label": "confirmdialog()",
       "id": "components_confirmdialog_confirmdialog"
     },
@@ -7206,7 +7596,7 @@
       "source_file": "src/components/admin/AdminTabs.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "admintabs.tsx",
       "id": "admin_admintabs"
     },
@@ -7216,7 +7606,7 @@
       "source_file": "src/components/admin/AdminTabs.tsx",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "kind",
       "id": "admin_admintabs_kind"
     },
@@ -7226,7 +7616,7 @@
       "source_file": "src/components/admin/AdminTabs.tsx",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "adminrow()",
       "id": "admin_admintabs_adminrow"
     },
@@ -7236,7 +7626,7 @@
       "source_file": "src/components/admin/AdminTabs.tsx",
       "source_location": "L81",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "admintabs()",
       "id": "admin_admintabs_admintabs"
     },
@@ -7256,7 +7646,7 @@
       "source_file": "src/components/comments/CommentForm.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "commentform()",
       "id": "comments_commentform_commentform"
     },
@@ -7266,7 +7656,7 @@
       "source_file": "src/components/comments/CommentItem.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "commentitem.tsx",
       "id": "comments_commentitem"
     },
@@ -7276,7 +7666,7 @@
       "source_file": "src/components/comments/CommentItem.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "row()",
       "id": "comments_commentitem_row"
     },
@@ -7286,7 +7676,7 @@
       "source_file": "src/components/comments/CommentItem.tsx",
       "source_location": "L88",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "commentitem()",
       "id": "comments_commentitem_commentitem"
     },
@@ -7296,7 +7686,7 @@
       "source_file": "src/components/comments/CommentSection.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "commentsection.tsx",
       "id": "comments_commentsection"
     },
@@ -7306,7 +7696,7 @@
       "source_file": "src/components/comments/CommentSection.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "commentsection()",
       "id": "comments_commentsection_commentsection"
     },
@@ -7446,7 +7836,7 @@
       "source_file": "src/components/feed/PostCard.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "postcard.tsx",
       "id": "feed_postcard"
     },
@@ -7466,7 +7856,7 @@
       "source_file": "src/components/feed/PostCard.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "postcard()",
       "id": "feed_postcard_postcard"
     },
@@ -7636,7 +8026,7 @@
       "source_file": "src/components/layout/UserMenu.tsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 82,
+      "community": 77,
       "norm_label": "usermenu()",
       "id": "layout_usermenu_usermenu"
     },
@@ -7646,7 +8036,7 @@
       "source_file": "src/components/notifications/MarkAllReadButton.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "markallreadbutton.tsx",
       "id": "notifications_markallreadbutton"
     },
@@ -7656,7 +8046,7 @@
       "source_file": "src/components/notifications/MarkAllReadButton.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "markallreadbutton()",
       "id": "notifications_markallreadbutton_markallreadbutton"
     },
@@ -7666,7 +8056,7 @@
       "source_file": "src/components/notifications/NotificationItem.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notificationitem.tsx",
       "id": "notifications_notificationitem"
     },
@@ -7676,7 +8066,7 @@
       "source_file": "src/components/notifications/NotificationItem.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "props",
       "id": "notifications_notificationitem_props"
     },
@@ -7686,7 +8076,7 @@
       "source_file": "src/components/notifications/NotificationItem.tsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notificationitem()",
       "id": "notifications_notificationitem_notificationitem"
     },
@@ -7716,7 +8106,7 @@
       "source_file": "src/components/people/UserCard.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "usercard.tsx",
       "id": "people_usercard"
     },
@@ -7726,7 +8116,7 @@
       "source_file": "src/components/people/UserCard.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "usercard()",
       "id": "people_usercard_usercard"
     },
@@ -7736,7 +8126,7 @@
       "source_file": "src/components/posts/Markdown.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "markdown.tsx",
       "id": "posts_markdown"
     },
@@ -7746,7 +8136,7 @@
       "source_file": "src/components/posts/Markdown.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "markdown()",
       "id": "posts_markdown_markdown"
     },
@@ -7796,7 +8186,7 @@
       "source_file": "src/components/profile/ProfileTabs.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "profiletabs()",
       "id": "profile_profiletabs_profiletabs"
     },
@@ -7836,7 +8226,7 @@
       "source_file": "src/components/settings/ProfileForm.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "profileform()",
       "id": "settings_profileform_profileform"
     },
@@ -7926,7 +8316,7 @@
       "source_file": "src/components/theme/AccentSelect.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 78,
+      "community": 92,
       "norm_label": "accentselect.tsx",
       "id": "theme_accentselect"
     },
@@ -7936,7 +8326,7 @@
       "source_file": "src/components/theme/AccentSelect.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 78,
+      "community": 92,
       "norm_label": "accentselect()",
       "id": "theme_accentselect_accentselect"
     },
@@ -7946,7 +8336,7 @@
       "source_file": "src/components/theme/AppearancePicker.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "appearancepicker.tsx",
       "id": "theme_appearancepicker"
     },
@@ -7956,7 +8346,7 @@
       "source_file": "src/components/theme/AppearancePicker.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "prefkey",
       "id": "theme_appearancepicker_prefkey"
     },
@@ -7966,7 +8356,7 @@
       "source_file": "src/components/theme/AppearancePicker.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "persist()",
       "id": "theme_appearancepicker_persist"
     },
@@ -7976,7 +8366,7 @@
       "source_file": "src/components/theme/AppearancePicker.tsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "appearancepicker()",
       "id": "theme_appearancepicker_appearancepicker"
     },
@@ -8026,7 +8416,7 @@
       "source_file": "src/components/theme/SizeSelect.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 78,
       "norm_label": "sizeselect.tsx",
       "id": "theme_sizeselect"
     },
@@ -8036,7 +8426,7 @@
       "source_file": "src/components/theme/SizeSelect.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 8,
+      "community": 78,
       "norm_label": "sizeselect()",
       "id": "theme_sizeselect_sizeselect"
     },
@@ -8066,7 +8456,7 @@
       "source_file": "src/components/theme/ThemeToggle.tsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 82,
+      "community": 92,
       "norm_label": "themetoggle()",
       "id": "theme_themetoggle_themetoggle"
     },
@@ -8076,7 +8466,7 @@
       "source_file": "src/components/tweets/TweetCard.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "tweetcard.tsx",
       "id": "tweets_tweetcard"
     },
@@ -8086,7 +8476,7 @@
       "source_file": "src/components/tweets/TweetCard.tsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "tweetcard()",
       "id": "tweets_tweetcard_tweetcard"
     },
@@ -8266,7 +8656,7 @@
       "source_file": "src/components/ui/avatar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "avatar.tsx",
       "id": "ui_avatar"
     },
@@ -8276,7 +8666,7 @@
       "source_file": "src/components/ui/avatar.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "avatar()",
       "id": "ui_avatar_avatar"
     },
@@ -8286,7 +8676,7 @@
       "source_file": "src/components/ui/avatar.tsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "avatarimage()",
       "id": "ui_avatar_avatarimage"
     },
@@ -8296,7 +8686,7 @@
       "source_file": "src/components/ui/avatar.tsx",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "avatarfallback()",
       "id": "ui_avatar_avatarfallback"
     },
@@ -8336,7 +8726,7 @@
       "source_file": "src/components/ui/badge.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "badge.tsx",
       "id": "ui_badge"
     },
@@ -8346,7 +8736,7 @@
       "source_file": "src/components/ui/badge.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "badgevariants",
       "id": "ui_badge_badgevariants"
     },
@@ -8356,7 +8746,7 @@
       "source_file": "src/components/ui/badge.tsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "badge()",
       "id": "ui_badge_badge"
     },
@@ -8926,7 +9316,7 @@
       "source_file": "src/lib/comments.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "comments.ts",
       "id": "lib_comments"
     },
@@ -8936,7 +9326,7 @@
       "source_file": "src/lib/comments.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "author",
       "id": "lib_comments_author"
     },
@@ -8946,7 +9336,7 @@
       "source_file": "src/lib/comments.ts",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "commentauthor",
       "id": "lib_comments_commentauthor"
     },
@@ -8956,7 +9346,7 @@
       "source_file": "src/lib/comments.ts",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "commentnode",
       "id": "lib_comments_commentnode"
     },
@@ -9156,7 +9546,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L69",
       "_origin": "ast",
-      "community": 77,
+      "community": 78,
       "norm_label": "bases",
       "id": "lib_fonts_bases"
     },
@@ -9196,7 +9586,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 78,
+      "community": 92,
       "norm_label": "accents",
       "id": "lib_fonts_accents"
     },
@@ -9206,7 +9596,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L90",
       "_origin": "ast",
-      "community": 78,
+      "community": 92,
       "norm_label": "accentkey",
       "id": "lib_fonts_accentkey"
     },
@@ -9236,7 +9626,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 8,
+      "community": 78,
       "norm_label": "sizes",
       "id": "lib_fonts_sizes"
     },
@@ -9246,7 +9636,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 8,
+      "community": 78,
       "norm_label": "sizekey",
       "id": "lib_fonts_sizekey"
     },
@@ -9276,7 +9666,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L111",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "surfaces",
       "id": "lib_fonts_surfaces"
     },
@@ -9316,7 +9706,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L125",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "radii",
       "id": "lib_fonts_radii"
     },
@@ -9356,7 +9746,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L139",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "card_styles",
       "id": "lib_fonts_card_styles"
     },
@@ -9396,7 +9786,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L153",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "border_densities",
       "id": "lib_fonts_border_densities"
     },
@@ -9436,7 +9826,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L168",
       "_origin": "ast",
-      "community": 8,
+      "community": 92,
       "norm_label": "shadows",
       "id": "lib_fonts_shadows"
     },
@@ -9476,7 +9866,7 @@
       "source_file": "src/lib/format.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "format.ts",
       "id": "lib_format"
     },
@@ -9486,7 +9876,7 @@
       "source_file": "src/lib/format.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "formatdate()",
       "id": "lib_format_formatdate"
     },
@@ -9496,7 +9886,7 @@
       "source_file": "src/lib/format.ts",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "truncate()",
       "id": "lib_format_truncate"
     },
@@ -9506,7 +9896,7 @@
       "source_file": "src/lib/format.ts",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "initialsof()",
       "id": "lib_format_initialsof"
     },
@@ -9566,7 +9956,7 @@
       "source_file": "src/lib/prisma.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "prisma.ts",
       "id": "lib_prisma"
     },
@@ -9576,7 +9966,7 @@
       "source_file": "src/lib/prisma.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "globalforprisma",
       "id": "lib_prisma_globalforprisma"
     },
@@ -9586,7 +9976,7 @@
       "source_file": "src/lib/prisma.ts",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "adapter",
       "id": "lib_prisma_adapter"
     },
@@ -9596,7 +9986,7 @@
       "source_file": "src/lib/s3.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "s3.ts",
       "id": "lib_s3"
     },
@@ -9606,7 +9996,7 @@
       "source_file": "src/lib/s3.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "s3",
       "id": "lib_s3_s3"
     },
@@ -9616,7 +10006,7 @@
       "source_file": "src/lib/s3.ts",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "publicurl()",
       "id": "lib_s3_publicurl"
     },
@@ -9666,7 +10056,7 @@
       "source_file": "src/lib/session.ts",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 81,
+      "community": 3,
       "norm_label": "requireadmin()",
       "id": "lib_session_requireadmin"
     },
@@ -10100,862 +10490,6 @@
       "id": "agents_node_modules_next_docs"
     },
     {
-      "label": "KSPlatform (project)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 66,
-      "norm_label": "ksplatform (project)",
-      "id": "readme_ksplatform"
-    },
-    {
-      "label": "Features list",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 66,
-      "norm_label": "features list",
-      "id": "readme_features"
-    },
-    {
-      "label": "Tech stack table",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 66,
-      "norm_label": "tech stack table",
-      "id": "readme_tech_stack_table"
-    },
-    {
-      "label": "Request & rendering model (App Router, server-first)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Pages are dynamic Server Components reading session/DB directly; mutations go through Server Actions instead of REST so auth/ownership re-checks live next to the mutation logic; route handlers are reserved for non-action HTTP needs.",
-      "community": 46,
-      "norm_label": "request & rendering model (app router, server-first)",
-      "id": "readme_request_rendering_model"
-    },
-    {
-      "label": "Create-post write flow (PostForm \u2192 createPostAction \u2192 ...)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "create-post write flow (postform \u2192 createpostaction \u2192 ...)",
-      "id": "readme_create_post_flow"
-    },
-    {
-      "label": "PostForm (client component)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "postform (client component)",
-      "id": "readme_postform"
-    },
-    {
-      "label": "createPostAction",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "createpostaction",
-      "id": "readme_createpostaction"
-    },
-    {
-      "label": "src/actions/posts.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "src/actions/posts.ts",
-      "id": "readme_posts_actions_ts"
-    },
-    {
-      "label": "Data model (User/Post/Tweet/Tag/Comment/...)",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "data model (user/post/tweet/tag/comment/...)",
-      "id": "readme_data_model"
-    },
-    {
-      "label": "User model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "user model",
-      "id": "readme_user_model"
-    },
-    {
-      "label": "Post model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "post model",
-      "id": "readme_post_model"
-    },
-    {
-      "label": "Tweet model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "tweet model",
-      "id": "readme_tweet_model"
-    },
-    {
-      "label": "Tag model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "tag model",
-      "id": "readme_tag_model"
-    },
-    {
-      "label": "Comment model (threaded replies)",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "comment model (threaded replies)",
-      "id": "readme_comment_model"
-    },
-    {
-      "label": "Notification model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "notification model",
-      "id": "readme_notification_model"
-    },
-    {
-      "label": "Authentication & roles (Auth.js v5, Credentials, JWT)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "JWT session strategy avoids DB session tables; role lives in the JWT so a hand-edited DB role only takes effect on next login, and the app stays stateless/scalable.",
-      "community": 4,
-      "norm_label": "authentication & roles (auth.js v5, credentials, jwt)",
-      "id": "readme_auth_roles"
-    },
-    {
-      "label": "src/auth.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/auth.ts",
-      "id": "readme_auth_ts"
-    },
-    {
-      "label": "src/app/api/auth/[...nextauth]/route.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/app/api/auth/[...nextauth]/route.ts",
-      "id": "readme_nextauth_route"
-    },
-    {
-      "label": "src/actions/auth.ts (signupAction/loginAction/logoutAction)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/actions/auth.ts (signupaction/loginaction/logoutaction)",
-      "id": "readme_auth_actions_ts"
-    },
-    {
-      "label": "src/types/next-auth.d.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/types/next-auth.d.ts",
-      "id": "readme_next_auth_d_ts"
-    },
-    {
-      "label": "ADMIN_EMAIL env var",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "admin_email env var",
-      "id": "readme_admin_email_var"
-    },
-    {
-      "label": "Image uploads (MinIO/S3)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Server talks to MinIO over the internal Docker network (S3_ENDPOINT) but must return browser-reachable URLs (S3_PUBLIC_URL); these differ in Docker on purpose.",
-      "community": 7,
-      "norm_label": "image uploads (minio/s3)",
-      "id": "readme_image_uploads_minio"
-    },
-    {
-      "label": "src/app/api/upload/route.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "src/app/api/upload/route.ts",
-      "id": "readme_upload_route"
-    },
-    {
-      "label": "createbuckets one-shot container",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "createbuckets one-shot container",
-      "id": "readme_createbuckets_job"
-    },
-    {
-      "label": "Editor & Markdown pipeline",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Storing posts as Markdown makes Export-to-.md trivial; the Tiptap editor converts HTML\u2194MD via turndown/marked so the DB stays the single source of truth in a portable format.",
-      "community": 7,
-      "norm_label": "editor & markdown pipeline",
-      "id": "readme_editor_markdown_pipeline"
-    },
-    {
-      "label": "TiptapEditor.tsx",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "tiptapeditor.tsx",
-      "id": "readme_tiptapeditor"
-    },
-    {
-      "label": "PostActions.tsx",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "postactions.tsx",
-      "id": "readme_postactions_tsx"
-    },
-    {
-      "label": "Unified timeline architecture",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "loadTimeline queries posts and tweets separately then merges by activity time, paginating with an ISO-timestamp cursor so the merged feed still returns strictly-older pages.",
-      "community": 75,
-      "norm_label": "unified timeline architecture",
-      "id": "readme_unified_timeline_arch"
-    },
-    {
-      "label": "TweetComposer",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "tweetcomposer",
-      "id": "readme_tweetcomposer"
-    },
-    {
-      "label": "UnifiedFeed",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 20,
-      "norm_label": "unifiedfeed",
-      "id": "readme_unifiedfeed"
-    },
-    {
-      "label": "PostCard",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 20,
-      "norm_label": "postcard",
-      "id": "readme_postcard"
-    },
-    {
-      "label": "TweetCard",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 20,
-      "norm_label": "tweetcard",
-      "id": "readme_tweetcard"
-    },
-    {
-      "label": "Infinite scroll pattern (InfiniteList + IntersectionObserver)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "A generic client component renders an SSR first page then uses an IntersectionObserver sentinel to call a loadMore(cursor) server action, so every list (posts, tweets, people) shares one pagination implementation.",
-      "community": 24,
-      "norm_label": "infinite scroll pattern (infinitelist + intersectionobserver)",
-      "id": "readme_infinite_scroll_pattern"
-    },
-    {
-      "label": "loadMoreUsers",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 30,
-      "norm_label": "loadmoreusers",
-      "id": "readme_loadmoreusers"
-    },
-    {
-      "label": "src/actions/comments.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "src/actions/comments.ts",
-      "id": "readme_comments_actions_ts"
-    },
-    {
-      "label": "CommentSection",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 27,
-      "norm_label": "commentsection",
-      "id": "readme_commentsection"
-    },
-    {
-      "label": "CommentItem",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 27,
-      "norm_label": "commentitem",
-      "id": "readme_commentitem"
-    },
-    {
-      "label": "CommentForm",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 27,
-      "norm_label": "commentform",
-      "id": "readme_commentform"
-    },
-    {
-      "label": "Admin & moderation (/admin dashboard)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "requireAdmin() guards the dashboard; delete actions allow owner-or-admin so moderation controls appear inline on content rather than only in a separate admin UI.",
-      "community": 72,
-      "norm_label": "admin & moderation (/admin dashboard)",
-      "id": "readme_admin_moderation"
-    },
-    {
-      "label": "src/actions/admin.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 72,
-      "norm_label": "src/actions/admin.ts",
-      "id": "readme_admin_actions_ts"
-    },
-    {
-      "label": "Search & tag trends (pg_trgm)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "pg_trgm powers typo-tolerant fuzzy search across tag/post/tweet lookups via similarity(); all raw SQL uses bound tagged-template queries and length-capped input to avoid injection.",
-      "community": 73,
-      "norm_label": "search & tag trends (pg_trgm)",
-      "id": "readme_search_pg_trgm"
-    },
-    {
-      "label": "src/app/api/tags/search/route.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 67,
-      "norm_label": "src/app/api/tags/search/route.ts",
-      "id": "readme_tags_search_route"
-    },
-    {
-      "label": "useTagSearch hook",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 67,
-      "norm_label": "usetagsearch hook",
-      "id": "readme_useTagSearch_hook"
-    },
-    {
-      "label": "TagSubscribeSearch",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 67,
-      "norm_label": "tagsubscribesearch",
-      "id": "readme_tagsubscribesearch"
-    },
-    {
-      "label": "src/actions/search.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "src/actions/search.ts",
-      "id": "readme_search_actions_ts"
-    },
-    {
-      "label": "SearchBox (navbar)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "searchbox (navbar)",
-      "id": "readme_searchbox"
-    },
-    {
-      "label": "components/feed/TrendingTags.tsx",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "components/feed/trendingtags.tsx",
-      "id": "readme_trendingtags_component"
-    },
-    {
-      "label": "Theming & fonts (9 composable axes)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Each axis is a disjoint set of CSS tokens driven by a data-* attribute so axes stack cleanly; root layout seeds them server-side per account to avoid theme flash, persisted via updatePreferencesAction.",
-      "community": 62,
-      "norm_label": "theming & fonts (9 composable axes)",
-      "id": "readme_theming_fonts"
-    },
-    {
-      "label": "Providers.tsx (next-themes)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 62,
-      "norm_label": "providers.tsx (next-themes)",
-      "id": "readme_providers_tsx"
-    },
-    {
-      "label": "src/app/layout.tsx (root layout)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 62,
-      "norm_label": "src/app/layout.tsx (root layout)",
-      "id": "readme_layout_tsx"
-    },
-    {
-      "label": "src/actions/preferences.ts (updatePreferencesAction)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 62,
-      "norm_label": "src/actions/preferences.ts (updatepreferencesaction)",
-      "id": "readme_preferences_actions_ts"
-    },
-    {
-      "label": "Notifications",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Publishing a post/tweet fans out one Notification per tag subscriber (deduped, excluding the author) via a shared helper, keeping fan-out logic in one place for both content types.",
-      "community": 14,
-      "norm_label": "notifications",
-      "id": "readme_notifications_section"
-    },
-    {
-      "label": "Project layout (src/ tree)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "project layout (src/ tree)",
-      "id": "readme_project_layout"
-    },
-    {
-      "label": "Dockerfile (multi-stage standalone build)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "dockerfile (multi-stage standalone build)",
-      "id": "readme_dockerfile"
-    },
-    {
-      "label": "docker-entrypoint.sh",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "docker-entrypoint.sh",
-      "id": "readme_docker_entrypoint_sh"
-    },
-    {
-      "label": "docker-compose.yml (project)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "docker-compose.yml (project)",
-      "id": "readme_docker_compose_yml"
-    },
-    {
-      "label": "Production deployment notes",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "App is stateless (JWT sessions) so it scales horizontally behind a load balancer; Postgres/MinIO are the shared state; npm install (not npm ci) is used in Docker deps stage because the macOS-generated lockfile omits Linux-only optional deps.",
-      "community": 4,
-      "norm_label": "production deployment notes",
-      "id": "readme_prod_deployment"
-    },
-    {
-      "label": "Environment variables table",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "environment variables table",
-      "id": "readme_env_vars_table"
-    },
-    {
-      "label": "Database & migrations section",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "database & migrations section",
-      "id": "readme_db_migrations_section"
-    },
-    {
-      "label": "Migration: init (core schema)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: init (core schema)",
-      "id": "readme_migration_init"
-    },
-    {
-      "label": "Migration: prefs_and_tag_search",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: prefs_and_tag_search",
-      "id": "readme_migration_prefs_and_tag_search"
-    },
-    {
-      "label": "Migration: tweets_admin_threading",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: tweets_admin_threading",
-      "id": "readme_migration_tweets_admin_threading"
-    },
-    {
-      "label": "Migration: theme_axes_and_search",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: theme_axes_and_search",
-      "id": "readme_migration_theme_axes_and_search"
-    },
-    {
-      "label": "Migration: theme_surface_radius",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: theme_surface_radius",
-      "id": "readme_migration_theme_surface_radius"
-    },
-    {
-      "label": "Troubleshooting section",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 74,
-      "norm_label": "troubleshooting section",
-      "id": "readme_troubleshooting"
-    },
-    {
       "label": "postgres service (postgres:16-alpine)",
       "file_type": "code",
       "source_file": "docker-compose.yml",
@@ -11081,7 +10615,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 14,
       "norm_label": "vercel.svg (vercel triangle logo)",
       "id": "public_vercel_svg"
     },
@@ -11100,6 +10634,326 @@
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_ksplatform_knowledge_sharing_platform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_architecture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L515",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_database_migrations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L366",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_development",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L479",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_environment_variables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_features",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L558",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_npm_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L427",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_production_deployment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L304",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_project_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_table_of_contents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_tech_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L573",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_troubleshooting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_admin_moderation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_authentication_roles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_comments_threaded_replies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L281",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_connecting_an_extension",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_data_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_editor_markdown_pipeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_image_uploads_minio_s3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L272",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_notifications",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_pagination_infinite_scroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_request_rendering_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_search_tag_trends_pg_trgm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_theming_fonts_combinable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_tweets_the_unified_timeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L417",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_code_quality",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L412",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_demo_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L373",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_option_a_full_stack_in_docker_closest_to_production",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L392",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_option_b_app_on_the_host_infra_in_docker_fast_iteration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L368",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_prerequisites",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L451",
+      "weight": 1.0,
+      "source": "readme_production_deployment",
+      "target": "readme_production_checklist_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L433",
+      "weight": 1.0,
+      "source": "readme_production_deployment",
+      "target": "readme_with_docker_compose_single_host",
+      "confidence_score": 1.0
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -11251,120 +11105,133 @@
       "target": "003_extension_device_auth_tasks_mvp_first_user_story_1_only"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "actions_deviceauth_approvedevicecodeaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L44",
-      "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "actions_deviceauth_extensionconnectionrow",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "actions_deviceauth_listextensionconnectionsaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L62",
-      "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "actions_deviceauth_revokeextensionconnectionaction",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L7",
+      "source_file": "src/app/settings/connections/page.tsx",
+      "source_location": "L2",
       "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "lib_actions_actionresult",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "connections_page",
+      "target": "actions_deviceauth_listextensionconnectionsaction"
     },
     {
-      "relation": "imports",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
+      "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "lib_session_requireuserid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "lib_validation",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "connections_page",
+      "target": "connections_page_connectionspage"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/actions/deviceAuth.ts",
-      "source_location": "L6",
+      "source_file": "src/app/settings/connections/page.tsx",
+      "source_location": "L1",
       "weight": 1.0,
-      "source": "actions_deviceauth",
-      "target": "lib_validation_approvecodeschema",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "connections_page",
+      "target": "lib_session_requireuserid"
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/connect/ConnectForm.tsx",
-      "source_location": "L4",
+      "source_file": "src/app/settings/connections/page.tsx",
+      "source_location": "L3",
       "weight": 1.0,
-      "source": "connect_connectform",
-      "target": "actions_deviceauth",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "connections_page",
+      "target": "settings_connectionslist"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/connect/ConnectForm.tsx",
-      "source_location": "L4",
+      "source_file": "src/app/settings/connections/page.tsx",
+      "source_location": "L3",
       "weight": 1.0,
-      "source": "connect_connectform",
-      "target": "actions_deviceauth_approvedevicecodeaction",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "connections_page",
+      "target": "settings_connectionslist_connectionslist"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "settings_connectionslist",
+      "target": "actions_deviceauth_extensionconnectionrow"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "settings_connectionslist",
+      "target": "actions_deviceauth_revokeextensionconnectionaction"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "settings_connectionslist",
+      "target": "components_confirmdialog_confirmdialog"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "settings_connectionslist",
+      "target": "lib_format_formatdate"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/code/route.ts",
-      "source_location": "L12",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L13",
       "weight": 1.0,
-      "source": "code_route",
-      "target": "code_route_post",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "settings_connectionslist",
+      "target": "settings_connectionslist_connectionrow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "settings_connectionslist",
+      "target": "settings_connectionslist_connectionslist"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/ConnectionsList.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "settings_connectionslist",
+      "target": "ui_button_button"
     },
     {
       "relation": "imports_from",
@@ -11373,9 +11240,100 @@
       "source_file": "src/app/api/v1/device/code/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "code_route",
-      "target": "lib_extensionauth",
-      "confidence_score": 1.0
+      "target": "lib_extensionauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_generateaccesstoken"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_generatedevicecode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_generateusercode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_hashtoken"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_isratelimited"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_ratelimithits"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_requirebearerauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth",
+      "target": "lib_extensionauth_verifyaccesstoken"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "token_route",
+      "target": "lib_extensionauth"
     },
     {
       "relation": "imports",
@@ -11384,31 +11342,9 @@
       "source_file": "src/app/api/v1/device/code/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "code_route",
-      "target": "lib_extensionauth_generatedevicecode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/code/route.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "code_route",
-      "target": "lib_extensionauth_generateusercode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/code/route.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "code_route",
-      "target": "lib_extensionauth_isratelimited",
-      "confidence_score": 1.0
+      "target": "lib_extensionauth_generatedevicecode"
     },
     {
       "relation": "calls",
@@ -11422,6 +11358,17 @@
       "target": "lib_extensionauth_generatedevicecode"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/code/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "code_route",
+      "target": "lib_extensionauth_generateusercode"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -11433,80 +11380,15 @@
       "target": "lib_extensionauth_generateusercode"
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
       "confidence_score": 1.0,
-      "source_file": "src/app/api/v1/device/code/route.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "code_route_post",
-      "target": "lib_extensionauth_isratelimited"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L4",
-      "weight": 1.0,
       "source": "token_route",
-      "target": "lib_extensionauth",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "token_route",
-      "target": "lib_extensionauth_generateaccesstoken",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "token_route",
-      "target": "lib_extensionauth_hashtoken",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "token_route",
-      "target": "lib_validation",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "token_route",
-      "target": "lib_validation_devicecodeschema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/v1/device/token/route.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "token_route",
-      "target": "token_route_post",
-      "confidence_score": 1.0
+      "target": "lib_extensionauth_generateaccesstoken"
     },
     {
       "relation": "calls",
@@ -11520,6 +11402,17 @@
       "target": "lib_extensionauth_generateaccesstoken"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "token_route",
+      "target": "lib_extensionauth_hashtoken"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -11531,15 +11424,196 @@
       "target": "lib_extensionauth_hashtoken"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/extensionAuth.ts",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_extensionauth_requirebearerauth",
+      "target": "lib_extensionauth_verifyaccesstoken"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/code/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "code_route",
+      "target": "lib_extensionauth_isratelimited"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/v1/device/code/route.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "code_route_post",
+      "target": "lib_extensionauth_isratelimited"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "actions_deviceauth_approvedevicecodeaction"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "actions_deviceauth_extensionconnectionrow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "actions_deviceauth_listextensionconnectionsaction"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "actions_deviceauth_revokeextensionconnectionaction"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "lib_actions_actionresult"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "lib_session_requireuserid"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "lib_validation"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/actions/deviceAuth.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "actions_deviceauth",
+      "target": "lib_validation_approvecodeschema"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/connect/ConnectForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "connect_connectform",
+      "target": "actions_deviceauth"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/connect/ConnectForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "connect_connectform",
+      "target": "actions_deviceauth_approvedevicecodeaction"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/code/route.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "code_route",
+      "target": "code_route_post"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "token_route",
+      "target": "lib_validation"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "token_route",
+      "target": "lib_validation_devicecodeschema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/v1/device/token/route.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "token_route",
+      "target": "token_route_post"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app/connect/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_page",
-      "target": "connect_connectform",
-      "confidence_score": 1.0
+      "target": "connect_connectform"
     },
     {
       "relation": "imports",
@@ -11548,9 +11622,9 @@
       "source_file": "src/app/connect/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_page",
-      "target": "connect_connectform_connectform",
-      "confidence_score": 1.0
+      "target": "connect_connectform_connectform"
     },
     {
       "relation": "contains",
@@ -11558,9 +11632,9 @@
       "source_file": "src/app/connect/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_page",
-      "target": "connect_page_connectpage",
-      "confidence_score": 1.0
+      "target": "connect_page_connectpage"
     },
     {
       "relation": "imports",
@@ -11569,9 +11643,9 @@
       "source_file": "src/app/connect/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_page",
-      "target": "lib_session_requireuserid",
-      "confidence_score": 1.0
+      "target": "lib_session_requireuserid"
     },
     {
       "relation": "contains",
@@ -11579,9 +11653,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "connect_connectform_connectform",
-      "confidence_score": 1.0
+      "target": "connect_connectform_connectform"
     },
     {
       "relation": "imports",
@@ -11590,9 +11664,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports",
@@ -11601,9 +11675,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_card_card",
-      "confidence_score": 1.0
+      "target": "ui_card_card"
     },
     {
       "relation": "imports",
@@ -11612,9 +11686,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_card_cardcontent",
-      "confidence_score": 1.0
+      "target": "ui_card_cardcontent"
     },
     {
       "relation": "imports",
@@ -11623,9 +11697,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_card_carddescription",
-      "confidence_score": 1.0
+      "target": "ui_card_carddescription"
     },
     {
       "relation": "imports",
@@ -11634,9 +11708,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_card_cardfooter",
-      "confidence_score": 1.0
+      "target": "ui_card_cardfooter"
     },
     {
       "relation": "imports",
@@ -11645,9 +11719,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_card_cardheader",
-      "confidence_score": 1.0
+      "target": "ui_card_cardheader"
     },
     {
       "relation": "imports",
@@ -11656,9 +11730,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_card_cardtitle",
-      "confidence_score": 1.0
+      "target": "ui_card_cardtitle"
     },
     {
       "relation": "imports",
@@ -11667,9 +11741,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_input_input",
-      "confidence_score": 1.0
+      "target": "ui_input_input"
     },
     {
       "relation": "imports",
@@ -11678,79 +11752,9 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connect_connectform",
-      "target": "ui_label_label",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "lib_extensionauth",
-      "target": "lib_extensionauth_generateaccesstoken",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "lib_extensionauth",
-      "target": "lib_extensionauth_generatedevicecode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "lib_extensionauth",
-      "target": "lib_extensionauth_generateusercode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "lib_extensionauth",
-      "target": "lib_extensionauth_hashtoken",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L62",
-      "weight": 1.0,
-      "source": "lib_extensionauth",
-      "target": "lib_extensionauth_isratelimited",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "lib_extensionauth",
-      "target": "lib_extensionauth_ratelimithits",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/extensionAuth.ts",
-      "source_location": "L33",
-      "weight": 1.0,
-      "source": "lib_extensionauth",
-      "target": "lib_extensionauth_verifyaccesstoken",
-      "confidence_score": 1.0
+      "target": "ui_label_label"
     },
     {
       "relation": "imports_from",
@@ -11824,9 +11828,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_validation",
-      "target": "lib_validation_approvecodeschema",
-      "confidence_score": 1.0
+      "target": "lib_validation_approvecodeschema"
     },
     {
       "relation": "contains",
@@ -11844,9 +11848,9 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_validation",
-      "target": "lib_validation_devicecodeschema",
-      "confidence_score": 1.0
+      "target": "lib_validation_devicecodeschema"
     },
     {
       "relation": "contains",
@@ -29845,586 +29849,6 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_ksplatform",
-      "target": "readme_features"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_ksplatform",
-      "target": "readme_tech_stack_table"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_create_post_flow",
-      "target": "readme_postform"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_postform",
-      "target": "readme_createpostaction"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_createpostaction",
-      "target": "readme_posts_actions_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_notifications_section",
-      "target": "readme_posts_actions_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_comment_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_notification_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_user_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_comment_model",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_post_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_search_actions_ts",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_trendingtags_component",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_comment_model",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_search_actions_ts",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_trendingtags_component",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tweet_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_notification_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_comments_actions_ts",
-      "target": "readme_comment_model"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_roles",
-      "target": "readme_auth_ts"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_prod_deployment",
-      "target": "readme_auth_roles"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_admin_email_var",
-      "target": "readme_auth_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_actions_ts",
-      "target": "readme_auth_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_ts",
-      "target": "readme_next_auth_d_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_ts",
-      "target": "readme_nextauth_route"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_image_uploads_minio",
-      "target": "readme_upload_route"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tiptapeditor",
-      "target": "readme_upload_route"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tweetcomposer",
-      "target": "readme_upload_route"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_createbuckets_job",
-      "target": "docker_compose_yml_createbuckets_service"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_editor_markdown_pipeline",
-      "target": "readme_postactions_tsx"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_editor_markdown_pipeline",
-      "target": "readme_tiptapeditor"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_unifiedfeed",
-      "target": "readme_postcard"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_unifiedfeed",
-      "target": "readme_tweetcard"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_commentsection",
-      "target": "readme_commentform"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_commentsection",
-      "target": "readme_commentitem"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_admin_moderation",
-      "target": "readme_admin_actions_ts"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tags_search_route",
-      "target": "readme_useTagSearch_hook"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_useTagSearch_hook",
-      "target": "readme_tagsubscribesearch"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_searchbox",
-      "target": "readme_search_actions_ts"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_theming_fonts",
-      "target": "readme_layout_tsx"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_layout_tsx",
-      "target": "readme_providers_tsx"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_layout_tsx",
-      "target": "readme_preferences_actions_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_project_layout",
-      "target": "readme_docker_compose_yml"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_project_layout",
-      "target": "readme_dockerfile"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_dockerfile",
-      "target": "readme_docker_entrypoint_sh"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_docker_entrypoint_sh",
-      "target": "readme_migration_init"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_docker_compose_yml",
-      "target": "docker_compose_yml_app_service"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_env_vars_table",
-      "target": "readme_docker_compose_yml"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_prod_deployment",
-      "target": "readme_docker_compose_yml"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "AMBIGUOUS",
-      "confidence_score": 0.2,
-      "source_file": "public/vercel.svg",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "public_vercel_svg",
-      "target": "readme_prod_deployment"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_init"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_prefs_and_tag_search"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_theme_axes_and_search"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_theme_surface_radius"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_tweets_admin_threading"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "docker-compose.yml",
       "source_location": null,
       "weight": 1.0,
@@ -30524,5 +29948,5 @@
       "source_file": "docker-compose.yml"
     }
   ],
-  "built_at_commit": "34463da4d447398c669b2b0d81622a076434e071"
+  "built_at_commit": "e424550ed089779b2d50124121129233239a970b"
 }
