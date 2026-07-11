@@ -19,17 +19,17 @@ security-sensitive auth feature — task list includes verification tasks
 
 **Purpose**: Schema + core token/hash helpers all stories depend on.
 
-- [ ] T001 Add `DeviceGrant` and `ExtensionToken` models to
+- [X] T001 Add `DeviceGrant` and `ExtensionToken` models to
   `prisma/schema.prisma` per `data-model.md`; run
   `npm run db:migrate -- --name add_extension_device_auth` (check for
   spurious `pg_trgm` index drops per CLAUDE.md before applying); run
   `npx prisma generate`
-- [ ] T002 [P] Create `src/lib/extensionAuth.ts`: `generateDeviceCode()`,
+- [X] T002 [P] Create `src/lib/extensionAuth.ts`: `generateDeviceCode()`,
   `generateUserCode()` (short, human-typeable, collision-checked against
   pending grants), `hashToken()`/`verifyToken()` (using `bcryptjs`, mirroring
   `passwordHash` conventions), and a simple rate-limit counter helper for
   code issuance/polling (FR-007)
-- [ ] T003 [P] Add `deviceCodeSchema`/`approveCodeSchema` zod schemas to
+- [X] T003 [P] Add `deviceCodeSchema`/`approveCodeSchema` zod schemas to
   `src/lib/validation.ts`
 
 ---
@@ -50,20 +50,20 @@ No additional foundational work — T001-T003 unblock every user story.
 
 ### Implementation for User Story 1
 
-- [ ] T004 [US1] Create `POST /api/v1/device/code` in
+- [X] T004 [US1] Create `POST /api/v1/device/code` in
   `src/app/api/v1/device/code/route.ts`: rate-limit check, generate
   `DeviceGrant` (status `PENDING`, `expiresAt` = now + 10min), return the
   contract response from `contracts/device-flow-api.md`
-- [ ] T005 [US1] Create `POST /api/v1/device/token` in
+- [X] T005 [US1] Create `POST /api/v1/device/token` in
   `src/app/api/v1/device/token/route.ts`: look up `DeviceGrant` by
   `deviceCode`; if expired mark `EXPIRED` and return `400 expired_token`; if
   `PENDING` return `202 authorization_pending`; if `APPROVED` return the
   `ExtensionToken`'s raw value (only obtainable once — see T007) and token
   metadata; if `DENIED` return `400 access_denied`
-- [ ] T006 [US1] Create `src/app/connect/page.tsx`: prompts login if
+- [X] T006 [US1] Create `src/app/connect/page.tsx`: prompts login if
   signed out (reuse existing `requireUserId` redirect pattern), then shows a
   form to enter/confirm the `user_code` and an Approve button
-- [ ] T007 [US1] Create `approveDeviceCodeAction` in
+- [X] T007 [US1] Create `approveDeviceCodeAction` in
   `src/actions/deviceAuth.ts`: `requireUserId()`, validate with
   `approveCodeSchema`, look up the `PENDING` `DeviceGrant` by `userCode`
   (reject if not found/expired/already resolved — Edge Case: double-approval
@@ -71,7 +71,7 @@ No additional foundational work — T001-T003 unblock every user story.
   `ExtensionToken` row linked to the grant's user, mark the grant
   `APPROVED`, return `{}` (the raw token is retrieved by the extension via
   T005's poll, never returned directly to the web app UI)
-- [ ] T008 [US1] Wire `src/app/connect/page.tsx`'s Approve button to
+- [X] T008 [US1] Wire `src/app/connect/page.tsx`'s Approve button to
   `approveDeviceCodeAction`, show success state per Acceptance Scenario 2
 
 **Checkpoint**: quickstart.md steps 1-4 pass. SC-001 achievable.
@@ -167,3 +167,14 @@ Task: "Add deviceCodeSchema/approveCodeSchema to src/lib/validation.ts"
 - Per user instruction, implementation (`/speckit-implement`) is paused
   after this tasks.md until the plan is reviewed — do not run T001+ without
   explicit go-ahead.
+- **Deviation during implementation**: T007's raw-token generation moved
+  into T005 (the `/api/v1/device/token` poll endpoint) instead of the
+  approval action. Reason: the approval action runs in the web app's
+  session context, while the extension retrieves the token from a
+  different request entirely (the poll). Generating it in T007 would have
+  required persisting the raw value somewhere (even briefly) for T005 to
+  hand off — instead, T005 generates the token itself on the first
+  `APPROVED` poll (when it has the raw value in memory for exactly one
+  response) and only ever persists the bcrypt hash. `DeviceGrant.token`
+  (the 1:1 relation) doubles as the "already consumed" guard: a second poll
+  after issuance returns `expired_token` rather than a duplicate token.

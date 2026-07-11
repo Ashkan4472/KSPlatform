@@ -30,6 +30,18 @@ export const tweetSchema = z.object({
   tags: z.array(z.string().min(1).max(40)).max(8, "Up to 8 tags allowed"),
 });
 
+export const deviceCodeSchema = z.object({
+  device_code: z.string().min(1, "device_code is required"),
+});
+
+export const approveCodeSchema = z.object({
+  userCode: z
+    .string()
+    .trim()
+    .toUpperCase()
+    .min(1, "Enter the code shown in the extension"),
+});
+
 export const commentSchema = z
   .object({
     postId: z.string().min(1).optional(),

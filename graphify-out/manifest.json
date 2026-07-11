@@ -585,8 +585,8 @@
     "semantic_hash": "9e09241799026ac05be315a2f0b50055"
   },
   "CLAUDE.md": {
-    "mtime": 1783748806.0957155,
-    "ast_hash": "f3ad85ed541d346bc1b5f590800035c7",
+    "mtime": 1783753844.3977249,
+    "ast_hash": "a04f318cac5f623c65a05625741bf100",
     "semantic_hash": ""
   },
   "README.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   ".specify/feature.json": {
-    "mtime": 1783748604.2297227,
-    "ast_hash": "4353fd8014195f2e3e34b1e66d1419a8",
+    "mtime": 1783753541.2043412,
+    "ast_hash": "99eaa931996ef979c86ac33069d209c3",
     "semantic_hash": ""
   },
   ".specify/init-options.json": {
@@ -775,8 +775,8 @@
     "semantic_hash": ""
   },
   ".specify/memory/constitution.md": {
-    "mtime": 1783748044.3047707,
-    "ast_hash": "954b68113c0402df9935e1c6602fe2a9",
+    "mtime": 1783752958.939152,
+    "ast_hash": "7f118515d206e7ebffd5eebc144a189f",
     "semantic_hash": ""
   },
   ".specify/templates/checklist-template.md": {
@@ -867,6 +867,76 @@
   "specs/002-consolidate-pagination-contract/tasks.md": {
     "mtime": 1783749325.1569195,
     "ast_hash": "c6b6c6958da1e14d6c6d931129872c58",
+    "semantic_hash": ""
+  },
+  "specs/003-extension-device-auth/checklists/requirements.md": {
+    "mtime": 1783753045.9895551,
+    "ast_hash": "38dc96d55c587a7e8049f59c20ac69fe",
+    "semantic_hash": ""
+  },
+  "specs/003-extension-device-auth/contracts/device-flow-api.md": {
+    "mtime": 1783753318.3944411,
+    "ast_hash": "944dc1ccf378dbe13691a90ca8d610a3",
+    "semantic_hash": ""
+  },
+  "specs/003-extension-device-auth/data-model.md": {
+    "mtime": 1783753302.2067513,
+    "ast_hash": "bcac2e01b18c8c7e734e279f6813ec0a",
+    "semantic_hash": ""
+  },
+  "specs/003-extension-device-auth/plan.md": {
+    "mtime": 1783753195.1691916,
+    "ast_hash": "d3bfb2cd4aa2ca5545f732f10a82171c",
+    "semantic_hash": ""
+  },
+  "specs/003-extension-device-auth/quickstart.md": {
+    "mtime": 1783753331.9285672,
+    "ast_hash": "800d8c83f6c050f04303d96155e00ff1",
+    "semantic_hash": ""
+  },
+  "specs/003-extension-device-auth/spec.md": {
+    "mtime": 1783753034.68305,
+    "ast_hash": "9be969850fde9148c3f951f81892d8e0",
+    "semantic_hash": ""
+  },
+  "specs/003-extension-device-auth/tasks.md": {
+    "mtime": 1783753482.6128304,
+    "ast_hash": "9241ed71a9366578e04b036423b0a39e",
+    "semantic_hash": ""
+  },
+  "specs/004-extension-newtab-feed/checklists/requirements.md": {
+    "mtime": 1783753533.3189,
+    "ast_hash": "599ca2c952f794cab5b878d55e14b81c",
+    "semantic_hash": ""
+  },
+  "specs/004-extension-newtab-feed/contracts/feed-api.md": {
+    "mtime": 1783753777.5542111,
+    "ast_hash": "6d99791cd313ae946eb61b16d60c50a1",
+    "semantic_hash": ""
+  },
+  "specs/004-extension-newtab-feed/data-model.md": {
+    "mtime": 1783753785.6472378,
+    "ast_hash": "925b375c0e5045ec5cc2bdd4a7f52e24",
+    "semantic_hash": ""
+  },
+  "specs/004-extension-newtab-feed/plan.md": {
+    "mtime": 1783753677.8400311,
+    "ast_hash": "7407eb391097bc099a186c220009f6f7",
+    "semantic_hash": ""
+  },
+  "specs/004-extension-newtab-feed/quickstart.md": {
+    "mtime": 1783753798.8002896,
+    "ast_hash": "639b5242ba763b4dc5c9c5f968754d9a",
+    "semantic_hash": ""
+  },
+  "specs/004-extension-newtab-feed/spec.md": {
+    "mtime": 1783753525.464293,
+    "ast_hash": "cd477bdaed3cd97df386562513bb5d6c",
+    "semantic_hash": ""
+  },
+  "specs/004-extension-newtab-feed/tasks.md": {
+    "mtime": 1783753839.3043509,
+    "ast_hash": "e74b0354a33db24810a749d9de93f1e7",
     "semantic_hash": ""
   }
 }

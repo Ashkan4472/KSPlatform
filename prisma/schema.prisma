@@ -48,6 +48,8 @@ model User {
   tweetLikes    TweetLike[]
   bookmarks     Bookmark[]
   notifications Notification[]
+  deviceGrants    DeviceGrant[]
+  extensionTokens ExtensionToken[]
 
   @@index([createdAt])
 }
@@ -214,4 +216,50 @@ model Notification {
   @@index([userId, read])
   @@index([postId])
   @@index([tweetId])
+}
+
+enum DeviceGrantStatus {
+  PENDING
+  APPROVED
+  DENIED
+  EXPIRED
+}
+
+// specs/003-extension-device-auth: a short-lived, human-readable connection
+// code an unauthenticated extension holds while waiting for the user to
+// approve it on the web app.
+model DeviceGrant {
+  id         String            @id @default(cuid())
+  deviceCode String            @unique
+  userCode   String            @unique
+  status     DeviceGrantStatus @default(PENDING)
+  expiresAt  DateTime
+  createdAt  DateTime          @default(now())
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  token ExtensionToken?
+
+  @@index([status])
+}
+
+// specs/003-extension-device-auth: an approved, individually-revocable
+// bearer credential for one extension installation. Only the bcrypt hash
+// is stored — the raw token is shown once, at issuance, and never again.
+model ExtensionToken {
+  id         String    @id @default(cuid())
+  tokenHash  String    @unique
+  label      String
+  createdAt  DateTime  @default(now())
+  lastUsedAt DateTime?
+  revokedAt  DateTime?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  grantId String?     @unique
+  grant   DeviceGrant? @relation(fields: [grantId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
 }

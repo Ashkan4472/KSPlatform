@@ -1,16 +1,16 @@
 # Graph Report - KSPlatform  (2026-07-11)
 
 ## Corpus Check
-- 164 files · ~60,231 words
+- 178 files · ~68,713 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 921 nodes · 1680 edges · 76 communities (54 shown, 22 thin omitted)
+- 1044 nodes · 1793 edges · 90 communities (68 shown, 22 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 9 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6cbbb9db`
+- Built from commit: `a71d6adf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -88,6 +88,20 @@
 - [[_COMMUNITY_Community 73|Community 73]]
 - [[_COMMUNITY_Community 74|Community 74]]
 - [[_COMMUNITY_Community 75|Community 75]]
+- [[_COMMUNITY_Community 76|Community 76]]
+- [[_COMMUNITY_Community 77|Community 77]]
+- [[_COMMUNITY_Community 78|Community 78]]
+- [[_COMMUNITY_Community 79|Community 79]]
+- [[_COMMUNITY_Community 80|Community 80]]
+- [[_COMMUNITY_Community 81|Community 81]]
+- [[_COMMUNITY_Community 82|Community 82]]
+- [[_COMMUNITY_Community 83|Community 83]]
+- [[_COMMUNITY_Community 84|Community 84]]
+- [[_COMMUNITY_Community 85|Community 85]]
+- [[_COMMUNITY_Community 86|Community 86]]
+- [[_COMMUNITY_Community 87|Community 87]]
+- [[_COMMUNITY_Community 88|Community 88]]
+- [[_COMMUNITY_Community 89|Community 89]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 80 edges
@@ -106,12 +120,12 @@
   public/vercel.svg → README.md
 - `next.svg (Next.js wordmark logo)` --conceptually_related_to--> `Next.js 16 (non-standard fork)`  [INFERRED]
   public/next.svg → AGENTS.md
-- `NotificationsPage()` --calls--> `requireUserId()`  [EXTRACTED]
-  src/app/notifications/page.tsx → src/lib/session.ts
 - `generateMetadata()` --calls--> `truncate()`  [INFERRED]
   src/app/tweets/[id]/page.tsx → src/lib/format.ts
 - `ProfilePage()` --calls--> `initialsOf()`  [INFERRED]
   src/app/u/[id]/page.tsx → src/lib/format.ts
+- `ToolbarButton()` --calls--> `cn()`  [EXTRACTED]
+  src/components/editor/TiptapEditor.tsx → src/lib/utils.ts
 
 ## Import Cycles
 - None detected.
@@ -121,23 +135,23 @@
 - **9-axis appearance/theming system** — claude_md_appearance_axes, claude_md_fonts_ts, claude_md_globals_css, claude_md_appearancepicker, claude_md_updatepreferencesaction, readme_layout_tsx, readme_providers_tsx [INFERRED 0.85]
 - **Dockerized dev/prod stack (app + postgres + minio + createbuckets)** — docker_compose_yml_app_service, docker_compose_yml_postgres_service, docker_compose_yml_minio_service, docker_compose_yml_createbuckets_service, readme_dockerfile, readme_docker_entrypoint_sh [EXTRACTED 1.00]
 
-## Communities (76 total, 22 thin omitted)
+## Communities (90 total, 22 thin omitted)
 
 ### Community 0 - "Feed & Filter UI"
-Cohesion: 0.06
-Nodes (63): CommentForm(), CommentItem(), CommentSection(), ConfirmDialog(), buildHref(), FeedFilters(), FilterTab(), Props (+55 more)
+Cohesion: 0.11
+Nodes (28): loadMoreUsers(), CommentForm(), CommentItem(), Row(), CommentSection(), PostCard(), author, CommentAuthor (+20 more)
 
 ### Community 1 - "Posts & Comments Actions"
-Cohesion: 0.06
-Nodes (47): addCommentAction(), deleteCommentAction(), createPostAction(), deletePostAction(), updatePostAction(), updateProfileAction(), toggleBookmarkAction(), toggleLikeAction() (+39 more)
+Cohesion: 0.05
+Nodes (54): addCommentAction(), deleteCommentAction(), markAllNotificationsReadAction(), markNotificationReadAction(), createPostAction(), deletePostAction(), updatePostAction(), updateProfileAction() (+46 more)
 
 ### Community 2 - "Feed Loading & Comment UI"
-Cohesion: 0.19
-Nodes (13): loadMoreUsers(), Row(), initialsOf(), RawUser, toUserSummary(), usersSelect, UserSummary, metadata (+5 more)
+Cohesion: 0.07
+Nodes (25): Complexity Tracking, Constitution Check, Documentation (this feature), Implementation Plan: Browser Extension New-Tab Subscribed-Tags Feed, Project Structure, Source Code (repository root), Summary, Technical Context (+17 more)
 
 ### Community 3 - "Profile Feed & Search"
-Cohesion: 0.09
-Nodes (47): loadUserPosts(), loadUserTweets(), normalize(), parseOffset(), searchPosts(), searchTweets(), FeedItem, loadTimeline() (+39 more)
+Cohesion: 0.07
+Nodes (61): adminDeletePost(), adminDeleteTweet(), adminDeleteUser(), adminListPosts(), adminListTweets(), adminListUsers(), AdminPostRow, AdminTweetRow (+53 more)
 
 ### Community 4 - "Appearance & Prisma 7 Conventions"
 Cohesion: 0.08
@@ -157,7 +171,7 @@ Nodes (6): Editor & Markdown pipeline, Image uploads (MinIO/S3), PostActions.tsx
 
 ### Community 8 - "Appearance Constants"
 Cohesion: 0.05
-Nodes (61): updatePreferencesAction(), ACCENT_KEYS, AccentKey, ACCENTS, BaseKey, BASES, BORDER_DENSITIES, BORDER_DENSITY_KEYS (+53 more)
+Nodes (65): updatePreferencesAction(), metadata, Navbar(), ACCENT_KEYS, AccentKey, ACCENTS, BASE_KEYS, BaseKey (+57 more)
 
 ### Community 9 - "Appearance Pickers UI"
 Cohesion: 0.07
@@ -172,8 +186,8 @@ Cohesion: 0.09
 Nodes (21): aliases, components, hooks, lib, ui, utils, iconLibrary, menuAccent (+13 more)
 
 ### Community 12 - "Admin Moderation Actions"
-Cohesion: 0.13
-Nodes (25): adminDeletePost(), adminDeleteTweet(), adminDeleteUser(), adminListPosts(), adminListTweets(), adminListUsers(), AdminPostRow, AdminTweetRow (+17 more)
+Cohesion: 0.07
+Nodes (24): Complexity Tracking, Constitution Check, Documentation (this feature), Implementation Plan: Browser Extension Device-Flow Authentication, Project Structure, Source Code (repository root), Summary, Technical Context (+16 more)
 
 ### Community 13 - "TypeScript Config"
 Cohesion: 0.10
@@ -184,8 +198,8 @@ Cohesion: 0.40
 Nodes (5): Create-post write flow (PostForm → createPostAction → ...), createPostAction, Notifications, PostForm (client component), src/actions/posts.ts
 
 ### Community 15 - "Auth Actions & S3 Uploads"
-Cohesion: 0.08
-Nodes (20): AuthFormState, loginAction(), logoutAction(), signupAction(), metadata, Navbar(), SearchBox(), UserMenu() (+12 more)
+Cohesion: 0.43
+Nodes (5): publicUrl(), s3, ALLOWED, EXT, POST()
 
 ### Community 16 - "Root Layout & Navbar"
 Cohesion: 0.07
@@ -232,8 +246,8 @@ Cohesion: 0.67
 Nodes (3): CommentForm, CommentItem, CommentSection
 
 ### Community 29 - "Comment Query Helpers"
-Cohesion: 0.18
-Nodes (10): Core Principles, Governance, I. Reuse Before Reinvention, II. Mutations Are Server Actions, III. Version-Pinned Correctness (NON-NEGOTIABLE), IV. Composable, Disjoint Design Tokens, KSPlatform Constitution, V. Evidence-Driven Refactoring (+2 more)
+Cohesion: 0.17
+Nodes (11): Core Principles, Governance, I. Reuse Before Reinvention, II. Mutations Are Server Actions (Web App), III. Version-Pinned Correctness (NON-NEGOTIABLE), IV. Composable, Disjoint Design Tokens, KSPlatform Constitution, V. Evidence-Driven Refactoring (+3 more)
 
 ### Community 35 - "Next 16 Async Params Gotcha"
 Cohesion: 0.18
@@ -327,12 +341,68 @@ Nodes (3): Features list, KSPlatform (project), Tech stack table
 Cohesion: 0.67
 Nodes (3): src/app/api/tags/search/route.ts, TagSubscribeSearch, useTagSearch hook
 
+### Community 76 - "Community 76"
+Cohesion: 0.18
+Nodes (14): loadTrending(), TrendingPosts(), loadTagTrends(), TagStat, TrendingTags(), SearchBox(), Card(), CardContent() (+6 more)
+
+### Community 77 - "Community 77"
+Cohesion: 0.11
+Nodes (14): AuthFormState, loginAction(), logoutAction(), signupAction(), Props, UserMenu(), signupSchema, DropdownMenuCheckboxItem() (+6 more)
+
+### Community 78 - "Community 78"
+Cohesion: 0.14
+Nodes (13): cn(), AvatarBadge(), AvatarGroup(), AvatarGroupCount(), CardAction(), DialogContent(), DialogDescription(), DialogFooter() (+5 more)
+
+### Community 79 - "Community 79"
+Cohesion: 0.11
+Nodes (17): Dependencies & Execution Order, Format: `[ID] [P?] [Story] Description`, Implementation for User Story 1, Implementation for User Story 2, Implementation for User Story 3, Implementation Strategy, Incremental Delivery, MVP First (User Story 1 Only, assuming manual token injection for testing) (+9 more)
+
+### Community 80 - "Community 80"
+Cohesion: 0.12
+Nodes (15): Dependencies & Execution Order, Format: `[ID] [P?] [Story] Description`, Implementation for User Story 1, Implementation for User Story 2, Implementation Strategy, Incremental Delivery, MVP First (User Story 1 Only), Notes (+7 more)
+
+### Community 81 - "Community 81"
+Cohesion: 0.24
+Nodes (11): AlertDialog(), AlertDialogAction(), AlertDialogCancel(), AlertDialogContent(), AlertDialogDescription(), AlertDialogFooter(), AlertDialogHeader(), AlertDialogMedia() (+3 more)
+
+### Community 82 - "Community 82"
+Cohesion: 0.27
+Nodes (7): ConfirmDialog(), PostActions(), Props, TweetComposer(), Button(), buttonVariants, Textarea()
+
+### Community 83 - "Community 83"
+Cohesion: 0.29
+Nodes (6): Expected outcome, Load the extension, Manual smoke test, Prerequisites, Quickstart: Validate Extension New-Tab Feed, Type-check and lint gate
+
+### Community 84 - "Community 84"
+Cohesion: 0.33
+Nodes (5): Expected outcome, Manual smoke test, Prerequisites, Quickstart: Validate Device-Flow Authentication, Type-check and lint gate
+
+### Community 85 - "Community 85"
+Cohesion: 0.33
+Nodes (5): Bearer-token-authenticated requests (any `/api/v1/*` endpoint, e.g. specs/004's feed), Contract: Device Flow API (`/api/v1/device/*`), POST /api/v1/device/code, POST /api/v1/device/token, Web-app server actions (session-authenticated, not part of this API)
+
+### Community 86 - "Community 86"
+Cohesion: 0.33
+Nodes (5): Contract: GET /api/v1/feed, Request, Response `200`, Response `401`, Response `429`
+
+### Community 87 - "Community 87"
+Cohesion: 0.50
+Nodes (4): buildHref(), FeedFilters(), FilterTab(), Props
+
+### Community 88 - "Community 88"
+Cohesion: 0.50
+Nodes (3): Data Model: Browser Extension Device-Flow Authentication, DeviceGrant, ExtensionToken
+
+### Community 89 - "Community 89"
+Cohesion: 0.50
+Nodes (3): Client-side (extension) state, Data Model: Browser Extension New-Tab Subscribed-Tags Feed, Extension Feed Item (response shape, not a database entity)
+
 ## Ambiguous Edges - Review These
 - `Production deployment notes` → `vercel.svg (Vercel triangle logo)`  [AMBIGUOUS]
   public/vercel.svg · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **410 isolated node(s):** `Behavior`, `Execution`, `User Input`, `Pre-Execution Checks`, `Goal` (+405 more)
+- **490 isolated node(s):** `I. Reuse Before Reinvention`, `II. Mutations Are Server Actions (Web App)`, `III. Version-Pinned Correctness (NON-NEGOTIABLE)`, `IV. Composable, Disjoint Design Tokens`, `V. Evidence-Driven Refactoring` (+485 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -341,15 +411,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Production deployment notes` and `vercel.svg (Vercel triangle logo)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `cn()` connect `Feed & Filter UI` to `Appearance Constants`, `Posts & Comments Actions`, `Profile Feed & Search`, `Admin Moderation Actions`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `Button()` connect `Feed & Filter UI` to `Posts & Comments Actions`, `Profile Feed & Search`, `Appearance Constants`, `Admin Moderation Actions`, `Auth Actions & S3 Uploads`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **Why does `requireUserId()` connect `Posts & Comments Actions` to `Appearance Constants`, `Profile Feed & Search`, `Admin Moderation Actions`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 78` to `Feed & Filter UI`, `Posts & Comments Actions`, `Profile Feed & Search`, `Appearance Constants`, `Community 76`, `Community 77`, `Community 81`, `Community 82`, `Community 87`?**
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+- **Why does `Button()` connect `Community 82` to `Feed & Filter UI`, `Posts & Comments Actions`, `Profile Feed & Search`, `Appearance Constants`, `Community 76`, `Community 77`, `Community 78`, `Community 81`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
+- **Why does `requireUserId()` connect `Posts & Comments Actions` to `Appearance Constants`, `Profile Feed & Search`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `getCurrentUser()` (e.g. with `ProfilePage()` and `TweetDetailPage()`) actually correct?**
   _`getCurrentUser()` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Behavior`, `Execution`, `User Input` to the rest of the system?**
-  _418 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `I. Reuse Before Reinvention`, `II. Mutations Are Server Actions (Web App)`, `III. Version-Pinned Correctness (NON-NEGOTIABLE)` to the rest of the system?**
+  _498 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Feed & Filter UI` be split into smaller, more focused modules?**
-  _Cohesion score 0.05504950495049505 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11054421768707483 - nodes in this community are weakly interconnected._
