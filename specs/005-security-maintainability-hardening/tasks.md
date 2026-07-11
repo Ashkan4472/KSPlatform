@@ -16,7 +16,7 @@ and the type-check/lint gate (SC-002) — no unit test tasks generated.
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-- [ ] T001 Add `export function canModerate(user: { role: "USER" | "ADMIN" } | null | undefined): boolean { return user?.role === "ADMIN"; }`
+- [X] T001 Add `export function canModerate(user: { role: "USER" | "ADMIN" } | null | undefined): boolean { return user?.role === "ADMIN"; }`
   to `src/lib/session.ts`; refactor `isAdmin()` to
   `return canModerate(session?.user);` instead of its own inline comparison
 
