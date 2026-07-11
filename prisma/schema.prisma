@@ -50,6 +50,8 @@ model User {
   notifications Notification[]
   deviceGrants    DeviceGrant[]
   extensionTokens ExtensionToken[]
+  permissionsHeld    UserPermission[] @relation("PermissionHolder")
+  permissionsGranted UserPermission[] @relation("PermissionGranter")
 
   @@index([createdAt])
 }
@@ -261,5 +263,22 @@ model ExtensionToken {
   grantId String?     @unique
   grant   DeviceGrant? @relation(fields: [grantId], references: [id], onDelete: SetNull)
 
+  @@index([userId])
+}
+
+// specs/006-iam-rbac: an explicit grant of one catalog permission
+// (src/lib/permissions.ts) to one user, on top of their role's defaults.
+model UserPermission {
+  id         String   @id @default(cuid())
+  permission String
+  createdAt  DateTime @default(now())
+
+  userId String
+  user   User   @relation("PermissionHolder", fields: [userId], references: [id], onDelete: Cascade)
+
+  grantedById String
+  grantedBy   User   @relation("PermissionGranter", fields: [grantedById], references: [id], onDelete: Cascade)
+
+  @@unique([userId, permission])
   @@index([userId])
 }

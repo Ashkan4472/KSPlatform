@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
-import { requireAdmin } from "@/lib/session";
+import { requirePermission } from "@/lib/session";
 import { FEED_PAGE_SIZE } from "@/lib/feed";
 import type { ActionResult } from "@/lib/actions";
 import type { Page } from "@/lib/pagination";
@@ -36,7 +36,7 @@ export async function adminListUsers({
 }: {
   cursor?: string | null;
 }): Promise<Page<AdminUserRow>> {
-  await requireAdmin();
+  await requirePermission("user:all:delete");
   const rows = await prisma.user.findMany({
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
@@ -70,7 +70,7 @@ export async function adminListPosts({
 }: {
   cursor?: string | null;
 }): Promise<Page<AdminPostRow>> {
-  await requireAdmin();
+  await requirePermission("post:all:delete");
   const rows = await prisma.post.findMany({
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
@@ -100,7 +100,7 @@ export async function adminListTweets({
 }: {
   cursor?: string | null;
 }): Promise<Page<AdminTweetRow>> {
-  await requireAdmin();
+  await requirePermission("tweet:all:delete");
   const rows = await prisma.tweet.findMany({
     orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     take: FEED_PAGE_SIZE,
@@ -122,7 +122,7 @@ export async function adminListTweets({
 }
 
 export async function adminDeletePost(postId: string): Promise<ActionResult> {
-  await requireAdmin();
+  await requirePermission("post:all:delete");
   await prisma.post.delete({ where: { id: postId } });
   revalidatePath("/admin");
   revalidatePath("/");
@@ -130,7 +130,7 @@ export async function adminDeletePost(postId: string): Promise<ActionResult> {
 }
 
 export async function adminDeleteTweet(tweetId: string): Promise<ActionResult> {
-  await requireAdmin();
+  await requirePermission("tweet:all:delete");
   await prisma.tweet.delete({ where: { id: tweetId } });
   revalidatePath("/admin");
   revalidatePath("/");
@@ -138,7 +138,7 @@ export async function adminDeleteTweet(tweetId: string): Promise<ActionResult> {
 }
 
 export async function adminDeleteUser(userId: string): Promise<ActionResult> {
-  const adminId = await requireAdmin();
+  const adminId = await requirePermission("user:all:delete");
   if (userId === adminId) {
     return { error: "You cannot delete your own account here" };
   }

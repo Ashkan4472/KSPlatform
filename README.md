@@ -26,6 +26,7 @@ on port 3000.
   - [Pagination & infinite scroll](#pagination--infinite-scroll)
   - [Comments & threaded replies](#comments--threaded-replies)
   - [Admin & moderation](#admin--moderation)
+  - [Permissions (IAM)](#permissions-iam)
   - [Search & tag trends (pg_trgm)](#search--tag-trends-pg_trgm)
   - [Theming & fonts (combinable)](#theming--fonts-combinable)
   - [Notifications](#notifications)
@@ -225,6 +226,29 @@ User ──< Post  ──< PostTag  >── Tag ──< TweetTag >── Tweet >
   with delete controls (deleting a user cascades their content).
 - Post/tweet/comment delete actions allow the **owner or an admin**, so admins also get
   inline delete controls on content (`src/actions/admin.ts` powers the dashboard).
+
+### Permissions (IAM)
+
+Beyond the binary `USER`/`ADMIN` role, a full admin can delegate one specific
+capability to a regular user without making them a full admin — e.g. letting
+someone moderate comments without also giving them post/tweet/user deletion.
+
+- Permissions are composed from a fixed taxonomy in `src/lib/permissions.ts`:
+  **feature** (`post`/`tweet`/`comment`/`user`) × **group** (`self`/`all`) ×
+  **action** (currently only `delete` is used) — e.g. `comment:all:delete`.
+  `*:self:delete` permissions are an implicit baseline every signed-in user
+  already has (mirroring existing ownership checks); `*:all:delete` are what's
+  actually grantable via the IAM screen.
+- `hasPermission(user, permission)` / `listEffectivePermissions(userId)`
+  (`src/lib/session.ts`) are the read side; `grantPermissionAction` /
+  `revokePermissionAction` (`src/actions/iam.ts`) are the write side, both
+  admin-only.
+- Manage grants at **`/admin/permissions`** (linked from `/admin`): search a
+  user, see their effective permissions with source (role vs. grant) and
+  who granted what, and toggle individual permissions on/off.
+- The `/admin` dashboard's Users/Posts/Tweets tabs are each independently
+  gated by their matching `*:all:delete` permission — a user granted only
+  `user:all:delete` sees just the Users tab, not the others.
 
 ### Search & tag trends (pg_trgm)
 

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { GRANTABLE_PERMISSIONS } from "@/lib/permissions";
 
 export const signupSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(60),
@@ -10,6 +11,10 @@ export const loginSchema = z.object({
   email: z.string().email("Enter a valid email"),
   password: z.string().min(1, "Password is required"),
 });
+
+export const grantablePermissionSchema = z.enum(
+  GRANTABLE_PERMISSIONS as [string, ...string[]],
+);
 
 export const postSchema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters").max(160),

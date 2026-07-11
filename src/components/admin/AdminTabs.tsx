@@ -80,7 +80,10 @@ function AdminRow({
 }
 
 export function AdminTabs({
-  adminId,
+  viewerId,
+  canUsers,
+  canPosts,
+  canTweets,
   userCount,
   postCount,
   tweetCount,
@@ -91,7 +94,10 @@ export function AdminTabs({
   initialTweets,
   tweetsCursor,
 }: {
-  adminId: string;
+  viewerId: string;
+  canUsers: boolean;
+  canPosts: boolean;
+  canTweets: boolean;
   userCount: number;
   postCount: number;
   tweetCount: number;
@@ -102,84 +108,92 @@ export function AdminTabs({
   initialTweets: AdminTweetRow[];
   tweetsCursor: string | null;
 }) {
+  const defaultTab = canUsers ? "users" : canPosts ? "posts" : "tweets";
+
   return (
-    <Tabs defaultValue="users" className="mt-6">
+    <Tabs defaultValue={defaultTab} className="mt-6">
       <TabsList>
-        <TabsTrigger value="users">Users · {userCount}</TabsTrigger>
-        <TabsTrigger value="posts">Posts · {postCount}</TabsTrigger>
-        <TabsTrigger value="tweets">Tweets · {tweetCount}</TabsTrigger>
+        {canUsers && <TabsTrigger value="users">Users · {userCount}</TabsTrigger>}
+        {canPosts && <TabsTrigger value="posts">Posts · {postCount}</TabsTrigger>}
+        {canTweets && <TabsTrigger value="tweets">Tweets · {tweetCount}</TabsTrigger>}
       </TabsList>
 
-      <TabsContent value="users" className="mt-4">
-        <InfiniteList<AdminUserRow>
-          initialItems={initialUsers}
-          initialCursor={usersCursor}
-          loadMore={(cursor) => adminListUsers({ cursor })}
-          getKey={(u) => u.id}
-          className="space-y-2"
-          renderItem={(u) => (
-            <AdminRow
-              kind="user"
-              id={u.id}
-              name={u.name}
-              canDelete={u.id !== adminId}
-            >
-              <div className="flex items-center gap-2">
-                <Link href={`/u/${u.id}`} className="font-medium hover:underline">
-                  {u.name}
-                </Link>
-                {canModerate({ role: u.role }) && <Badge variant="outline">Admin</Badge>}
-              </div>
-              <p className="truncate text-xs text-muted-foreground">
-                {u.email} · {u.postCount}p / {u.tweetCount}t / {u.commentCount}c
-                · joined {formatDate(u.createdAt)}
-              </p>
-            </AdminRow>
-          )}
-        />
-      </TabsContent>
-
-      <TabsContent value="posts" className="mt-4">
-        <InfiniteList<AdminPostRow>
-          initialItems={initialPosts}
-          initialCursor={postsCursor}
-          loadMore={(cursor) => adminListPosts({ cursor })}
-          getKey={(p) => p.id}
-          className="space-y-2"
-          renderItem={(p) => (
-            <AdminRow kind="post" id={p.id} name={p.title} canDelete>
-              <Link
-                href={`/posts/${p.slug}`}
-                className="font-medium hover:underline"
+      {canUsers && (
+        <TabsContent value="users" className="mt-4">
+          <InfiniteList<AdminUserRow>
+            initialItems={initialUsers}
+            initialCursor={usersCursor}
+            loadMore={(cursor) => adminListUsers({ cursor })}
+            getKey={(u) => u.id}
+            className="space-y-2"
+            renderItem={(u) => (
+              <AdminRow
+                kind="user"
+                id={u.id}
+                name={u.name}
+                canDelete={u.id !== viewerId}
               >
-                {p.title}
-              </Link>
-              <p className="text-xs text-muted-foreground">
-                by {p.authorName}
-                {p.status === "DRAFT" ? " · draft" : ""}
-              </p>
-            </AdminRow>
-          )}
-        />
-      </TabsContent>
+                <div className="flex items-center gap-2">
+                  <Link href={`/u/${u.id}`} className="font-medium hover:underline">
+                    {u.name}
+                  </Link>
+                  {canModerate({ role: u.role }) && <Badge variant="outline">Admin</Badge>}
+                </div>
+                <p className="truncate text-xs text-muted-foreground">
+                  {u.email} · {u.postCount}p / {u.tweetCount}t / {u.commentCount}c
+                  · joined {formatDate(u.createdAt)}
+                </p>
+              </AdminRow>
+            )}
+          />
+        </TabsContent>
+      )}
 
-      <TabsContent value="tweets" className="mt-4">
-        <InfiniteList<AdminTweetRow>
-          initialItems={initialTweets}
-          initialCursor={tweetsCursor}
-          loadMore={(cursor) => adminListTweets({ cursor })}
-          getKey={(t) => t.id}
-          className="space-y-2"
-          renderItem={(t) => (
-            <AdminRow kind="tweet" id={t.id} canDelete>
-              <Link href={`/tweets/${t.id}`} className="hover:underline">
-                {truncate(t.body, 80)}
-              </Link>
-              <p className="text-xs text-muted-foreground">by {t.authorName}</p>
-            </AdminRow>
-          )}
-        />
-      </TabsContent>
+      {canPosts && (
+        <TabsContent value="posts" className="mt-4">
+          <InfiniteList<AdminPostRow>
+            initialItems={initialPosts}
+            initialCursor={postsCursor}
+            loadMore={(cursor) => adminListPosts({ cursor })}
+            getKey={(p) => p.id}
+            className="space-y-2"
+            renderItem={(p) => (
+              <AdminRow kind="post" id={p.id} name={p.title} canDelete>
+                <Link
+                  href={`/posts/${p.slug}`}
+                  className="font-medium hover:underline"
+                >
+                  {p.title}
+                </Link>
+                <p className="text-xs text-muted-foreground">
+                  by {p.authorName}
+                  {p.status === "DRAFT" ? " · draft" : ""}
+                </p>
+              </AdminRow>
+            )}
+          />
+        </TabsContent>
+      )}
+
+      {canTweets && (
+        <TabsContent value="tweets" className="mt-4">
+          <InfiniteList<AdminTweetRow>
+            initialItems={initialTweets}
+            initialCursor={tweetsCursor}
+            loadMore={(cursor) => adminListTweets({ cursor })}
+            getKey={(t) => t.id}
+            className="space-y-2"
+            renderItem={(t) => (
+              <AdminRow kind="tweet" id={t.id} canDelete>
+                <Link href={`/tweets/${t.id}`} className="hover:underline">
+                  {truncate(t.body, 80)}
+                </Link>
+                <p className="text-xs text-muted-foreground">by {t.authorName}</p>
+              </AdminRow>
+            )}
+          />
+        </TabsContent>
+      )}
     </Tabs>
   );
 }
