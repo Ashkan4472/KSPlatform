@@ -38,24 +38,24 @@ a literal equality check).
 
 ### Implementation for User Story 1
 
-- [ ] T002 [P] [US1] `src/app/page.tsx`: replace
+- [X] T002 [P] [US1] `src/app/page.tsx`: replace
   `user?.role === "ADMIN"` with `canModerate(user)`
-- [ ] T003 [P] [US1] `src/app/posts/[slug]/page.tsx`: replace
+- [X] T003 [P] [US1] `src/app/posts/[slug]/page.tsx`: replace
   `user?.role === "ADMIN"` with `canModerate(user)`
-- [ ] T004 [P] [US1] `src/app/u/[id]/page.tsx`: replace both
+- [X] T004 [P] [US1] `src/app/u/[id]/page.tsx`: replace both
   `user.role === "ADMIN"` (badge) and `viewer?.role === "ADMIN"`
   (canModerate prop) with `canModerate(user)` / `canModerate(viewer)`
-- [ ] T005 [P] [US1] `src/app/search/page.tsx`: replace
+- [X] T005 [P] [US1] `src/app/search/page.tsx`: replace
   `user?.role === "ADMIN"` with `canModerate(user)`
-- [ ] T006 [P] [US1] `src/app/tweets/page.tsx`: replace
+- [X] T006 [P] [US1] `src/app/tweets/page.tsx`: replace
   `user?.role === "ADMIN"` with `canModerate(user)`
-- [ ] T007 [P] [US1] `src/app/tweets/[id]/page.tsx`: replace
+- [X] T007 [P] [US1] `src/app/tweets/[id]/page.tsx`: replace
   `user?.role === "ADMIN"` with `canModerate(user)`
-- [ ] T008 [P] [US1] `src/components/layout/UserMenu.tsx`: replace
+- [X] T008 [P] [US1] `src/components/layout/UserMenu.tsx`: replace
   `role === "ADMIN"` with `canModerate({ role })`
-- [ ] T009 [P] [US1] `src/components/admin/AdminTabs.tsx`: replace
+- [X] T009 [P] [US1] `src/components/admin/AdminTabs.tsx`: replace
   `u.role === "ADMIN"` with `canModerate({ role: u.role })`
-- [ ] T010 [P] [US1] `src/components/people/UserCard.tsx`: replace
+- [X] T010 [P] [US1] `src/components/people/UserCard.tsx`: replace
   `user.role === "ADMIN"` with `canModerate({ role: user.role })`
 
 **Checkpoint**: SC-001 achieved — zero inline comparisons remain. `npx tsc
@@ -73,7 +73,7 @@ other action does.
 
 ### Implementation for User Story 2
 
-- [ ] T011 [US2] `src/actions/preferences.ts`: replace
+- [X] T011 [US2] `src/actions/preferences.ts`: replace
   `import { auth } from "@/auth"` + `const session = await auth(); if (!session?.user?.id) return;`
   with `import { getCurrentUser } from "@/lib/session"` +
   `const user = await getCurrentUser(); if (!user) return;` (and use
@@ -135,3 +135,16 @@ Task: "Replace inline ADMIN check in src/components/people/UserCard.tsx"
 - No test-writing tasks: no new logic, only a call-site substitution.
 - This spec deliberately sets up (FR-005) but does not build the RBAC
   permission model itself — that's specs/006.
+- **Deviation during implementation**: `canModerate()` lives in a new,
+  dependency-free `src/lib/roles.ts`, not directly in `src/lib/session.ts`
+  as T001 originally specified. Reason: `session.ts` imports `@/auth`,
+  which pulls in Node-only deps (`bcryptjs`, Prisma) via NextAuth's
+  credentials provider. Two of the nine call sites
+  (`components/admin/AdminTabs.tsx`, `components/layout/UserMenu.tsx`) are
+  `"use client"` components — importing `canModerate` from `session.ts`
+  there would have bundled those server-only deps into client code.
+  `session.ts` still imports and re-exports `canModerate` from
+  `roles.ts`, so every server-side call site (`isAdmin()`,
+  `requireAdmin()`, the page files) is unaffected; only the two client
+  components and `UserCard.tsx` (a server component, updated for
+  consistency) import directly from `@/lib/roles` instead.

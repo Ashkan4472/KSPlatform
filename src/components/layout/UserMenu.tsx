@@ -9,6 +9,7 @@ import {
   User as UserIcon,
 } from "lucide-react";
 import { logoutAction } from "@/actions/auth";
+import { canModerate } from "@/lib/roles";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -71,7 +72,7 @@ export function UserMenu({ id, name, email, image, role }: Props) {
             <Settings className="mr-2 h-4 w-4" /> Settings
           </Link>
         </DropdownMenuItem>
-        {role === "ADMIN" && (
+        {canModerate({ role: role ?? "USER" }) && (
           <DropdownMenuItem asChild>
             <Link href="/admin">
               <Shield className="mr-2 h-4 w-4" /> Admin

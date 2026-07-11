@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/session";
+import { getCurrentUser, canModerate as isModerator } from "@/lib/session";
 import { TweetCard } from "@/components/tweets/TweetCard";
 import { CommentSection } from "@/components/comments/CommentSection";
 import { tweetInclude, toTweetView } from "@/lib/tweets";
@@ -46,7 +46,7 @@ export default async function TweetDetailPage({
 
   const tweet = toTweetView(row);
 
-  const canModerate = user?.role === "ADMIN";
+  const canModerate = isModerator(user);
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-8">

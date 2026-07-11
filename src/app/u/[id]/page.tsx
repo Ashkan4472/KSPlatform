@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/session";
+import { getCurrentUser, canModerate } from "@/lib/session";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { ProfileTabs } from "@/components/profile/ProfileTabs";
@@ -58,7 +58,7 @@ export default async function ProfilePage({
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-2xl font-semibold">{user.name}</h1>
-            {user.role === "ADMIN" && <Badge variant="outline">Admin</Badge>}
+            {canModerate(user) && <Badge variant="outline">Admin</Badge>}
           </div>
           {user.bio && (
             <p className="mt-1 text-sm text-muted-foreground">{user.bio}</p>
@@ -69,7 +69,7 @@ export default async function ProfilePage({
       <ProfileTabs
         userId={user.id}
         currentUserId={viewer?.id}
-        canModerate={viewer?.role === "ADMIN"}
+        canModerate={canModerate(viewer)}
         initialPosts={posts.items}
         postsCursor={posts.nextCursor}
         postCount={postCount}

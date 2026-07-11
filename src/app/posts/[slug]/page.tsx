@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Pencil } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/session";
+import { getCurrentUser, canModerate as isModerator } from "@/lib/session";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -59,7 +59,7 @@ export default async function PostPage({
   if (!post) notFound();
 
   const isAuthor = user?.id === post.authorId;
-  const canModerate = user?.role === "ADMIN";
+  const canModerate = isModerator(user);
   // Drafts are visible only to their author.
   if (post.status === "DRAFT" && !isAuthor) notFound();
 

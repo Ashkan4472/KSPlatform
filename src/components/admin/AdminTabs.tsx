@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { InfiniteList } from "@/components/InfiniteList";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
+import { canModerate } from "@/lib/roles";
 import { formatDate, truncate } from "@/lib/format";
 import {
   adminListUsers,
@@ -127,7 +128,7 @@ export function AdminTabs({
                 <Link href={`/u/${u.id}`} className="font-medium hover:underline">
                   {u.name}
                 </Link>
-                {u.role === "ADMIN" && <Badge variant="outline">Admin</Badge>}
+                {canModerate({ role: u.role }) && <Badge variant="outline">Admin</Badge>}
               </div>
               <p className="truncate text-xs text-muted-foreground">
                 {u.email} · {u.postCount}p / {u.tweetCount}t / {u.commentCount}c

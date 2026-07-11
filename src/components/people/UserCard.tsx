@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { initialsOf } from "@/lib/format";
+import { canModerate } from "@/lib/roles";
 import type { UserSummary } from "@/lib/users";
 
 export function UserCard({ user }: { user: UserSummary }) {
@@ -25,7 +26,7 @@ export function UserCard({ user }: { user: UserSummary }) {
             >
               {user.name}
             </Link>
-            {user.role === "ADMIN" && <Badge variant="outline">Admin</Badge>}
+            {canModerate(user) && <Badge variant="outline">Admin</Badge>}
           </div>
           {user.bio && (
             <p className="line-clamp-2 text-sm text-muted-foreground">

@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/session";
+import { getCurrentUser, canModerate } from "@/lib/session";
 import { TweetComposer } from "@/components/tweets/TweetComposer";
 import { TweetFeed } from "@/components/tweets/TweetFeed";
 import { tweetInclude, tweetFeedWhere, toTweetView } from "@/lib/tweets";
@@ -47,7 +47,7 @@ export default async function TweetsPage({
         filter="all"
         tag={tag}
         currentUserId={user?.id}
-        canModerate={user?.role === "ADMIN"}
+        canModerate={canModerate(user)}
         emptyState={
           <div className="rounded-lg border border-dashed py-16 text-center text-sm text-muted-foreground">
             {tag ? `No tweets tagged #${tag} yet.` : "No tweets yet."}

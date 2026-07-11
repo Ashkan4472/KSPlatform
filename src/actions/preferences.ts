@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/session";
 import {
   isBase,
   isAccent,
@@ -30,8 +30,8 @@ export async function updatePreferencesAction(prefs: {
   borderDensity?: string;
   shadow?: string;
 }): Promise<void> {
-  const session = await auth();
-  if (!session?.user?.id) return;
+  const user = await getCurrentUser();
+  if (!user) return;
 
   const data: {
     theme?: string;
@@ -57,5 +57,5 @@ export async function updatePreferencesAction(prefs: {
   if (prefs.shadow && isShadow(prefs.shadow)) data.shadow = prefs.shadow;
   if (Object.keys(data).length === 0) return;
 
-  await prisma.user.update({ where: { id: session.user.id }, data });
+  await prisma.user.update({ where: { id: user.id }, data });
 }

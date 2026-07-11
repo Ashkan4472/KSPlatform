@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getCurrentUser } from "@/lib/session";
+import { getCurrentUser, canModerate } from "@/lib/session";
 import { searchPosts, searchTweets } from "@/actions/search";
 import { SearchResults } from "@/components/search/SearchResults";
 
@@ -29,7 +29,7 @@ export default async function SearchPage({
       )}
 
       {q ? (
-        <Results q={q} defaultTab={defaultTab} userId={user?.id} canModerate={user?.role === "ADMIN"} />
+        <Results q={q} defaultTab={defaultTab} userId={user?.id} canModerate={canModerate(user)} />
       ) : (
         <div className="rounded-lg border border-dashed py-16 text-center text-sm text-muted-foreground">
           Type a query in the search box above.

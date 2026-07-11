@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { getCurrentUser } from "@/lib/session";
+import { getCurrentUser, canModerate } from "@/lib/session";
 import { FeedFilters } from "@/components/feed/FeedFilters";
 import { UnifiedFeed } from "@/components/feed/UnifiedFeed";
 import { TrendingPosts } from "@/components/feed/TrendingPosts";
@@ -49,7 +49,7 @@ export default async function HomePage({
             filter={filter}
             tag={tag}
             currentUserId={user?.id}
-            canModerate={user?.role === "ADMIN"}
+            canModerate={canModerate(user)}
             emptyState={
               <EmptyState filter={filter} tag={tag} isAuthed={!!user} />
             }
