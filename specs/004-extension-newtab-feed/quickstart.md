@@ -4,7 +4,10 @@
 
 - specs/003 implemented and verified (bearer token issuance/revocation works)
 - Docker stack running (`docker compose up --build`)
-- `npm install && npm run build` inside `extension/`
+- `npm install` inside `extension/`
+- `npm run build:chrome` and/or `npm run build:firefox` inside `extension/`
+  (one manifest source, two separate output directories — see
+  `manifest.config.ts`)
 - Demo user `demo@ksplatform.dev` subscribed to at least one tag with
   existing posts/tweets (seed data or manual subscribe via the web app)
 
@@ -14,7 +17,7 @@
 `extension/dist`
 
 **Firefox**: `about:debugging#/runtime/this-firefox` → Load Temporary
-Add-on → select `extension/dist/manifest.json`
+Add-on → select `extension/dist-firefox/manifest.json`
 
 ## Type-check and lint gate
 

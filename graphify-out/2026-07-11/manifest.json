@@ -590,9 +590,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1781962575.6350422,
-    "ast_hash": "1e46ffa6498fe2997240f87fe770300a",
-    "semantic_hash": "1e46ffa6498fe2997240f87fe770300a"
+    "mtime": 1783780905.2753508,
+    "ast_hash": "0302ee31b3b21baabbb3627fa117d679",
+    "semantic_hash": ""
   },
   "docker-compose.yml": {
     "mtime": 1781896904.803905,
@@ -900,8 +900,8 @@
     "semantic_hash": ""
   },
   "specs/003-extension-device-auth/tasks.md": {
-    "mtime": 1783780362.3572247,
-    "ast_hash": "0dcdd6f668c2ac11ec6d85943f1d21b9",
+    "mtime": 1783780920.4205847,
+    "ast_hash": "da53729e681df490d08735d646326fce",
     "semantic_hash": ""
   },
   "specs/004-extension-newtab-feed/checklists/requirements.md": {

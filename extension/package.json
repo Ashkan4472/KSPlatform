@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "npm run build:chrome",
+    "build:chrome": "tsc --noEmit && vite build --outDir dist",
+    "build:firefox": "tsc --noEmit && TARGET_BROWSER=firefox vite build --outDir dist-firefox",
     "lint": "eslint ."
   },
   "dependencies": {

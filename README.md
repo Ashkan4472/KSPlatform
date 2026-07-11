@@ -36,6 +36,7 @@ on port 3000.
 - [Environment variables](#environment-variables)
 - [Database & migrations](#database--migrations)
 - [npm scripts](#npm-scripts)
+- [Browser extension](#browser-extension)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -567,6 +568,34 @@ GIN trigram indexes on `Post.title` and `Tweet.body`), and `theme_surface_radius
 | `npm run db:deploy`  | `prisma migrate deploy` (apply pending migrations)  |
 | `npm run db:seed`    | Seed demo user + starter tags                       |
 | `npm run db:studio`  | Open Prisma Studio                                  |
+
+---
+
+## Browser extension
+
+`extension/` is a separate sub-project (own `package.json`, Vite build —
+not part of the Next.js app) that overrides the browser's new-tab page with
+a feed of posts/tweets from your subscribed tags, similar to daily.dev. It
+authenticates via the device-flow grant in
+[Connecting an extension](#connecting-an-extension) — never your password —
+and talks to the app only over `GET /api/v1/feed`.
+
+```bash
+cd extension
+npm install
+npm run build:chrome    # → extension/dist
+npm run build:firefox   # → extension/dist-firefox
+```
+
+Load it unpacked:
+
+- **Chrome**: `chrome://extensions` → Developer mode → Load unpacked → `extension/dist`
+- **Firefox**: `about:debugging#/runtime/this-firefox` → Load Temporary Add-on →
+  `extension/dist-firefox/manifest.json`
+
+One manifest source (`extension/manifest.config.ts`) generates both browser
+targets — see `specs/004-extension-newtab-feed/` for the full spec, plan,
+and API contract.
 
 ---
 

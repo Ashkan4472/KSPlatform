@@ -15,9 +15,9 @@
     "semantic_hash": "6b09d7bdbc69ba424475bb00d28b5e91"
   },
   "eslint.config.mjs": {
-    "mtime": 1781880600.6041224,
-    "ast_hash": "ad8de0bf3f817e6e86a560a515a602eb",
-    "semantic_hash": "ad8de0bf3f817e6e86a560a515a602eb"
+    "mtime": 1783782747.039631,
+    "ast_hash": "977ae7fd93dac76fad40816b62aa5d45",
+    "semantic_hash": ""
   },
   "next.config.ts": {
     "mtime": 1781877041.9149191,
@@ -575,9 +575,9 @@
     "semantic_hash": "13301a45013300e473fc7737d227cb74"
   },
   "tsconfig.json": {
-    "mtime": 1781876511.0,
-    "ast_hash": "ee17fd1c97c735e9f3564e3f5251f125",
-    "semantic_hash": "ee17fd1c97c735e9f3564e3f5251f125"
+    "mtime": 1783782861.20181,
+    "ast_hash": "4739d1a57bae01dfc05c646ef93d62ea",
+    "semantic_hash": ""
   },
   "AGENTS.md": {
     "mtime": 1781876546.0,
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   ".specify/feature.json": {
-    "mtime": 1783778462.1415794,
-    "ast_hash": "2050323f453860cb675c1a354636828c",
+    "mtime": 1783780958.7720609,
+    "ast_hash": "99eaa931996ef979c86ac33069d209c3",
     "semantic_hash": ""
   },
   ".specify/init-options.json": {
@@ -935,8 +935,8 @@
     "semantic_hash": ""
   },
   "specs/004-extension-newtab-feed/tasks.md": {
-    "mtime": 1783753839.3043509,
-    "ast_hash": "e74b0354a33db24810a749d9de93f1e7",
+    "mtime": 1783783768.317671,
+    "ast_hash": "4036d36faa29bd202d199113752f19b4",
     "semantic_hash": ""
   },
   "prisma/migrations/20260711140504_add_extension_device_auth/migration.sql": {
@@ -950,13 +950,13 @@
     "semantic_hash": ""
   },
   "src/app/api/v1/device/code/route.ts": {
-    "mtime": 1783778872.3054473,
-    "ast_hash": "df4839ea242794813053003dcf562fd8",
+    "mtime": 1783783460.7907257,
+    "ast_hash": "8424a5f8bba69a246de5267aaf106ab6",
     "semantic_hash": ""
   },
   "src/app/api/v1/device/token/route.ts": {
-    "mtime": 1783778902.481979,
-    "ast_hash": "2617a8ae25c81b90a6db6de1988a7160",
+    "mtime": 1783783498.791182,
+    "ast_hash": "a033de1649c26c4a4fcdc25f51509801",
     "semantic_hash": ""
   },
   "src/app/connect/page.tsx": {
@@ -970,8 +970,8 @@
     "semantic_hash": ""
   },
   "src/lib/extensionAuth.ts": {
-    "mtime": 1783780332.9687824,
-    "ast_hash": "f55d98efed0081ddfc7cf20797afabe1",
+    "mtime": 1783783424.4651697,
+    "ast_hash": "88fd32149275c420bde875b87285b285",
     "semantic_hash": ""
   },
   "src/app/settings/connections/page.tsx": {
@@ -982,6 +982,96 @@
   "src/components/settings/ConnectionsList.tsx": {
     "mtime": 1783780721.3097558,
     "ast_hash": "9d22d19c28532fc1d94e2c7a8ea5ff5e",
+    "semantic_hash": ""
+  },
+  "extension/eslint.config.js": {
+    "mtime": 1783782248.9972384,
+    "ast_hash": "ace5061205fc22653d98037e2725450c",
+    "semantic_hash": ""
+  },
+  "extension/manifest.config.ts": {
+    "mtime": 1783782602.5845842,
+    "ast_hash": "48a0b45ac83ae570e162e98cb05c0245",
+    "semantic_hash": ""
+  },
+  "extension/package.json": {
+    "mtime": 1783782225.7337143,
+    "ast_hash": "e86385c7323ac0118471d606fda8b1f4",
+    "semantic_hash": ""
+  },
+  "extension/src/background.ts": {
+    "mtime": 1783782040.2704318,
+    "ast_hash": "f61c015d9c96fccc5096b8df39412865",
+    "semantic_hash": ""
+  },
+  "extension/src/lib/api.ts": {
+    "mtime": 1783781416.2290006,
+    "ast_hash": "f8ace6e4712b15f25bc2a6c7d6d7c1cb",
+    "semantic_hash": ""
+  },
+  "extension/src/lib/types.ts": {
+    "mtime": 1783781436.5151563,
+    "ast_hash": "3c1a3cb7025726f9ecfbf9f96b4cb887",
+    "semantic_hash": ""
+  },
+  "extension/src/newtab/App.tsx": {
+    "mtime": 1783781845.1735415,
+    "ast_hash": "8745109b96290ad579b8f2bf3e827f30",
+    "semantic_hash": ""
+  },
+  "extension/src/newtab/FeedItem.tsx": {
+    "mtime": 1783781792.901953,
+    "ast_hash": "09cec4c5ec6372a7c8ef76786cd130f6",
+    "semantic_hash": ""
+  },
+  "extension/src/newtab/main.tsx": {
+    "mtime": 1783781918.4515922,
+    "ast_hash": "7f79f3768afc3f8189cebf3c2ce61aaf",
+    "semantic_hash": ""
+  },
+  "extension/src/vite-env.d.ts": {
+    "mtime": 1783782092.2245939,
+    "ast_hash": "b1d4e74419cc1dd0531b6aa909ab4cec",
+    "semantic_hash": ""
+  },
+  "extension/tsconfig.json": {
+    "mtime": 1783781350.029654,
+    "ast_hash": "2e15ee17d546317c4147f4eeb5576d1f",
+    "semantic_hash": ""
+  },
+  "extension/vite.config.ts": {
+    "mtime": 1783781377.674708,
+    "ast_hash": "06828f767835ba18dc6b6abf3473fe00",
+    "semantic_hash": ""
+  },
+  "src/app/api/v1/feed/route.ts": {
+    "mtime": 1783783529.0222487,
+    "ast_hash": "685a19268c3b9263307b653ffcdfacfe",
+    "semantic_hash": ""
+  },
+  "src/lib/extensionFeed.ts": {
+    "mtime": 1783780997.022657,
+    "ast_hash": "b8e2cf988267e9b99b8afee4c3a72e64",
+    "semantic_hash": ""
+  },
+  "extension/src/newtab/index.html": {
+    "mtime": 1783781733.5245621,
+    "ast_hash": "07f156d65f160869afa6451f4b29b073",
+    "semantic_hash": ""
+  },
+  "extension/icons/icon128.png": {
+    "mtime": 1783782467.9017844,
+    "ast_hash": "eeda752e773d1c20b1837067ef50d72b",
+    "semantic_hash": ""
+  },
+  "extension/icons/icon16.png": {
+    "mtime": 1783782467.9016538,
+    "ast_hash": "eeda752e773d1c20b1837067ef50d72b",
+    "semantic_hash": ""
+  },
+  "extension/icons/icon48.png": {
+    "mtime": 1783782467.9017253,
+    "ast_hash": "eeda752e773d1c20b1837067ef50d72b",
     "semantic_hash": ""
   }
 }

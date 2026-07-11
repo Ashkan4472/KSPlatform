@@ -130,10 +130,10 @@ never a blank page or crash.
 
 - [X] T015 Run `npx tsc --noEmit` + `npm run lint` at repo root
 - [X] T016 Run `cd extension && npx tsc --noEmit && npm run lint`
-- [ ] T017 Run the full `quickstart.md` manual smoke test in Chrome
-- [ ] T018 Run the full `quickstart.md` manual smoke test in Firefox
+- [X] T017 Run the full `quickstart.md` manual smoke test in Chrome
+- [X] T018 Run the full `quickstart.md` manual smoke test in Firefox
   (SC-003 requires both, not just Chrome)
-- [ ] T019 Update `README.md` with an "Extension" section (build/load
+- [X] T019 Update `README.md` with an "Extension" section (build/load
   instructions) once verified in both browsers
 
 ---

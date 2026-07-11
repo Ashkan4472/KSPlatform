@@ -56,4 +56,5 @@ next-env.d.ts
 # extension/: separate sub-project, own deps and build output
 /extension/node_modules
 /extension/dist
+/extension/dist-firefox
 /extension/*.tsbuildinfo

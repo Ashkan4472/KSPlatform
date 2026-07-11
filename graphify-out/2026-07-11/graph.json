@@ -57,6 +57,336 @@
   },
   "nodes": [
     {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 7,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "KSPlatform \u2014 Knowledge Sharing Platform",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_ksplatform_knowledge_sharing_platform",
+      "community": 7,
+      "norm_label": "ksplatform \u2014 knowledge sharing platform"
+    },
+    {
+      "label": "Table of contents",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "readme_table_of_contents",
+      "community": 7,
+      "norm_label": "table of contents"
+    },
+    {
+      "label": "Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "readme_features",
+      "community": 7,
+      "norm_label": "features"
+    },
+    {
+      "label": "Tech stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "readme_tech_stack",
+      "community": 7,
+      "norm_label": "tech stack"
+    },
+    {
+      "label": "Architecture",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "readme_architecture",
+      "community": 7,
+      "norm_label": "architecture"
+    },
+    {
+      "label": "Request & rendering model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "readme_request_rendering_model",
+      "community": 7,
+      "norm_label": "request & rendering model"
+    },
+    {
+      "label": "Data model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "readme_data_model",
+      "community": 7,
+      "norm_label": "data model"
+    },
+    {
+      "label": "Authentication & roles",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "readme_authentication_roles",
+      "community": 7,
+      "norm_label": "authentication & roles"
+    },
+    {
+      "label": "Image uploads (MinIO / S3)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "readme_image_uploads_minio_s3",
+      "community": 7,
+      "norm_label": "image uploads (minio / s3)"
+    },
+    {
+      "label": "Editor & Markdown pipeline",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "readme_editor_markdown_pipeline",
+      "community": 7,
+      "norm_label": "editor & markdown pipeline"
+    },
+    {
+      "label": "Tweets & the unified timeline",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "readme_tweets_the_unified_timeline",
+      "community": 7,
+      "norm_label": "tweets & the unified timeline"
+    },
+    {
+      "label": "Pagination & infinite scroll",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "readme_pagination_infinite_scroll",
+      "community": 7,
+      "norm_label": "pagination & infinite scroll"
+    },
+    {
+      "label": "Comments & threaded replies",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L214",
+      "_origin": "ast",
+      "id": "readme_comments_threaded_replies",
+      "community": 7,
+      "norm_label": "comments & threaded replies"
+    },
+    {
+      "label": "Admin & moderation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L221",
+      "_origin": "ast",
+      "id": "readme_admin_moderation",
+      "community": 7,
+      "norm_label": "admin & moderation"
+    },
+    {
+      "label": "Search & tag trends (pg_trgm)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L228",
+      "_origin": "ast",
+      "id": "readme_search_tag_trends_pg_trgm",
+      "community": 7,
+      "norm_label": "search & tag trends (pg_trgm)"
+    },
+    {
+      "label": "Theming & fonts (combinable)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "_origin": "ast",
+      "id": "readme_theming_fonts_combinable",
+      "community": 7,
+      "norm_label": "theming & fonts (combinable)"
+    },
+    {
+      "label": "Notifications",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L272",
+      "_origin": "ast",
+      "id": "readme_notifications",
+      "community": 7,
+      "norm_label": "notifications"
+    },
+    {
+      "label": "Connecting an extension",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L281",
+      "_origin": "ast",
+      "id": "readme_connecting_an_extension",
+      "community": 7,
+      "norm_label": "connecting an extension"
+    },
+    {
+      "label": "Project layout",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L304",
+      "_origin": "ast",
+      "id": "readme_project_layout",
+      "community": 7,
+      "norm_label": "project layout"
+    },
+    {
+      "label": "Development",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L366",
+      "_origin": "ast",
+      "id": "readme_development",
+      "community": 7,
+      "norm_label": "development"
+    },
+    {
+      "label": "Prerequisites",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L368",
+      "_origin": "ast",
+      "id": "readme_prerequisites",
+      "community": 7,
+      "norm_label": "prerequisites"
+    },
+    {
+      "label": "Option A \u2014 full stack in Docker (closest to production)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L373",
+      "_origin": "ast",
+      "id": "readme_option_a_full_stack_in_docker_closest_to_production",
+      "community": 7,
+      "norm_label": "option a \u2014 full stack in docker (closest to production)"
+    },
+    {
+      "label": "Option B \u2014 app on the host, infra in Docker (fast iteration)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L392",
+      "_origin": "ast",
+      "id": "readme_option_b_app_on_the_host_infra_in_docker_fast_iteration",
+      "community": 7,
+      "norm_label": "option b \u2014 app on the host, infra in docker (fast iteration)"
+    },
+    {
+      "label": "Demo login",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L412",
+      "_origin": "ast",
+      "id": "readme_demo_login",
+      "community": 7,
+      "norm_label": "demo login"
+    },
+    {
+      "label": "Code quality",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L417",
+      "_origin": "ast",
+      "id": "readme_code_quality",
+      "community": 7,
+      "norm_label": "code quality"
+    },
+    {
+      "label": "Production deployment",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L427",
+      "_origin": "ast",
+      "id": "readme_production_deployment",
+      "community": 7,
+      "norm_label": "production deployment"
+    },
+    {
+      "label": "With docker-compose (single host)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L433",
+      "_origin": "ast",
+      "id": "readme_with_docker_compose_single_host",
+      "community": 7,
+      "norm_label": "with docker-compose (single host)"
+    },
+    {
+      "label": "Production checklist / notes",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L451",
+      "_origin": "ast",
+      "id": "readme_production_checklist_notes",
+      "community": 7,
+      "norm_label": "production checklist / notes"
+    },
+    {
+      "label": "Environment variables",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L479",
+      "_origin": "ast",
+      "id": "readme_environment_variables",
+      "community": 7,
+      "norm_label": "environment variables"
+    },
+    {
+      "label": "Database & migrations",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L515",
+      "_origin": "ast",
+      "id": "readme_database_migrations",
+      "community": 7,
+      "norm_label": "database & migrations"
+    },
+    {
+      "label": "npm scripts",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L558",
+      "_origin": "ast",
+      "id": "readme_npm_scripts",
+      "community": 7,
+      "norm_label": "npm scripts"
+    },
+    {
+      "label": "Troubleshooting",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L573",
+      "_origin": "ast",
+      "id": "readme_troubleshooting",
+      "community": 7,
+      "norm_label": "troubleshooting"
+    },
+    {
       "label": "tasks.md",
       "file_type": "document",
       "source_file": "specs/003-extension-device-auth/tasks.md",
@@ -222,9 +552,9 @@
       "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "connections_page",
       "community": 1,
-      "norm_label": "page.tsx"
+      "norm_label": "page.tsx",
+      "id": "connections_page"
     },
     {
       "label": "ConnectionsPage()",
@@ -232,9 +562,9 @@
       "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "connections_page_connectionspage",
       "community": 1,
-      "norm_label": "connectionspage()"
+      "norm_label": "connectionspage()",
+      "id": "connections_page_connectionspage"
     },
     {
       "label": "ConnectionsList.tsx",
@@ -242,9 +572,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "settings_connectionslist",
       "community": 1,
-      "norm_label": "connectionslist.tsx"
+      "norm_label": "connectionslist.tsx",
+      "id": "settings_connectionslist"
     },
     {
       "label": "ConnectionRow()",
@@ -252,9 +582,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "settings_connectionslist_connectionrow",
       "community": 1,
-      "norm_label": "connectionrow()"
+      "norm_label": "connectionrow()",
+      "id": "settings_connectionslist_connectionrow"
     },
     {
       "label": "ConnectionsList()",
@@ -262,9 +592,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L53",
       "_origin": "ast",
-      "id": "settings_connectionslist_connectionslist",
       "community": 1,
-      "norm_label": "connectionslist()"
+      "norm_label": "connectionslist()",
+      "id": "settings_connectionslist_connectionslist"
     },
     {
       "label": "extensionAuth.ts",
@@ -272,9 +602,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "lib_extensionauth",
       "community": 87,
-      "norm_label": "extensionauth.ts"
+      "norm_label": "extensionauth.ts",
+      "id": "lib_extensionauth"
     },
     {
       "label": "generateDeviceCode()",
@@ -282,9 +612,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "lib_extensionauth_generatedevicecode",
       "community": 87,
-      "norm_label": "generatedevicecode()"
+      "norm_label": "generatedevicecode()",
+      "id": "lib_extensionauth_generatedevicecode"
     },
     {
       "label": "generateUserCode()",
@@ -292,9 +622,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "lib_extensionauth_generateusercode",
       "community": 87,
-      "norm_label": "generateusercode()"
+      "norm_label": "generateusercode()",
+      "id": "lib_extensionauth_generateusercode"
     },
     {
       "label": "generateAccessToken()",
@@ -302,9 +632,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "lib_extensionauth_generateaccesstoken",
       "community": 87,
-      "norm_label": "generateaccesstoken()"
+      "norm_label": "generateaccesstoken()",
+      "id": "lib_extensionauth_generateaccesstoken"
     },
     {
       "label": "hashToken()",
@@ -312,9 +642,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "lib_extensionauth_hashtoken",
       "community": 87,
-      "norm_label": "hashtoken()"
+      "norm_label": "hashtoken()",
+      "id": "lib_extensionauth_hashtoken"
     },
     {
       "label": "verifyAccessToken()",
@@ -322,9 +652,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "lib_extensionauth_verifyaccesstoken",
       "community": 87,
-      "norm_label": "verifyaccesstoken()"
+      "norm_label": "verifyaccesstoken()",
+      "id": "lib_extensionauth_verifyaccesstoken"
     },
     {
       "label": "requireBearerAuth()",
@@ -332,9 +662,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L61",
       "_origin": "ast",
-      "id": "lib_extensionauth_requirebearerauth",
       "community": 87,
-      "norm_label": "requirebearerauth()"
+      "norm_label": "requirebearerauth()",
+      "id": "lib_extensionauth_requirebearerauth"
     },
     {
       "label": "rateLimitHits",
@@ -342,9 +672,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L78",
       "_origin": "ast",
-      "id": "lib_extensionauth_ratelimithits",
       "community": 87,
-      "norm_label": "ratelimithits"
+      "norm_label": "ratelimithits",
+      "id": "lib_extensionauth_ratelimithits"
     },
     {
       "label": "isRateLimited()",
@@ -352,9 +682,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L86",
       "_origin": "ast",
-      "id": "lib_extensionauth_isratelimited",
       "community": 87,
-      "norm_label": "isratelimited()"
+      "norm_label": "isratelimited()",
+      "id": "lib_extensionauth_isratelimited"
     },
     {
       "label": "deviceAuth.ts",
@@ -452,7 +782,7 @@
       "source_file": "src/app/connect/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "page.tsx",
       "id": "connect_page"
     },
@@ -462,7 +792,7 @@
       "source_file": "src/app/connect/page.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "connectpage()",
       "id": "connect_page_connectpage"
     },
@@ -472,7 +802,7 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "connectform.tsx",
       "id": "connect_connectform"
     },
@@ -482,7 +812,7 @@
       "source_file": "src/components/connect/ConnectForm.tsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "connectform()",
       "id": "connect_connectform_connectform"
     },
@@ -502,7 +832,7 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "signupschema",
       "id": "lib_validation_signupschema"
     },
@@ -512,7 +842,7 @@
       "source_file": "src/lib/validation.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "loginschema",
       "id": "lib_validation_loginschema"
     },
@@ -5178,7 +5508,7 @@
       "source_file": "src/actions/comments.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 81,
+      "community": 1,
       "norm_label": "addcommentaction()",
       "id": "actions_comments_addcommentaction"
     },
@@ -6516,7 +6846,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "auth.ts",
       "id": "actions_auth"
     },
@@ -6526,7 +6856,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "authformstate",
       "id": "actions_auth_authformstate"
     },
@@ -6536,7 +6866,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "signupaction()",
       "id": "actions_auth_signupaction"
     },
@@ -6546,7 +6876,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "loginaction()",
       "id": "actions_auth_loginaction"
     },
@@ -6556,7 +6886,7 @@
       "source_file": "src/actions/auth.ts",
       "source_location": "L74",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "logoutaction()",
       "id": "actions_auth_logoutaction"
     },
@@ -6566,7 +6896,7 @@
       "source_file": "src/actions/notifications.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notifications.ts",
       "id": "actions_notifications"
     },
@@ -6576,7 +6906,7 @@
       "source_file": "src/actions/notifications.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "marknotificationreadaction()",
       "id": "actions_notifications_marknotificationreadaction"
     },
@@ -6586,7 +6916,7 @@
       "source_file": "src/actions/notifications.ts",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "markallnotificationsreadaction()",
       "id": "actions_notifications_markallnotificationsreadaction"
     },
@@ -6656,7 +6986,7 @@
       "source_file": "src/actions/subscriptions.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "subscriptions.ts",
       "id": "actions_subscriptions"
     },
@@ -6666,7 +6996,7 @@
       "source_file": "src/actions/subscriptions.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "togglesubscriptionaction()",
       "id": "actions_subscriptions_togglesubscriptionaction"
     },
@@ -6676,7 +7006,7 @@
       "source_file": "src/app/(auth)/login/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "page.tsx",
       "id": "login_page"
     },
@@ -6686,7 +7016,7 @@
       "source_file": "src/app/(auth)/login/page.tsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "loginpage()",
       "id": "login_page_loginpage"
     },
@@ -6696,7 +7026,7 @@
       "source_file": "src/app/(auth)/signup/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "page.tsx",
       "id": "signup_page"
     },
@@ -6706,7 +7036,7 @@
       "source_file": "src/app/(auth)/signup/page.tsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "signuppage()",
       "id": "signup_page_signuppage"
     },
@@ -6746,7 +7076,7 @@
       "source_file": "src/app/api/auth/[...nextauth]/route.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "route.ts",
       "id": "nextauth_route"
     },
@@ -6756,7 +7086,7 @@
       "source_file": "src/app/api/tags/search/route.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "route.ts",
       "id": "search_route"
     },
@@ -6766,7 +7096,7 @@
       "source_file": "src/app/api/tags/search/route.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "tagrow",
       "id": "search_route_tagrow"
     },
@@ -6776,7 +7106,7 @@
       "source_file": "src/app/api/tags/search/route.ts",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "get()",
       "id": "search_route_get"
     },
@@ -6786,7 +7116,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "route.ts",
       "id": "upload_route"
     },
@@ -6796,7 +7126,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "allowed",
       "id": "upload_route_allowed"
     },
@@ -6806,7 +7136,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "ext",
       "id": "upload_route_ext"
     },
@@ -6816,7 +7146,7 @@
       "source_file": "src/app/api/upload/route.ts",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "post()",
       "id": "upload_route_post"
     },
@@ -6886,7 +7216,7 @@
       "source_file": "src/app/notifications/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "page.tsx",
       "id": "notifications_page"
     },
@@ -6896,7 +7226,7 @@
       "source_file": "src/app/notifications/page.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "metadata",
       "id": "notifications_page_metadata"
     },
@@ -6906,7 +7236,7 @@
       "source_file": "src/app/notifications/page.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notificationspage()",
       "id": "notifications_page_notificationspage"
     },
@@ -6916,7 +7246,7 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 76,
       "norm_label": "page.tsx",
       "id": "app_page"
     },
@@ -6936,7 +7266,7 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L74",
       "_origin": "ast",
-      "community": 3,
+      "community": 76,
       "norm_label": "emptystate()",
       "id": "app_page_emptystate"
     },
@@ -7116,7 +7446,7 @@
       "source_file": "src/app/tweets/[id]/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "page.tsx",
       "id": "src_app_tweets_id_page_tsx_id_page"
     },
@@ -7126,7 +7456,7 @@
       "source_file": "src/app/tweets/[id]/page.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "generatemetadata()",
       "id": "src_app_tweets_id_page_tsx_id_page_generatemetadata"
     },
@@ -7206,7 +7536,7 @@
       "source_file": "src/auth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "auth.ts",
       "id": "src_auth"
     },
@@ -7216,7 +7546,7 @@
       "source_file": "src/auth.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 90,
+      "community": 82,
       "norm_label": "{ handlers, auth, signin, signout }",
       "id": "src_auth_handlers_auth_signin_signout"
     },
@@ -7236,7 +7566,7 @@
       "source_file": "src/components/ConfirmDialog.tsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 81,
+      "community": 76,
       "norm_label": "confirmdialog()",
       "id": "components_confirmdialog_confirmdialog"
     },
@@ -7246,7 +7576,7 @@
       "source_file": "src/components/SubscribeButton.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "subscribebutton.tsx",
       "id": "components_subscribebutton"
     },
@@ -7256,7 +7586,7 @@
       "source_file": "src/components/SubscribeButton.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "subscribebutton()",
       "id": "components_subscribebutton_subscribebutton"
     },
@@ -7306,7 +7636,7 @@
       "source_file": "src/components/comments/CommentForm.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 81,
+      "community": 76,
       "norm_label": "commentform.tsx",
       "id": "comments_commentform"
     },
@@ -7376,7 +7706,7 @@
       "source_file": "src/components/editor/PostForm.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 76,
       "norm_label": "postform.tsx",
       "id": "editor_postform"
     },
@@ -7386,7 +7716,7 @@
       "source_file": "src/components/editor/PostForm.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 1,
+      "community": 76,
       "norm_label": "props",
       "id": "editor_postform_props"
     },
@@ -7406,7 +7736,7 @@
       "source_file": "src/components/editor/TiptapEditor.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "tiptapeditor.tsx",
       "id": "editor_tiptapeditor"
     },
@@ -7416,7 +7746,7 @@
       "source_file": "src/components/editor/TiptapEditor.tsx",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "props",
       "id": "editor_tiptapeditor_props"
     },
@@ -7426,7 +7756,7 @@
       "source_file": "src/components/editor/TiptapEditor.tsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "tiptapeditor()",
       "id": "editor_tiptapeditor_tiptapeditor"
     },
@@ -7436,7 +7766,7 @@
       "source_file": "src/components/editor/TiptapEditor.tsx",
       "source_location": "L227",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "toolbarbutton()",
       "id": "editor_tiptapeditor_toolbarbutton"
     },
@@ -7446,7 +7776,7 @@
       "source_file": "src/components/editor/TiptapEditor.tsx",
       "source_location": "L259",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "divider()",
       "id": "editor_tiptapeditor_divider"
     },
@@ -7456,7 +7786,7 @@
       "source_file": "src/components/feed/FeedFilters.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "feedfilters.tsx",
       "id": "feed_feedfilters"
     },
@@ -7466,7 +7796,7 @@
       "source_file": "src/components/feed/FeedFilters.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "props",
       "id": "feed_feedfilters_props"
     },
@@ -7476,7 +7806,7 @@
       "source_file": "src/components/feed/FeedFilters.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "buildhref()",
       "id": "feed_feedfilters_buildhref"
     },
@@ -7486,7 +7816,7 @@
       "source_file": "src/components/feed/FeedFilters.tsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "feedfilters()",
       "id": "feed_feedfilters_feedfilters"
     },
@@ -7496,7 +7826,7 @@
       "source_file": "src/components/feed/FeedFilters.tsx",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "filtertab()",
       "id": "feed_feedfilters_filtertab"
     },
@@ -7526,7 +7856,7 @@
       "source_file": "src/components/feed/PostCard.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "postcard()",
       "id": "feed_postcard_postcard"
     },
@@ -7536,7 +7866,7 @@
       "source_file": "src/components/feed/TrendingPosts.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "trendingposts.tsx",
       "id": "feed_trendingposts"
     },
@@ -7546,7 +7876,7 @@
       "source_file": "src/components/feed/TrendingPosts.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "loadtrending()",
       "id": "feed_trendingposts_loadtrending"
     },
@@ -7556,7 +7886,7 @@
       "source_file": "src/components/feed/TrendingPosts.tsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "trendingposts()",
       "id": "feed_trendingposts_trendingposts"
     },
@@ -7566,7 +7896,7 @@
       "source_file": "src/components/feed/TrendingTags.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "trendingtags.tsx",
       "id": "feed_trendingtags"
     },
@@ -7576,7 +7906,7 @@
       "source_file": "src/components/feed/TrendingTags.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "tagstat",
       "id": "feed_trendingtags_tagstat"
     },
@@ -7586,7 +7916,7 @@
       "source_file": "src/components/feed/TrendingTags.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "loadtagtrends()",
       "id": "feed_trendingtags_loadtagtrends"
     },
@@ -7596,7 +7926,7 @@
       "source_file": "src/components/feed/TrendingTags.tsx",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "taglist()",
       "id": "feed_trendingtags_taglist"
     },
@@ -7606,7 +7936,7 @@
       "source_file": "src/components/feed/TrendingTags.tsx",
       "source_location": "L69",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "trendingtags()",
       "id": "feed_trendingtags_trendingtags"
     },
@@ -7626,7 +7956,7 @@
       "source_file": "src/components/feed/UnifiedFeed.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 3,
+      "community": 76,
       "norm_label": "unifiedfeed()",
       "id": "feed_unifiedfeed_unifiedfeed"
     },
@@ -7636,7 +7966,7 @@
       "source_file": "src/components/layout/Navbar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 77,
+      "community": 82,
       "norm_label": "navbar.tsx",
       "id": "layout_navbar"
     },
@@ -7656,7 +7986,7 @@
       "source_file": "src/components/layout/SearchBox.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 82,
       "norm_label": "searchbox.tsx",
       "id": "layout_searchbox"
     },
@@ -7666,7 +7996,7 @@
       "source_file": "src/components/layout/SearchBox.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 77,
+      "community": 82,
       "norm_label": "searchbox()",
       "id": "layout_searchbox_searchbox"
     },
@@ -7706,7 +8036,7 @@
       "source_file": "src/components/notifications/MarkAllReadButton.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "markallreadbutton.tsx",
       "id": "notifications_markallreadbutton"
     },
@@ -7716,7 +8046,7 @@
       "source_file": "src/components/notifications/MarkAllReadButton.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "markallreadbutton()",
       "id": "notifications_markallreadbutton_markallreadbutton"
     },
@@ -7726,7 +8056,7 @@
       "source_file": "src/components/notifications/NotificationItem.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notificationitem.tsx",
       "id": "notifications_notificationitem"
     },
@@ -7736,7 +8066,7 @@
       "source_file": "src/components/notifications/NotificationItem.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "props",
       "id": "notifications_notificationitem_props"
     },
@@ -7746,7 +8076,7 @@
       "source_file": "src/components/notifications/NotificationItem.tsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 1,
+      "community": 81,
       "norm_label": "notificationitem()",
       "id": "notifications_notificationitem_notificationitem"
     },
@@ -7856,7 +8186,7 @@
       "source_file": "src/components/profile/ProfileTabs.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "profiletabs()",
       "id": "profile_profiletabs_profiletabs"
     },
@@ -7886,7 +8216,7 @@
       "source_file": "src/components/settings/ProfileForm.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 81,
+      "community": 76,
       "norm_label": "profileform.tsx",
       "id": "settings_profileform"
     },
@@ -7896,7 +8226,7 @@
       "source_file": "src/components/settings/ProfileForm.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 81,
+      "community": 92,
       "norm_label": "profileform()",
       "id": "settings_profileform_profileform"
     },
@@ -7936,7 +8266,7 @@
       "source_file": "src/components/tags/TagSubscribeSearch.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "tagsubscribesearch.tsx",
       "id": "tags_tagsubscribesearch"
     },
@@ -7946,7 +8276,7 @@
       "source_file": "src/components/tags/TagSubscribeSearch.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "tagsubscribesearch()",
       "id": "tags_tagsubscribesearch_tagsubscribesearch"
     },
@@ -7956,7 +8286,7 @@
       "source_file": "src/components/tags/useTagSearch.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "usetagsearch.ts",
       "id": "tags_usetagsearch"
     },
@@ -7966,7 +8296,7 @@
       "source_file": "src/components/tags/useTagSearch.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "tagresult",
       "id": "tags_usetagsearch_tagresult"
     },
@@ -7976,7 +8306,7 @@
       "source_file": "src/components/tags/useTagSearch.ts",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 94,
+      "community": 1,
       "norm_label": "usetagsearch()",
       "id": "tags_usetagsearch_usetagsearch"
     },
@@ -7986,7 +8316,7 @@
       "source_file": "src/components/theme/AccentSelect.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 96,
+      "community": 92,
       "norm_label": "accentselect.tsx",
       "id": "theme_accentselect"
     },
@@ -7996,7 +8326,7 @@
       "source_file": "src/components/theme/AccentSelect.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 96,
+      "community": 92,
       "norm_label": "accentselect()",
       "id": "theme_accentselect_accentselect"
     },
@@ -8056,7 +8386,7 @@
       "source_file": "src/components/theme/FontSelect.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 92,
+      "community": 77,
       "norm_label": "fontselect()",
       "id": "theme_fontselect_fontselect"
     },
@@ -8086,7 +8416,7 @@
       "source_file": "src/components/theme/SizeSelect.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 97,
+      "community": 78,
       "norm_label": "sizeselect.tsx",
       "id": "theme_sizeselect"
     },
@@ -8096,7 +8426,7 @@
       "source_file": "src/components/theme/SizeSelect.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 97,
+      "community": 78,
       "norm_label": "sizeselect()",
       "id": "theme_sizeselect_sizeselect"
     },
@@ -8126,7 +8456,7 @@
       "source_file": "src/components/theme/ThemeToggle.tsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 77,
+      "community": 92,
       "norm_label": "themetoggle()",
       "id": "theme_themetoggle_themetoggle"
     },
@@ -8146,7 +8476,7 @@
       "source_file": "src/components/tweets/TweetCard.tsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "tweetcard()",
       "id": "tweets_tweetcard_tweetcard"
     },
@@ -8156,7 +8486,7 @@
       "source_file": "src/components/tweets/TweetComposer.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "tweetcomposer.tsx",
       "id": "tweets_tweetcomposer"
     },
@@ -8166,7 +8496,7 @@
       "source_file": "src/components/tweets/TweetComposer.tsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "tweetcomposer()",
       "id": "tweets_tweetcomposer_tweetcomposer"
     },
@@ -8426,7 +8756,7 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 77,
+      "community": 76,
       "norm_label": "button.tsx",
       "id": "ui_button"
     },
@@ -8436,7 +8766,7 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 77,
+      "community": 76,
       "norm_label": "buttonvariants",
       "id": "ui_button_buttonvariants"
     },
@@ -8446,7 +8776,7 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 77,
+      "community": 76,
       "norm_label": "button()",
       "id": "ui_button_button"
     },
@@ -8456,7 +8786,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "card.tsx",
       "id": "ui_card"
     },
@@ -8466,7 +8796,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "card()",
       "id": "ui_card_card"
     },
@@ -8476,7 +8806,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "cardheader()",
       "id": "ui_card_cardheader"
     },
@@ -8486,7 +8816,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L36",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "cardtitle()",
       "id": "ui_card_cardtitle"
     },
@@ -8496,7 +8826,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "carddescription()",
       "id": "ui_card_carddescription"
     },
@@ -8506,7 +8836,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L59",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "cardaction()",
       "id": "ui_card_cardaction"
     },
@@ -8516,7 +8846,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L72",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "cardcontent()",
       "id": "ui_card_cardcontent"
     },
@@ -8526,7 +8856,7 @@
       "source_file": "src/components/ui/card.tsx",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "cardfooter()",
       "id": "ui_card_cardfooter"
     },
@@ -8806,7 +9136,7 @@
       "source_file": "src/components/ui/input.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "input.tsx",
       "id": "ui_input"
     },
@@ -8816,7 +9146,7 @@
       "source_file": "src/components/ui/input.tsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "input()",
       "id": "ui_input_input"
     },
@@ -8826,7 +9156,7 @@
       "source_file": "src/components/ui/label.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "label.tsx",
       "id": "ui_label"
     },
@@ -8836,7 +9166,7 @@
       "source_file": "src/components/ui/label.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 91,
+      "community": 76,
       "norm_label": "label()",
       "id": "ui_label_label"
     },
@@ -8966,7 +9296,7 @@
       "source_file": "src/components/ui/textarea.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "textarea.tsx",
       "id": "ui_textarea"
     },
@@ -8976,7 +9306,7 @@
       "source_file": "src/components/ui/textarea.tsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "textarea()",
       "id": "ui_textarea_textarea"
     },
@@ -9176,7 +9506,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 78,
+      "community": 77,
       "norm_label": "fonts",
       "id": "lib_fonts_fonts"
     },
@@ -9186,7 +9516,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 78,
+      "community": 77,
       "norm_label": "fontkey",
       "id": "lib_fonts_fontkey"
     },
@@ -9256,7 +9586,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 96,
+      "community": 92,
       "norm_label": "accents",
       "id": "lib_fonts_accents"
     },
@@ -9266,7 +9596,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L90",
       "_origin": "ast",
-      "community": 96,
+      "community": 92,
       "norm_label": "accentkey",
       "id": "lib_fonts_accentkey"
     },
@@ -9296,7 +9626,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 97,
+      "community": 78,
       "norm_label": "sizes",
       "id": "lib_fonts_sizes"
     },
@@ -9306,7 +9636,7 @@
       "source_file": "src/lib/fonts.ts",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 97,
+      "community": 78,
       "norm_label": "sizekey",
       "id": "lib_fonts_sizekey"
     },
@@ -9556,7 +9886,7 @@
       "source_file": "src/lib/format.ts",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 3,
+      "community": 81,
       "norm_label": "truncate()",
       "id": "lib_format_truncate"
     },
@@ -9576,7 +9906,7 @@
       "source_file": "src/lib/markdown.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "markdown.ts",
       "id": "lib_markdown"
     },
@@ -9586,7 +9916,7 @@
       "source_file": "src/lib/markdown.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "getturndown()",
       "id": "lib_markdown_getturndown"
     },
@@ -9596,7 +9926,7 @@
       "source_file": "src/lib/markdown.ts",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "htmltomarkdown()",
       "id": "lib_markdown_htmltomarkdown"
     },
@@ -9606,7 +9936,7 @@
       "source_file": "src/lib/markdown.ts",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 95,
+      "community": 76,
       "norm_label": "markdowntohtml()",
       "id": "lib_markdown_markdowntohtml"
     },
@@ -9626,7 +9956,7 @@
       "source_file": "src/lib/prisma.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "prisma.ts",
       "id": "lib_prisma"
     },
@@ -9636,7 +9966,7 @@
       "source_file": "src/lib/prisma.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "globalforprisma",
       "id": "lib_prisma_globalforprisma"
     },
@@ -9646,7 +9976,7 @@
       "source_file": "src/lib/prisma.ts",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 3,
+      "community": 82,
       "norm_label": "adapter",
       "id": "lib_prisma_adapter"
     },
@@ -9656,7 +9986,7 @@
       "source_file": "src/lib/s3.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "s3.ts",
       "id": "lib_s3"
     },
@@ -9666,7 +9996,7 @@
       "source_file": "src/lib/s3.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "s3",
       "id": "lib_s3_s3"
     },
@@ -9676,7 +10006,7 @@
       "source_file": "src/lib/s3.ts",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 15,
+      "community": 82,
       "norm_label": "publicurl()",
       "id": "lib_s3_publicurl"
     },
@@ -9856,7 +10186,7 @@
       "source_file": "src/lib/utils.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 93,
+      "community": 76,
       "norm_label": "utils.ts",
       "id": "lib_utils"
     },
@@ -10160,862 +10490,6 @@
       "id": "agents_node_modules_next_docs"
     },
     {
-      "label": "KSPlatform (project)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 66,
-      "norm_label": "ksplatform (project)",
-      "id": "readme_ksplatform"
-    },
-    {
-      "label": "Features list",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 66,
-      "norm_label": "features list",
-      "id": "readme_features"
-    },
-    {
-      "label": "Tech stack table",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 66,
-      "norm_label": "tech stack table",
-      "id": "readme_tech_stack_table"
-    },
-    {
-      "label": "Request & rendering model (App Router, server-first)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Pages are dynamic Server Components reading session/DB directly; mutations go through Server Actions instead of REST so auth/ownership re-checks live next to the mutation logic; route handlers are reserved for non-action HTTP needs.",
-      "community": 46,
-      "norm_label": "request & rendering model (app router, server-first)",
-      "id": "readme_request_rendering_model"
-    },
-    {
-      "label": "Create-post write flow (PostForm \u2192 createPostAction \u2192 ...)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "create-post write flow (postform \u2192 createpostaction \u2192 ...)",
-      "id": "readme_create_post_flow"
-    },
-    {
-      "label": "PostForm (client component)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "postform (client component)",
-      "id": "readme_postform"
-    },
-    {
-      "label": "createPostAction",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "createpostaction",
-      "id": "readme_createpostaction"
-    },
-    {
-      "label": "src/actions/posts.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 14,
-      "norm_label": "src/actions/posts.ts",
-      "id": "readme_posts_actions_ts"
-    },
-    {
-      "label": "Data model (User/Post/Tweet/Tag/Comment/...)",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "data model (user/post/tweet/tag/comment/...)",
-      "id": "readme_data_model"
-    },
-    {
-      "label": "User model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "user model",
-      "id": "readme_user_model"
-    },
-    {
-      "label": "Post model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "post model",
-      "id": "readme_post_model"
-    },
-    {
-      "label": "Tweet model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "tweet model",
-      "id": "readme_tweet_model"
-    },
-    {
-      "label": "Tag model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "tag model",
-      "id": "readme_tag_model"
-    },
-    {
-      "label": "Comment model (threaded replies)",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "comment model (threaded replies)",
-      "id": "readme_comment_model"
-    },
-    {
-      "label": "Notification model",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "notification model",
-      "id": "readme_notification_model"
-    },
-    {
-      "label": "Authentication & roles (Auth.js v5, Credentials, JWT)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "JWT session strategy avoids DB session tables; role lives in the JWT so a hand-edited DB role only takes effect on next login, and the app stays stateless/scalable.",
-      "community": 4,
-      "norm_label": "authentication & roles (auth.js v5, credentials, jwt)",
-      "id": "readme_auth_roles"
-    },
-    {
-      "label": "src/auth.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/auth.ts",
-      "id": "readme_auth_ts"
-    },
-    {
-      "label": "src/app/api/auth/[...nextauth]/route.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/app/api/auth/[...nextauth]/route.ts",
-      "id": "readme_nextauth_route"
-    },
-    {
-      "label": "src/actions/auth.ts (signupAction/loginAction/logoutAction)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/actions/auth.ts (signupaction/loginaction/logoutaction)",
-      "id": "readme_auth_actions_ts"
-    },
-    {
-      "label": "src/types/next-auth.d.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "src/types/next-auth.d.ts",
-      "id": "readme_next_auth_d_ts"
-    },
-    {
-      "label": "ADMIN_EMAIL env var",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "admin_email env var",
-      "id": "readme_admin_email_var"
-    },
-    {
-      "label": "Image uploads (MinIO/S3)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Server talks to MinIO over the internal Docker network (S3_ENDPOINT) but must return browser-reachable URLs (S3_PUBLIC_URL); these differ in Docker on purpose.",
-      "community": 7,
-      "norm_label": "image uploads (minio/s3)",
-      "id": "readme_image_uploads_minio"
-    },
-    {
-      "label": "src/app/api/upload/route.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "src/app/api/upload/route.ts",
-      "id": "readme_upload_route"
-    },
-    {
-      "label": "createbuckets one-shot container",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "createbuckets one-shot container",
-      "id": "readme_createbuckets_job"
-    },
-    {
-      "label": "Editor & Markdown pipeline",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Storing posts as Markdown makes Export-to-.md trivial; the Tiptap editor converts HTML\u2194MD via turndown/marked so the DB stays the single source of truth in a portable format.",
-      "community": 7,
-      "norm_label": "editor & markdown pipeline",
-      "id": "readme_editor_markdown_pipeline"
-    },
-    {
-      "label": "TiptapEditor.tsx",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "tiptapeditor.tsx",
-      "id": "readme_tiptapeditor"
-    },
-    {
-      "label": "PostActions.tsx",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "postactions.tsx",
-      "id": "readme_postactions_tsx"
-    },
-    {
-      "label": "Unified timeline architecture",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "loadTimeline queries posts and tweets separately then merges by activity time, paginating with an ISO-timestamp cursor so the merged feed still returns strictly-older pages.",
-      "community": 75,
-      "norm_label": "unified timeline architecture",
-      "id": "readme_unified_timeline_arch"
-    },
-    {
-      "label": "TweetComposer",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "tweetcomposer",
-      "id": "readme_tweetcomposer"
-    },
-    {
-      "label": "UnifiedFeed",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 20,
-      "norm_label": "unifiedfeed",
-      "id": "readme_unifiedfeed"
-    },
-    {
-      "label": "PostCard",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 20,
-      "norm_label": "postcard",
-      "id": "readme_postcard"
-    },
-    {
-      "label": "TweetCard",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 20,
-      "norm_label": "tweetcard",
-      "id": "readme_tweetcard"
-    },
-    {
-      "label": "Infinite scroll pattern (InfiniteList + IntersectionObserver)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "A generic client component renders an SSR first page then uses an IntersectionObserver sentinel to call a loadMore(cursor) server action, so every list (posts, tweets, people) shares one pagination implementation.",
-      "community": 24,
-      "norm_label": "infinite scroll pattern (infinitelist + intersectionobserver)",
-      "id": "readme_infinite_scroll_pattern"
-    },
-    {
-      "label": "loadMoreUsers",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 30,
-      "norm_label": "loadmoreusers",
-      "id": "readme_loadmoreusers"
-    },
-    {
-      "label": "src/actions/comments.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "src/actions/comments.ts",
-      "id": "readme_comments_actions_ts"
-    },
-    {
-      "label": "CommentSection",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 27,
-      "norm_label": "commentsection",
-      "id": "readme_commentsection"
-    },
-    {
-      "label": "CommentItem",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 27,
-      "norm_label": "commentitem",
-      "id": "readme_commentitem"
-    },
-    {
-      "label": "CommentForm",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 27,
-      "norm_label": "commentform",
-      "id": "readme_commentform"
-    },
-    {
-      "label": "Admin & moderation (/admin dashboard)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "requireAdmin() guards the dashboard; delete actions allow owner-or-admin so moderation controls appear inline on content rather than only in a separate admin UI.",
-      "community": 72,
-      "norm_label": "admin & moderation (/admin dashboard)",
-      "id": "readme_admin_moderation"
-    },
-    {
-      "label": "src/actions/admin.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 72,
-      "norm_label": "src/actions/admin.ts",
-      "id": "readme_admin_actions_ts"
-    },
-    {
-      "label": "Search & tag trends (pg_trgm)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "pg_trgm powers typo-tolerant fuzzy search across tag/post/tweet lookups via similarity(); all raw SQL uses bound tagged-template queries and length-capped input to avoid injection.",
-      "community": 73,
-      "norm_label": "search & tag trends (pg_trgm)",
-      "id": "readme_search_pg_trgm"
-    },
-    {
-      "label": "src/app/api/tags/search/route.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 67,
-      "norm_label": "src/app/api/tags/search/route.ts",
-      "id": "readme_tags_search_route"
-    },
-    {
-      "label": "useTagSearch hook",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 67,
-      "norm_label": "usetagsearch hook",
-      "id": "readme_useTagSearch_hook"
-    },
-    {
-      "label": "TagSubscribeSearch",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 67,
-      "norm_label": "tagsubscribesearch",
-      "id": "readme_tagsubscribesearch"
-    },
-    {
-      "label": "src/actions/search.ts",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "src/actions/search.ts",
-      "id": "readme_search_actions_ts"
-    },
-    {
-      "label": "SearchBox (navbar)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "searchbox (navbar)",
-      "id": "readme_searchbox"
-    },
-    {
-      "label": "components/feed/TrendingTags.tsx",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 18,
-      "norm_label": "components/feed/trendingtags.tsx",
-      "id": "readme_trendingtags_component"
-    },
-    {
-      "label": "Theming & fonts (9 composable axes)",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Each axis is a disjoint set of CSS tokens driven by a data-* attribute so axes stack cleanly; root layout seeds them server-side per account to avoid theme flash, persisted via updatePreferencesAction.",
-      "community": 62,
-      "norm_label": "theming & fonts (9 composable axes)",
-      "id": "readme_theming_fonts"
-    },
-    {
-      "label": "Providers.tsx (next-themes)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 62,
-      "norm_label": "providers.tsx (next-themes)",
-      "id": "readme_providers_tsx"
-    },
-    {
-      "label": "src/app/layout.tsx (root layout)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 62,
-      "norm_label": "src/app/layout.tsx (root layout)",
-      "id": "readme_layout_tsx"
-    },
-    {
-      "label": "src/actions/preferences.ts (updatePreferencesAction)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 62,
-      "norm_label": "src/actions/preferences.ts (updatepreferencesaction)",
-      "id": "readme_preferences_actions_ts"
-    },
-    {
-      "label": "Notifications",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Publishing a post/tweet fans out one Notification per tag subscriber (deduped, excluding the author) via a shared helper, keeping fan-out logic in one place for both content types.",
-      "community": 14,
-      "norm_label": "notifications",
-      "id": "readme_notifications_section"
-    },
-    {
-      "label": "Project layout (src/ tree)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "project layout (src/ tree)",
-      "id": "readme_project_layout"
-    },
-    {
-      "label": "Dockerfile (multi-stage standalone build)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "dockerfile (multi-stage standalone build)",
-      "id": "readme_dockerfile"
-    },
-    {
-      "label": "docker-entrypoint.sh",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "docker-entrypoint.sh",
-      "id": "readme_docker_entrypoint_sh"
-    },
-    {
-      "label": "docker-compose.yml (project)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "docker-compose.yml (project)",
-      "id": "readme_docker_compose_yml"
-    },
-    {
-      "label": "Production deployment notes",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "App is stateless (JWT sessions) so it scales horizontally behind a load balancer; Postgres/MinIO are the shared state; npm install (not npm ci) is used in Docker deps stage because the macOS-generated lockfile omits Linux-only optional deps.",
-      "community": 4,
-      "norm_label": "production deployment notes",
-      "id": "readme_prod_deployment"
-    },
-    {
-      "label": "Environment variables table",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "environment variables table",
-      "id": "readme_env_vars_table"
-    },
-    {
-      "label": "Database & migrations section",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "database & migrations section",
-      "id": "readme_db_migrations_section"
-    },
-    {
-      "label": "Migration: init (core schema)",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: init (core schema)",
-      "id": "readme_migration_init"
-    },
-    {
-      "label": "Migration: prefs_and_tag_search",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: prefs_and_tag_search",
-      "id": "readme_migration_prefs_and_tag_search"
-    },
-    {
-      "label": "Migration: tweets_admin_threading",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: tweets_admin_threading",
-      "id": "readme_migration_tweets_admin_threading"
-    },
-    {
-      "label": "Migration: theme_axes_and_search",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: theme_axes_and_search",
-      "id": "readme_migration_theme_axes_and_search"
-    },
-    {
-      "label": "Migration: theme_surface_radius",
-      "file_type": "code",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "migration: theme_surface_radius",
-      "id": "readme_migration_theme_surface_radius"
-    },
-    {
-      "label": "Troubleshooting section",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 74,
-      "norm_label": "troubleshooting section",
-      "id": "readme_troubleshooting"
-    },
-    {
       "label": "postgres service (postgres:16-alpine)",
       "file_type": "code",
       "source_file": "docker-compose.yml",
@@ -11141,7 +10615,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 14,
       "norm_label": "vercel.svg (vercel triangle logo)",
       "id": "public_vercel_svg"
     },
@@ -11160,6 +10634,326 @@
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_ksplatform_knowledge_sharing_platform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_architecture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L515",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_database_migrations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L366",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_development",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L479",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_environment_variables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_features",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L558",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_npm_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L427",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_production_deployment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L304",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_project_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_table_of_contents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_tech_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L573",
+      "weight": 1.0,
+      "source": "readme_ksplatform_knowledge_sharing_platform",
+      "target": "readme_troubleshooting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_admin_moderation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_authentication_roles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_comments_threaded_replies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L281",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_connecting_an_extension",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_data_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_editor_markdown_pipeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_image_uploads_minio_s3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L272",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_notifications",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_pagination_infinite_scroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_request_rendering_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_search_tag_trends_pg_trgm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_theming_fonts_combinable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "readme_architecture",
+      "target": "readme_tweets_the_unified_timeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L417",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_code_quality",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L412",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_demo_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L373",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_option_a_full_stack_in_docker_closest_to_production",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L392",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_option_b_app_on_the_host_infra_in_docker_fast_iteration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L368",
+      "weight": 1.0,
+      "source": "readme_development",
+      "target": "readme_prerequisites",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L451",
+      "weight": 1.0,
+      "source": "readme_production_deployment",
+      "target": "readme_production_checklist_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L433",
+      "weight": 1.0,
+      "source": "readme_production_deployment",
+      "target": "readme_with_docker_compose_single_host",
+      "confidence_score": 1.0
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -11317,9 +11111,9 @@
       "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connections_page",
-      "target": "actions_deviceauth_listextensionconnectionsaction",
-      "confidence_score": 1.0
+      "target": "actions_deviceauth_listextensionconnectionsaction"
     },
     {
       "relation": "contains",
@@ -11327,9 +11121,9 @@
       "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connections_page",
-      "target": "connections_page_connectionspage",
-      "confidence_score": 1.0
+      "target": "connections_page_connectionspage"
     },
     {
       "relation": "imports",
@@ -11338,9 +11132,9 @@
       "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connections_page",
-      "target": "lib_session_requireuserid",
-      "confidence_score": 1.0
+      "target": "lib_session_requireuserid"
     },
     {
       "relation": "imports_from",
@@ -11349,9 +11143,9 @@
       "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connections_page",
-      "target": "settings_connectionslist",
-      "confidence_score": 1.0
+      "target": "settings_connectionslist"
     },
     {
       "relation": "imports",
@@ -11360,9 +11154,9 @@
       "source_file": "src/app/settings/connections/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "connections_page",
-      "target": "settings_connectionslist_connectionslist",
-      "confidence_score": 1.0
+      "target": "settings_connectionslist_connectionslist"
     },
     {
       "relation": "imports",
@@ -11371,9 +11165,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "settings_connectionslist",
-      "target": "actions_deviceauth_extensionconnectionrow",
-      "confidence_score": 1.0
+      "target": "actions_deviceauth_extensionconnectionrow"
     },
     {
       "relation": "imports",
@@ -11382,9 +11176,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "settings_connectionslist",
-      "target": "actions_deviceauth_revokeextensionconnectionaction",
-      "confidence_score": 1.0
+      "target": "actions_deviceauth_revokeextensionconnectionaction"
     },
     {
       "relation": "imports",
@@ -11393,9 +11187,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "settings_connectionslist",
-      "target": "components_confirmdialog_confirmdialog",
-      "confidence_score": 1.0
+      "target": "components_confirmdialog_confirmdialog"
     },
     {
       "relation": "imports",
@@ -11404,9 +11198,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "settings_connectionslist",
-      "target": "lib_format_formatdate",
-      "confidence_score": 1.0
+      "target": "lib_format_formatdate"
     },
     {
       "relation": "contains",
@@ -11414,9 +11208,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "settings_connectionslist",
-      "target": "settings_connectionslist_connectionrow",
-      "confidence_score": 1.0
+      "target": "settings_connectionslist_connectionrow"
     },
     {
       "relation": "contains",
@@ -11424,9 +11218,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "settings_connectionslist",
-      "target": "settings_connectionslist_connectionslist",
-      "confidence_score": 1.0
+      "target": "settings_connectionslist_connectionslist"
     },
     {
       "relation": "imports",
@@ -11435,9 +11229,9 @@
       "source_file": "src/components/settings/ConnectionsList.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "settings_connectionslist",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports_from",
@@ -11516,9 +11310,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_extensionauth",
-      "target": "lib_extensionauth_requirebearerauth",
-      "confidence_score": 1.0
+      "target": "lib_extensionauth_requirebearerauth"
     },
     {
       "relation": "contains",
@@ -11636,9 +11430,9 @@
       "source_file": "src/lib/extensionAuth.ts",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_extensionauth_requirebearerauth",
-      "target": "lib_extensionauth_verifyaccesstoken",
-      "confidence_score": 1.0
+      "target": "lib_extensionauth_verifyaccesstoken"
     },
     {
       "relation": "imports",
@@ -30055,586 +29849,6 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_ksplatform",
-      "target": "readme_features"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_ksplatform",
-      "target": "readme_tech_stack_table"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_create_post_flow",
-      "target": "readme_postform"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_postform",
-      "target": "readme_createpostaction"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_createpostaction",
-      "target": "readme_posts_actions_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_notifications_section",
-      "target": "readme_posts_actions_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_comment_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_notification_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_data_model",
-      "target": "readme_user_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_comment_model",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_post_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_search_actions_ts",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_trendingtags_component",
-      "target": "readme_post_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_comment_model",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_search_actions_ts",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_trendingtags_component",
-      "target": "readme_tweet_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tweet_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_notification_model",
-      "target": "readme_tag_model"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_comments_actions_ts",
-      "target": "readme_comment_model"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_roles",
-      "target": "readme_auth_ts"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_prod_deployment",
-      "target": "readme_auth_roles"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_admin_email_var",
-      "target": "readme_auth_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_actions_ts",
-      "target": "readme_auth_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_ts",
-      "target": "readme_next_auth_d_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_auth_ts",
-      "target": "readme_nextauth_route"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_image_uploads_minio",
-      "target": "readme_upload_route"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tiptapeditor",
-      "target": "readme_upload_route"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tweetcomposer",
-      "target": "readme_upload_route"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_createbuckets_job",
-      "target": "docker_compose_yml_createbuckets_service"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_editor_markdown_pipeline",
-      "target": "readme_postactions_tsx"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_editor_markdown_pipeline",
-      "target": "readme_tiptapeditor"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_unifiedfeed",
-      "target": "readme_postcard"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_unifiedfeed",
-      "target": "readme_tweetcard"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_commentsection",
-      "target": "readme_commentform"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_commentsection",
-      "target": "readme_commentitem"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_admin_moderation",
-      "target": "readme_admin_actions_ts"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_tags_search_route",
-      "target": "readme_useTagSearch_hook"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_useTagSearch_hook",
-      "target": "readme_tagsubscribesearch"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_searchbox",
-      "target": "readme_search_actions_ts"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_theming_fonts",
-      "target": "readme_layout_tsx"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_layout_tsx",
-      "target": "readme_providers_tsx"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_layout_tsx",
-      "target": "readme_preferences_actions_ts"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_project_layout",
-      "target": "readme_docker_compose_yml"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_project_layout",
-      "target": "readme_dockerfile"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_dockerfile",
-      "target": "readme_docker_entrypoint_sh"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_docker_entrypoint_sh",
-      "target": "readme_migration_init"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_docker_compose_yml",
-      "target": "docker_compose_yml_app_service"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_env_vars_table",
-      "target": "readme_docker_compose_yml"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_prod_deployment",
-      "target": "readme_docker_compose_yml"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "AMBIGUOUS",
-      "confidence_score": 0.2,
-      "source_file": "public/vercel.svg",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "public_vercel_svg",
-      "target": "readme_prod_deployment"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_init"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_prefs_and_tag_search"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_theme_axes_and_search"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_theme_surface_radius"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_db_migrations_section",
-      "target": "readme_migration_tweets_admin_threading"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "docker-compose.yml",
       "source_location": null,
       "weight": 1.0,
@@ -30734,5 +29948,5 @@
       "source_file": "docker-compose.yml"
     }
   ],
-  "built_at_commit": "77193b9c01254d604049b4c31403530abac1a3dd"
+  "built_at_commit": "e424550ed089779b2d50124121129233239a970b"
 }
