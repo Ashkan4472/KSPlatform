@@ -114,5 +114,5 @@ Logins: `demo@ksplatform.dev` (user) and `admin@ksplatform.dev` (admin) — both
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read the current plan:
-specs/002-consolidate-pagination-contract/plan.md
+specs/004-extension-newtab-feed/plan.md
 <!-- SPECKIT END -->

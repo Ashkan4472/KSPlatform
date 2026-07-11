@@ -1,14 +1,18 @@
 <!--
 Sync Impact Report
-- Version change: [none] → 1.0.0 (initial ratification)
-- Modified principles: n/a (first draft)
-- Added sections: Core Principles (I-VI), Verification Gate, Governance
+- Version change: 1.0.0 → 1.1.0
+- Modified principles:
+  - II. Mutations Are Server Actions → II. Mutations Are Server Actions
+    (Web App); Route Handler reservation list amended to reference the new
+    external-client exception (Principle VII) instead of forbidding it outright
+- Added sections: VII. External-Client API Is a Deliberate, Scoped Exception
 - Removed sections: none
 - Templates requiring updates:
   - .specify/templates/plan-template.md ✅ Constitution Check section is generic, no change needed
   - .specify/templates/spec-template.md ✅ no change needed
   - .specify/templates/tasks-template.md ✅ no change needed
-  - README.md / CLAUDE.md ✅ already document these conventions; constitution formalizes them for spec-kit gates
+  - README.md / CLAUDE.md ⚠ pending — add a short "External clients" section
+    once the browser-extension feature (specs/003, specs/004) lands
 - Follow-up TODOs: none
 -->
 
@@ -27,15 +31,18 @@ helper is a defect, not a feature.
 biggest risk during a "modernization" refactor is silently forking that logic
 into a second, subtly different implementation.
 
-### II. Mutations Are Server Actions
-All mutations live in `src/actions/*` as `"use server"` functions. Every action
-MUST re-check auth/ownership via `requireUserId()` / `isAdmin()` / `requireAdmin()`,
-validate input with a `zod` schema from `src/lib/validation.ts`, and either
-`revalidatePath()` or return `{ error }` for the caller to toast. Route Handlers
-(`src/app/api/*`) are reserved for Auth.js callbacks, multipart image upload, and
-the tag-search GET endpoint — never add a REST endpoint for a mutation.
+### II. Mutations Are Server Actions (Web App)
+For the web app itself, all mutations live in `src/actions/*` as `"use server"`
+functions. Every action MUST re-check auth/ownership via `requireUserId()` /
+`isAdmin()` / `requireAdmin()`, validate input with a `zod` schema from
+`src/lib/validation.ts`, and either `revalidatePath()` or return `{ error }`
+for the caller to toast. Route Handlers (`src/app/api/*`) are reserved for
+Auth.js callbacks, multipart image upload, the tag-search GET endpoint, and
+the external-client API carved out under Principle VII — never add a REST
+endpoint for a web-app mutation that a server action could serve instead.
 **Rationale**: A single mutation pathway keeps auth/validation checks from
-drifting out of sync across duplicated code paths.
+drifting out of sync across duplicated code paths for code the web app's own
+UI calls.
 
 ### III. Version-Pinned Correctness (NON-NEGOTIABLE)
 Code MUST match the framework and library majors actually installed, not older
@@ -80,6 +87,26 @@ concrete, testable payoff is rejected.
 clever indirection (see house style in `CLAUDE.md`); a "modernization" pass
 that adds layers contradicts that style rather than upholding it.
 
+### VII. External-Client API Is a Deliberate, Scoped Exception
+A non-browser, non-cookie client (e.g. a browser extension running on its own
+`chrome-extension://`/`moz-extension://` origin) MAY be served by a versioned
+REST surface under `src/app/api/v1/*`, authenticated by a bearer token issued
+through an explicit grant flow — never by relaxing CORS/cookie policy on the
+web app's session cookie. This surface MUST be: (a) additive only — it never
+replaces or bypasses a server action the web app itself uses; (b) read-mostly
+by default — a new external-client mutation endpoint requires the same
+auth/ownership/zod-validation discipline as Principle II, restated explicitly
+in that endpoint's spec, not assumed; (c) independently revocable — issued
+tokens must be listable and revokable by the user without contacting support.
+**Rationale**: Principle II's "no REST for mutations" rule assumes a same-origin
+browser client that already holds the session cookie; an extension is a
+genuinely different trust boundary, and pretending it can use the same
+cookie-based pathway either fails outright (cookies aren't readable
+cross-origin) or invites weakening CORS/SameSite for the whole app to
+accommodate it. Naming the exception explicitly — instead of quietly bending
+Principle II — keeps the web app's mutation pathway singular while giving
+external clients a real, scoped alternative.
+
 ## Verification Gate
 
 No task is complete until `npx tsc --noEmit` and `npm run lint` both pass. UI or
@@ -101,4 +128,4 @@ PATCH: wording/clarification only), and (3) a check that `plan-template.md`,
 run MUST verify its Constitution Check section against the current version of
 this document before proceeding to task generation.
 
-**Version**: 1.0.0 | **Ratified**: 2026-07-11 | **Last Amended**: 2026-07-11
+**Version**: 1.1.0 | **Ratified**: 2026-07-11 | **Last Amended**: 2026-07-11
