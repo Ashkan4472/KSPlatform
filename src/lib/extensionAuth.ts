@@ -1,5 +1,7 @@
 import { randomBytes } from "node:crypto";
 import bcrypt from "bcryptjs";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 const USER_CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no 0/O/1/I
@@ -47,6 +49,28 @@ export async function verifyAccessToken(
     }
   }
   return null;
+}
+
+/**
+ * specs/003 FR-006: every /api/v1/* route (this feature's and spec 004's
+ * feed endpoint) authenticates the same way — call this first and return
+ * early on `null`. A revoked token's hash won't match any active
+ * ExtensionToken row (verifyAccessToken only queries `revokedAt: null`),
+ * so revoked and missing/invalid tokens all produce the same signal.
+ */
+export async function requireBearerAuth(
+  request: NextRequest,
+): Promise<{ userId: string; tokenId: string } | NextResponse> {
+  const header = request.headers.get("authorization") ?? "";
+  const raw = header.startsWith("Bearer ") ? header.slice(7) : "";
+  if (!raw) {
+    return NextResponse.json({ error: "reauthenticate_required" }, { status: 401 });
+  }
+  const auth = await verifyAccessToken(raw);
+  if (!auth) {
+    return NextResponse.json({ error: "reauthenticate_required" }, { status: 401 });
+  }
+  return auth;
 }
 
 const RATE_LIMIT_WINDOW_MS = 60_000;

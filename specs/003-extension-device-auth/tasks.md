@@ -86,18 +86,18 @@ No additional foundational work — T001-T003 unblock every user story.
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Create `listExtensionConnectionsAction` in
+- [X] T009 [P] [US2] Create `listExtensionConnectionsAction` in
   `src/actions/deviceAuth.ts`: `requireUserId()`, return the current user's
   non-revoked `ExtensionToken` rows (`id`, `label`, `createdAt`,
   `lastUsedAt`) — never the hash
-- [ ] T010 [P] [US2] Create `revokeExtensionConnectionAction` in
+- [X] T010 [P] [US2] Create `revokeExtensionConnectionAction` in
   `src/actions/deviceAuth.ts`: `requireUserId()`, verify the token belongs
   to the caller (ownership check, Constitution Principle II), set
   `revokedAt`
-- [ ] T011 [US2] Create `src/components/settings/ConnectionsList.tsx` and
+- [X] T011 [US2] Create `src/components/settings/ConnectionsList.tsx` and
   `src/app/settings/connections/page.tsx`: render the list from T009, a
   Revoke button per row calling T010 (depends on T009, T010)
-- [ ] T012 [US2] Add a bearer-token verification helper's revoked/expired
+- [X] T012 [US2] Add a bearer-token verification helper's revoked/expired
   check path in `src/lib/extensionAuth.ts` (extends T002): any `/api/v1/*`
   request with a hash matching a `revokedAt`-set token MUST return `401
   reauthenticate_required` (FR-006) — this is the shared check every future
