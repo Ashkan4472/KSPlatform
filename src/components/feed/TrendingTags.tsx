@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Hash, Heart, TrendingUp } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { tagColorVar } from "@/lib/tagColor";
 
 type TagStat = { id: string; name: string; slug: string; n: number };
 
@@ -49,19 +50,23 @@ async function loadTagTrends() {
 function TagList({ tags }: { tags: TagStat[] }) {
   return (
     <div className="space-y-1.5">
-      {tags.map((t) => (
-        <Link
-          key={t.id}
-          href={`/?tag=${t.slug}`}
-          className="flex items-center justify-between text-sm hover:text-foreground"
-        >
-          <span className="inline-flex items-center gap-1 text-muted-foreground">
-            <Hash className="h-3.5 w-3.5" />
-            {t.name}
-          </span>
-          <span className="text-xs text-muted-foreground">{t.n}</span>
-        </Link>
-      ))}
+      {tags.map((t) => {
+        const color = tagColorVar(t.slug);
+        return (
+          <Link
+            key={t.id}
+            href={`/?tag=${t.slug}`}
+            className="flex items-center justify-between rounded-md px-1.5 py-1 text-sm transition-colors duration-150 hover:bg-accent"
+            style={{ color }}
+          >
+            <span className="inline-flex items-center gap-1 font-mono font-medium">
+              <Hash className="h-3.5 w-3.5" />
+              {t.name}
+            </span>
+            <span className="text-xs text-muted-foreground">{t.n}</span>
+          </Link>
+        );
+      })}
     </div>
   );
 }

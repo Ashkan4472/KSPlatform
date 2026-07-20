@@ -89,7 +89,8 @@ export const ACCENTS = [
 ] as const;
 export type AccentKey = (typeof ACCENTS)[number]["key"];
 export const ACCENT_KEYS = ACCENTS.map((a) => a.key) as AccentKey[];
-export const DEFAULT_ACCENT: AccentKey = "neutral";
+// Index & Ink default (specs/007) — was "neutral"; still fully user-customizable.
+export const DEFAULT_ACCENT: AccentKey = "violet";
 export function isAccent(value: string): value is AccentKey {
   return (ACCENT_KEYS as string[]).includes(value);
 }
@@ -130,7 +131,8 @@ export const RADII = [
 ] as const;
 export type RadiusKey = (typeof RADII)[number]["key"];
 export const RADIUS_KEYS = RADII.map((r) => r.key) as RadiusKey[];
-export const DEFAULT_RADIUS: RadiusKey = "default";
+// Index & Ink default (specs/007) — was "default"; still fully user-customizable.
+export const DEFAULT_RADIUS: RadiusKey = "small";
 export function isRadius(value: string): value is RadiusKey {
   return (RADIUS_KEYS as string[]).includes(value);
 }
@@ -144,7 +146,8 @@ export const CARD_STYLES = [
 ] as const;
 export type CardStyleKey = (typeof CARD_STYLES)[number]["key"];
 export const CARD_STYLE_KEYS = CARD_STYLES.map((c) => c.key) as CardStyleKey[];
-export const DEFAULT_CARD_STYLE: CardStyleKey = "default";
+// Index & Ink default (specs/007) — was "default"; still fully user-customizable.
+export const DEFAULT_CARD_STYLE: CardStyleKey = "elevated";
 export function isCardStyle(value: string): value is CardStyleKey {
   return (CARD_STYLE_KEYS as string[]).includes(value);
 }

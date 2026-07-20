@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ProfileForm } from "@/components/settings/ProfileForm";
+import { AccountSettings } from "@/components/settings/AccountSettings";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { FontSelect } from "@/components/theme/FontSelect";
@@ -231,6 +232,15 @@ export default async function SettingsPage() {
 
         <h3 className="mb-2 text-sm font-medium">Find tags</h3>
         <TagSubscribeSearch subscribedIds={subscribedIds} />
+      </section>
+
+      <Separator className="my-8" />
+
+      <section>
+        <h2 className="mb-3 text-lg font-medium">Account</h2>
+        <AccountSettings
+          initialNotificationsEnabled={user?.notificationsEnabled ?? true}
+        />
       </section>
     </div>
   );

@@ -1,8 +1,17 @@
 "use client";
 
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
-import { Loader2 } from "lucide-react";
 import type { Page } from "@/lib/pagination";
+
+function LoadingSkeleton() {
+  return (
+    <div className="rounded-lg border p-4" aria-hidden>
+      <div className="animate-shimmer mb-3 h-3 w-1/3 rounded" />
+      <div className="animate-shimmer mb-2 h-4 w-2/3 rounded" />
+      <div className="animate-shimmer h-3 w-full rounded" />
+    </div>
+  );
+}
 
 type Props<T> = {
   initialItems: T[];
@@ -63,16 +72,12 @@ export function InfiniteList<T>({
       {items.map((item) => (
         <Fragment key={getKey(item)}>{renderItem(item)}</Fragment>
       ))}
-      {cursor !== null && (
-        <div
-          ref={sentinelRef}
-          className="flex h-12 items-center justify-center"
-        >
-          {loading && (
-            <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
-          )}
+      {loading && (
+        <div className="mt-2">
+          <LoadingSkeleton />
         </div>
       )}
+      {cursor !== null && <div ref={sentinelRef} className="h-4" />}
     </div>
   );
 }

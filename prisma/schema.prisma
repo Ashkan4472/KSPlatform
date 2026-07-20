@@ -38,6 +38,7 @@ model User {
   cardStyle     String   @default("default")
   borderDensity String   @default("normal")
   shadow        String   @default("default")
+  notificationsEnabled Boolean @default(true)
   createdAt     DateTime @default(now())
 
   posts         Post[]

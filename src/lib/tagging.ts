@@ -35,7 +35,14 @@ export async function notifySubscribers({
 }): Promise<void> {
   if (tagIds.length === 0) return;
   const subs = await prisma.subscription.findMany({
-    where: { tagId: { in: tagIds }, userId: { not: authorId } },
+    where: {
+      tagId: { in: tagIds },
+      userId: { not: authorId },
+      // specs/007: respect the per-user notification opt-out — the
+      // subscription itself (and its effect on the subscribed-tags feed)
+      // is unaffected either way.
+      user: { notificationsEnabled: true },
+    },
     select: { userId: true, tagId: true },
   });
 

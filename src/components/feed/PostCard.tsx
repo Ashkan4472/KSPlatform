@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { formatDate, initialsOf } from "@/lib/format";
+import { tagColorVar } from "@/lib/tagColor";
 
 export type FeedPost = {
   id: string;
@@ -20,8 +21,15 @@ export type FeedPost = {
 };
 
 export function PostCard({ post }: { post: FeedPost }) {
+  const spineColor = post.tags[0]
+    ? tagColorVar(post.tags[0].slug)
+    : "var(--border)";
+
   return (
-    <Card className="transition-colors hover:border-foreground/20">
+    <Card
+      className="border-l-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+      style={{ borderLeftColor: spineColor }}
+    >
       <CardHeader className="gap-1">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Avatar className="h-6 w-6">
@@ -44,7 +52,7 @@ export function PostCard({ post }: { post: FeedPost }) {
           )}
         </div>
         <Link href={`/posts/${post.slug}`}>
-          <h2 className="text-lg font-semibold leading-snug transition-colors hover:text-primary">
+          <h2 className="font-heading text-lg font-semibold leading-snug text-balance transition-colors hover:text-primary">
             {post.title}
           </h2>
         </Link>
@@ -57,13 +65,23 @@ export function PostCard({ post }: { post: FeedPost }) {
         </CardContent>
       )}
       <CardFooter className="flex flex-wrap items-center gap-2">
-        {post.tags.map((tag) => (
-          <Link key={tag.slug} href={`/?tag=${tag.slug}`}>
-            <Badge variant="secondary" className="hover:bg-accent">
-              #{tag.name}
-            </Badge>
-          </Link>
-        ))}
+        {post.tags.map((tag) => {
+          const color = tagColorVar(tag.slug);
+          return (
+            <Link key={tag.slug} href={`/?tag=${tag.slug}`}>
+              <Badge
+                variant="outline"
+                className="border-transparent font-mono transition-transform duration-150 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                style={{
+                  backgroundColor: `color-mix(in oklch, ${color} 16%, var(--card))`,
+                  color,
+                }}
+              >
+                #{tag.name}
+              </Badge>
+            </Link>
+          );
+        })}
         <div className="ml-auto flex items-center gap-3 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1">
             <Heart className="h-3.5 w-3.5" /> {post.likeCount}

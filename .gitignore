@@ -60,3 +60,4 @@ next-env.d.ts
 /extension/*.zip
 /extension/*.xpi
 /extension/*.tsbuildinfo
+.playwright-mcp/

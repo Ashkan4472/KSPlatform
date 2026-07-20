@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { formatDate, initialsOf } from "@/lib/format";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { toggleTweetLikeAction, deleteTweetAction } from "@/actions/tweets";
+import { tagColorVar } from "@/lib/tagColor";
 import type { TweetView } from "@/lib/tweets";
 
 export function TweetCard({
@@ -54,8 +55,15 @@ export function TweetCard({
 
   if (deleted) return null;
 
+  const spineColor = tweet.tags[0]
+    ? tagColorVar(tweet.tags[0].slug)
+    : "var(--border)";
+
   return (
-    <Card>
+    <Card
+      className="border-l-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+      style={{ borderLeftColor: spineColor }}
+    >
       <CardContent className="space-y-3">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Avatar className="h-7 w-7">
@@ -114,13 +122,23 @@ export function TweetCard({
 
         {tweet.tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            {tweet.tags.map((t) => (
-              <Link key={t.slug} href={`/tweets?tag=${t.slug}`}>
-                <Badge variant="secondary" className="hover:bg-accent">
-                  #{t.name}
-                </Badge>
-              </Link>
-            ))}
+            {tweet.tags.map((t) => {
+              const color = tagColorVar(t.slug);
+              return (
+                <Link key={t.slug} href={`/tweets?tag=${t.slug}`}>
+                  <Badge
+                    variant="outline"
+                    className="border-transparent font-mono transition-transform duration-150 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                    style={{
+                      backgroundColor: `color-mix(in oklch, ${color} 16%, var(--card))`,
+                      color,
+                    }}
+                  >
+                    #{t.name}
+                  </Badge>
+                </Link>
+              );
+            })}
           </div>
         )}
 
