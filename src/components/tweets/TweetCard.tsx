@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useTransition } from "react";
+import { useState, useTransition, ViewTransition } from "react";
 import { Heart, MessageSquare, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -65,115 +65,120 @@ export function TweetCard({
     : "var(--border)";
 
   return (
-    <Card
-      className="border-l-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-      style={{ borderLeftColor: spineColor }}
-    >
-      <CardContent className="space-y-3">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Avatar className="h-7 w-7">
-            {tweet.author.image ? (
-              <AvatarImage src={tweet.author.image} alt={tweet.author.name} />
-            ) : null}
-            <AvatarFallback className="text-[10px]">
-              {initialsOf(tweet.author.name)}
-            </AvatarFallback>
-          </Avatar>
-          <Link
-            href={`/u/${tweet.author.id}`}
-            className="font-medium text-foreground hover:underline"
-          >
-            {tweet.author.name}
-          </Link>
-          <span>·</span>
-          <Link href={`/tweets/${tweet.id}`} className="hover:underline">
-            {formatDate(tweet.createdAt)}
-          </Link>
-          {canDelete && (
-            <span className="ml-auto">
-              <ConfirmDialog
-                title="Delete tweet?"
-                description="This tweet will be permanently removed."
-                onConfirm={onConfirmDelete}
-                trigger={
-                  <button
-                    type="button"
-                    aria-label="Delete tweet"
-                    className="text-muted-foreground hover:text-destructive"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </button>
-                }
-              />
-            </span>
-          )}
-        </div>
-
-        <p className="whitespace-pre-wrap text-[15px] leading-relaxed">
-          {tweet.body}
-        </p>
-
-        {tweet.imageUrl && (
-          <Link href={`/tweets/${tweet.id}`} className="block">
-            <Image
-              src={tweet.imageUrl}
-              alt=""
-              width={800}
-              height={450}
-              className="max-h-96 w-full rounded-md border object-cover"
-            />
-          </Link>
-        )}
-
-        {tweet.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {tweet.tags.map((t) => {
-              const color = tagColorVar(t.slug);
-              return (
-                <Link key={t.slug} href={`/tweets?tag=${t.slug}`}>
-                  <Badge
-                    variant="outline"
-                    className="border-transparent font-mono transition-transform duration-150 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-                    style={{
-                      backgroundColor: `color-mix(in oklch, ${color} 16%, var(--card))`,
-                      color,
-                    }}
-                  >
-                    #{t.name}
-                  </Badge>
-                </Link>
-              );
-            })}
-          </div>
-        )}
-
-        <div className="flex items-center gap-4 text-xs text-muted-foreground">
-          <button
-            type="button"
-            onClick={onLike}
-            disabled={pending}
-            className={cn(
-              "inline-flex items-center gap-1 hover:text-foreground",
-              liked && "text-red-600",
+    <ViewTransition name={`tweet-${tweet.id}`}>
+      <Card
+        className="border-l-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        style={{ borderLeftColor: spineColor }}
+      >
+        <CardContent className="space-y-3">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Avatar className="h-7 w-7">
+              {tweet.author.image ? (
+                <AvatarImage
+                  src={tweet.author.image}
+                  alt={tweet.author.name}
+                />
+              ) : null}
+              <AvatarFallback className="text-[10px]">
+                {initialsOf(tweet.author.name)}
+              </AvatarFallback>
+            </Avatar>
+            <Link
+              href={`/u/${tweet.author.id}`}
+              className="font-medium text-foreground hover:underline"
+            >
+              {tweet.author.name}
+            </Link>
+            <span>·</span>
+            <Link href={`/tweets/${tweet.id}`} className="hover:underline">
+              {formatDate(tweet.createdAt)}
+            </Link>
+            {canDelete && (
+              <span className="ml-auto">
+                <ConfirmDialog
+                  title="Delete tweet?"
+                  description="This tweet will be permanently removed."
+                  onConfirm={onConfirmDelete}
+                  trigger={
+                    <button
+                      type="button"
+                      aria-label="Delete tweet"
+                      className="text-muted-foreground hover:text-destructive"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  }
+                />
+              </span>
             )}
-          >
-            <Heart
+          </div>
+
+          <p className="whitespace-pre-wrap text-[15px] leading-relaxed">
+            {tweet.body}
+          </p>
+
+          {tweet.imageUrl && (
+            <Link href={`/tweets/${tweet.id}`} className="block">
+              <Image
+                src={tweet.imageUrl}
+                alt=""
+                width={800}
+                height={450}
+                className="max-h-96 w-full rounded-md border object-cover"
+              />
+            </Link>
+          )}
+
+          {tweet.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {tweet.tags.map((t) => {
+                const color = tagColorVar(t.slug);
+                return (
+                  <Link key={t.slug} href={`/tweets?tag=${t.slug}`}>
+                    <Badge
+                      variant="outline"
+                      className="border-transparent font-mono transition-transform duration-150 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                      style={{
+                        backgroundColor: `color-mix(in oklch, ${color} 16%, var(--card))`,
+                        color,
+                      }}
+                    >
+                      #{t.name}
+                    </Badge>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+
+          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+            <button
+              type="button"
+              onClick={onLike}
+              disabled={pending}
               className={cn(
-                "h-4 w-4",
-                liked && "fill-current",
-                pop && "animate-like-pop",
+                "inline-flex items-center gap-1 hover:text-foreground",
+                liked && "text-red-600",
               )}
-            />{" "}
-            {likes}
-          </button>
-          <Link
-            href={`/tweets/${tweet.id}`}
-            className="inline-flex items-center gap-1 hover:text-foreground"
-          >
-            <MessageSquare className="h-4 w-4" /> {tweet.commentCount}
-          </Link>
-        </div>
-      </CardContent>
-    </Card>
+            >
+              <Heart
+                className={cn(
+                  "h-4 w-4",
+                  liked && "fill-current",
+                  pop && "animate-like-pop",
+                )}
+              />{" "}
+              {likes}
+            </button>
+            <Link
+              href={`/tweets/${tweet.id}`}
+              className="inline-flex items-center gap-1 hover:text-foreground"
+            >
+              <MessageSquare className="h-4 w-4" /> {tweet.commentCount}
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </ViewTransition>
   );
 }

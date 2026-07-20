@@ -189,8 +189,8 @@ page, with graceful fallback.
 
 ### Implementation for User Story 6
 
-- [ ] T022 [US6] In `next.config.ts`: add `experimental: { viewTransition: true }`
-- [ ] T023 [US6] Wrap the relevant feed-card-to-detail-page shared element
+- [X] T022 [US6] In `next.config.ts`: add `experimental: { viewTransition: true }`
+- [X] T023 [US6] Wrap the relevant feed-card-to-detail-page shared element
   (e.g. the post title, or the card itself) in React's `<ViewTransition
   name="post-{id}">` in both `src/components/feed/PostCard.tsx` (grid
   context) and `src/app/posts/[slug]/page.tsx` (detail context), per the
@@ -293,3 +293,12 @@ Task: "Filled trending-tag chips in TrendingTags.tsx"
   like-pop class applies zero console errors on toggle, reply-form
   `grid-template-rows` transitions 0fr→1fr on open (confirmed via computed
   style), toast dialogs still animate via `sonner`.
+- **Deviations during US6**: `TweetCard.tsx` is rendered identically in
+  both the feed and `/tweets/[id]`, so the whole `Card` is wrapped in one
+  `<ViewTransition name={\`tweet-${tweet.id}\`}>` (a single shared element)
+  rather than only the title, since a tweet has no separate title field
+  the way a post does. Verified live in the browser (post title click,
+  tweet timestamp click): both navigate correctly, zero console errors,
+  `Experiments: viewTransition` confirmed active in the dev server log
+  after a restart (config change requires one, same as any `next.config.ts`
+  edit).

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { Heart, MessageSquare } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -52,9 +53,11 @@ export function PostCard({ post }: { post: FeedPost }) {
           )}
         </div>
         <Link href={`/posts/${post.slug}`}>
-          <h2 className="font-heading text-lg font-semibold leading-snug text-balance transition-colors hover:text-primary">
-            {post.title}
-          </h2>
+          <ViewTransition name={`post-title-${post.id}`}>
+            <h2 className="font-heading text-lg font-semibold leading-snug text-balance transition-colors hover:text-primary">
+              {post.title}
+            </h2>
+          </ViewTransition>
         </Link>
       </CardHeader>
       {post.excerpt && (

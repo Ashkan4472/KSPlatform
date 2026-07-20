@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Pencil } from "lucide-react";
@@ -88,7 +89,9 @@ export default async function PostPage({
       )}
 
       <header className="space-y-4">
-        <h1 className="text-3xl font-bold leading-tight">{post.title}</h1>
+        <ViewTransition name={`post-title-${post.id}`}>
+          <h1 className="text-3xl font-bold leading-tight">{post.title}</h1>
+        </ViewTransition>
 
         <div className="flex flex-wrap items-center gap-3">
           <Avatar className="h-9 w-9">
