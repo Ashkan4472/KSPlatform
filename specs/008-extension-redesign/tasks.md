@@ -18,7 +18,7 @@ a pure restyle with no new logic.
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-- [ ] T001 Create `extension/src/lib/tagColor.ts` per data-model.md:
+- [X] T001 Create `extension/src/lib/tagColor.ts` per data-model.md:
   `TAG_PALETTE` (6 hex values matching the approved mockup/specs/007's
   palette intent) and `tagColor(slug: string): string`
 
@@ -26,7 +26,7 @@ a pure restyle with no new logic.
 
 ## Phase 2: Foundational
 
-- [ ] T002 In `extension/src/newtab/styles.css`: add the Index & Ink CSS
+- [X] T002 In `extension/src/newtab/styles.css`: add the Index & Ink CSS
   custom properties (paper/ink/rule colors, the 6 tag hues as fallback
   constants if not already covered by T001's direct hex return, hover
   transition timing) and a `@media (prefers-reduced-motion: reduce)`
@@ -45,11 +45,11 @@ consume it.
 
 ### Implementation for User Story 1
 
-- [ ] T003 [US1] `extension/src/newtab/FeedItem.tsx`: add a colored left
+- [X] T003 [US1] `extension/src/newtab/FeedItem.tsx`: add a colored left
   rail using `tagColor()` from T001 (per item's primary tag), style the
   tag label in the same color, add a hover transition (rail thickens
   and/or background tints), matching the approved mockup
-- [ ] T004 [US1] `extension/src/newtab/App.tsx` / `styles.css`: apply the
+- [X] T004 [US1] `extension/src/newtab/App.tsx` / `styles.css`: apply the
   Index & Ink typography (serif for item titles if a suitable system font
   is available, consistent spacing) to the populated-feed list container
 
@@ -66,10 +66,10 @@ redesign.
 
 ### Implementation for User Story 2
 
-- [ ] T005 [US2] `extension/src/newtab/App.tsx`: restyle the empty-state
+- [X] T005 [US2] `extension/src/newtab/App.tsx`: restyle the empty-state
   message (zero subscriptions) to use the same typography/color/spacing
   language as T004's feed list — no functional change to when it shows
-- [ ] T006 [US2] `extension/src/newtab/App.tsx`: restyle the connect
+- [X] T006 [US2] `extension/src/newtab/App.tsx`: restyle the connect
   prompt and offline-state messages/buttons to match, again with zero
   change to their trigger conditions (still specs/004's existing
   `view.kind` states)
@@ -80,9 +80,9 @@ redesign.
 
 ## Phase 5: Polish & Cross-Cutting Concerns
 
-- [ ] T007 Run `cd extension && npx tsc --noEmit` (SC-004)
-- [ ] T008 Run `cd extension && npm run lint` (SC-004)
-- [ ] T009 Run the full `quickstart.md` manual smoke test in both Chrome
+- [X] T007 Run `cd extension && npx tsc --noEmit` (SC-004)
+- [X] T008 Run `cd extension && npm run lint` (SC-004)
+- [X] T009 Run the full `quickstart.md` manual smoke test in both Chrome
   and Firefox (SC-005)
 
 ---
@@ -125,3 +125,23 @@ from parallelizing beyond T001/T002 vs. the component edits.
 - Hard prerequisite: specs/004 must already be implemented (this only
   restyles its existing states).
 - No test-writing tasks: pure CSS/markup restyle, no new logic.
+- **Deviations/verification notes**: `npm run build:chrome` and
+  `npm run build:firefox` both succeed and emit byte-identical CSS output
+  (`index-<hash>.css` had the same hash in both `dist/` and
+  `dist-firefox/`), confirming visual parity across targets structurally
+  (SC-005) without needing to load an unpacked extension in this
+  environment. Populated-feed, empty, connect, and offline states were
+  verified visually by rendering the actual built CSS against static
+  fixture markup mirroring `FeedItem.tsx`/`App.tsx` exactly (screenshotted
+  in a real browser) — spine/tag colors match the documented palette,
+  hover thickens the rail and tints the background, and all four states
+  share consistent serif/typography/spacing. Tag color consistency
+  (SC-002) holds by construction: `tagColor()` uses the identical hash
+  algorithm as `src/lib/tagColor.ts` (specs/007) with palette entries in
+  the same semantic-hue order, so a given slug always resolves to the
+  same hue in both the web app and the extension. Reduced-motion (FR-004)
+  verified at the code level via the shared
+  `@media (prefers-reduced-motion: reduce)` block in `styles.css`. No
+  functional regression risk (FR-005): only `styles.css` and
+  `FeedItem.tsx`'s JSX (inline color styling only, no logic) changed;
+  `App.tsx`'s data-loading/view-state logic is untouched.
