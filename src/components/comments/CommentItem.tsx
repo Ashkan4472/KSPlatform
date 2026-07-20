@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 import { CommentForm } from "@/components/comments/CommentForm";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { deleteCommentAction } from "@/actions/comments";
@@ -121,18 +122,25 @@ export function CommentItem({
         ) : null
       }
     >
-      {replying && (
-        <div className="mt-3">
-          <CommentForm
-            postId={postId}
-            tweetId={tweetId}
-            parentId={comment.id}
-            placeholder={`Reply to ${comment.author.name}…`}
-            autoFocus
-            onPosted={() => setReplying(false)}
-          />
+      <div
+        className={cn(
+          "grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none",
+          replying ? "mt-3 grid-rows-[1fr]" : "grid-rows-[0fr]",
+        )}
+      >
+        <div className="overflow-hidden">
+          {replying && (
+            <CommentForm
+              postId={postId}
+              tweetId={tweetId}
+              parentId={comment.id}
+              placeholder={`Reply to ${comment.author.name}…`}
+              autoFocus
+              onPosted={() => setReplying(false)}
+            />
+          )}
         </div>
-      )}
+      </div>
 
       {comment.replies.length > 0 && (
         <div className="mt-4 space-y-4 border-l pl-4">

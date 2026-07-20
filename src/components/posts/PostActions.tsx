@@ -36,6 +36,7 @@ export function PostActions({
   const [likes, setLikes] = useState(initialLikes);
   const [bookmarked, setBookmarked] = useState(bookmarkedByMe);
   const [bookmarks, setBookmarks] = useState(initialBookmarks);
+  const [pop, setPop] = useState(false);
   const [pending, startTransition] = useTransition();
 
   function onLike() {
@@ -43,6 +44,10 @@ export function PostActions({
       const res = await toggleLikeAction(postId);
       setLiked(res.active);
       setLikes(res.count);
+      if (res.active) {
+        setPop(true);
+        setTimeout(() => setPop(false), 350);
+      }
     });
   }
 
@@ -83,7 +88,13 @@ export function PostActions({
         disabled={pending}
         className={cn(liked && "border-red-300 text-red-600")}
       >
-        <Heart className={cn("mr-1.5 h-4 w-4", liked && "fill-current")} />
+        <Heart
+          className={cn(
+            "mr-1.5 h-4 w-4",
+            liked && "fill-current",
+            pop && "animate-like-pop",
+          )}
+        />
         {likes}
       </Button>
       <Button

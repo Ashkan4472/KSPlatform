@@ -162,15 +162,15 @@ subscriptions.
 
 ### Implementation for User Story 5
 
-- [ ] T019 [P] [US5] `src/components/posts/PostActions.tsx` (and the
+- [X] T019 [P] [US5] `src/components/posts/PostActions.tsx` (and the
   tweet equivalent, if separate): add a scale/color-pop animation on
   `toggleLikeAction` success (CSS transition on the heart icon's `checked`/
   liked state), respecting `prefers-reduced-motion`
-- [ ] T020 [P] [US5] `src/components/comments/CommentItem.tsx` (or the
+- [X] T020 [P] [US5] `src/components/comments/CommentItem.tsx` (or the
   thread container): make the reply/child-comment disclosure animate open/
   closed (CSS grid-rows or max-height transition) instead of an instant
   toggle
-- [ ] T021 [US5] Confirm existing `sonner` toast usage already provides
+- [X] T021 [US5] Confirm existing `sonner` toast usage already provides
   slide-in/out animation (per `CLAUDE.md`, toasts come from `sonner`); if
   the default animation doesn't match the approved direction's timing,
   adjust via `sonner`'s theming props — do not replace the toast library
@@ -281,3 +281,15 @@ Task: "Filled trending-tag chips in TrendingTags.tsx"
   convention: spine color, filled tag pills, and the serif heading font
   (`Source Serif 4`, confirmed via computed style, not just visually) all
   render correctly, zero console errors.
+- **Deviations during US5**: T021 required no code change — `sonner`'s
+  default slide/fade timing already matches; verified only. T020's reply
+  disclosure keeps the `CommentForm` conditionally mounted (not
+  permanently), so the grid-rows wrapper is always rendered but its child
+  mounts/unmounts with `replying` — this means `autoFocus` still fires on
+  every open (mount), and the 200ms open animation plays since the height
+  is already known at the moment the child appears; the close animation
+  collapses an already-emptied gap (acceptable trade-off, avoids a bigger
+  ref-based refactor for a P2 polish item). Verified live in the browser:
+  like-pop class applies zero console errors on toggle, reply-form
+  `grid-template-rows` transitions 0fr→1fr on open (confirmed via computed
+  style), toast dialogs still animate via `sonner`.

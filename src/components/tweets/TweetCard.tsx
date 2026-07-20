@@ -27,6 +27,7 @@ export function TweetCard({
   const [liked, setLiked] = useState(tweet.likedByMe);
   const [likes, setLikes] = useState(tweet.likeCount);
   const [deleted, setDeleted] = useState(false);
+  const [pop, setPop] = useState(false);
   const [pending, startTransition] = useTransition();
 
   const canDelete =
@@ -41,6 +42,10 @@ export function TweetCard({
       const res = await toggleTweetLikeAction(tweet.id);
       setLiked(res.active);
       setLikes(res.count);
+      if (res.active) {
+        setPop(true);
+        setTimeout(() => setPop(false), 350);
+      }
     });
   }
 
@@ -152,7 +157,14 @@ export function TweetCard({
               liked && "text-red-600",
             )}
           >
-            <Heart className={cn("h-4 w-4", liked && "fill-current")} /> {likes}
+            <Heart
+              className={cn(
+                "h-4 w-4",
+                liked && "fill-current",
+                pop && "animate-like-pop",
+              )}
+            />{" "}
+            {likes}
           </button>
           <Link
             href={`/tweets/${tweet.id}`}
