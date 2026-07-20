@@ -204,9 +204,9 @@ degrades cleanly where not). SC-007 achievable.
 
 ## Phase 9: Polish & Cross-Cutting Concerns
 
-- [ ] T024 Run `npx tsc --noEmit` (SC-008)
-- [ ] T025 Run `npm run lint` (SC-008)
-- [ ] T026 Run the full `quickstart.md` manual smoke test (all 9 steps)
+- [X] T024 Run `npx tsc --noEmit` (SC-008)
+- [X] T025 Run `npm run lint` (SC-008)
+- [X] T026 Run the full `quickstart.md` manual smoke test (all 9 steps)
 
 ---
 
@@ -302,3 +302,16 @@ Task: "Filled trending-tag chips in TrendingTags.tsx"
   `Experiments: viewTransition` confirmed active in the dev server log
   after a restart (config change requires one, same as any `next.config.ts`
   edit).
+- **Polish run**: full `quickstart.md` (all 9 steps) verified live in the
+  browser — `Tag` table confirmed via `psql` to still have no `color`
+  column; password change tested both ways (wrong current password
+  rejected with a clear error and no mutation, correct change then
+  verified by logging in with the new password, then reverted back to the
+  seed password); disposable-account deletion tested end-to-end with a
+  throwaway signup (post + tweet + comment created, account deleted,
+  post URL now 404s, feed no longer lists the content, login with the old
+  credentials now returns "Invalid email or password"). Reduced-motion
+  fallback (step 8) verified at the code level — the shared
+  `@media (prefers-reduced-motion: reduce)` guard in `globals.css` and the
+  per-component `motion-reduce:` Tailwind variants — rather than toggling
+  the OS setting in this sandboxed browser session.
